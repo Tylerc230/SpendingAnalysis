@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (3.4.0)
+  - RxAlamofire (2.2):
+    - RxAlamofire/Core (= 2.2)
+  - RxAlamofire/Core (2.2):
+    - Alamofire (~> 3.1)
+    - RxSwift (~> 2.1)
+  - RxSwift (2.4)
+  - SwiftyBeaver (0.5.3)
+
+DEPENDENCIES:
+  - RxAlamofire
+  - RxSwift
+  - SwiftyBeaver
+
+SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  RxAlamofire: 250b7846cedbd189d6190e4f83caa01ee1f1eceb
+  RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
+  SwiftyBeaver: 20afdb23012f8bcacb7e865880e90301bf70ad37
+
+PODFILE CHECKSUM: dcdcea4024bcd120cfead9570fc227e58fa30a25
+
+COCOAPODS: 1.0.0
