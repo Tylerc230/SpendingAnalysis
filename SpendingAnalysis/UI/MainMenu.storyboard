@@ -41,11 +41,22 @@
                                     <constraint firstItem="kg8-nN-pTf" firstAttribute="height" secondItem="C54-yQ-Rab" secondAttribute="height" id="VuF-je-Il8"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akI-oZ-0r8">
+                                <rect key="frame" x="444" y="545" width="131" height="30"/>
+                                <state key="normal" title="Report Transaction"/>
+                                <connections>
+                                    <segue destination="J93-4j-fP8" kind="popoverPresentation" popoverAnchorView="akI-oZ-0r8" id="nA2-0b-FXX">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Y9x-hv-xUt" secondAttribute="trailing" id="3c0-RU-TDf"/>
                             <constraint firstItem="Y9x-hv-xUt" firstAttribute="centerX" secondItem="Ucq-KC-xct" secondAttribute="centerX" id="LYe-pe-glN"/>
+                            <constraint firstAttribute="trailing" secondItem="akI-oZ-0r8" secondAttribute="trailing" constant="25" id="a1g-pw-MQa"/>
+                            <constraint firstItem="xt7-nb-WwV" firstAttribute="top" secondItem="akI-oZ-0r8" secondAttribute="bottom" constant="25" id="pmx-9E-JYa"/>
                             <constraint firstItem="Y9x-hv-xUt" firstAttribute="centerY" secondItem="Ucq-KC-xct" secondAttribute="centerY" id="qc2-DE-eQf"/>
                             <constraint firstItem="Y9x-hv-xUt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ucq-KC-xct" secondAttribute="leadingMargin" id="wvJ-Fw-bVr"/>
                         </constraints>
@@ -63,6 +74,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYR-FN-BLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1191.5" y="497"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6zF-J1-zwF">
+            <objects>
+                <viewController id="J93-4j-fP8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Los-mo-DsH"/>
+                        <viewControllerLayoutGuide type="bottom" id="usR-Ed-oM6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yjg-jX-7lP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dfo-DM-6gQ">
+                                <rect key="frame" x="0.0" y="30" width="600" height="337"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmH-V7-V46">
+                                        <rect key="frame" x="140" y="0.0" width="320" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-HG-QJx">
+                                        <rect key="frame" x="140" y="40" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="491116734.39973098">
+                                            <!--2016-07-25 05:18:54 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OzK-xI-D7Z">
+                                        <rect key="frame" x="140" y="266" width="320" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9h6-Ho-QNj">
+                                        <rect key="frame" x="276" y="306" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jmH-V7-V46" firstAttribute="width" secondItem="l7E-HG-QJx" secondAttribute="width" id="SHb-bP-D74"/>
+                                    <constraint firstItem="OzK-xI-D7Z" firstAttribute="width" secondItem="l7E-HG-QJx" secondAttribute="width" id="nvP-n1-vV1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Dfo-DM-6gQ" secondAttribute="trailing" id="FeA-uR-g7n"/>
+                            <constraint firstItem="Dfo-DM-6gQ" firstAttribute="leading" secondItem="Yjg-jX-7lP" secondAttribute="leading" id="Qdj-Ft-UES"/>
+                            <constraint firstItem="Dfo-DM-6gQ" firstAttribute="top" secondItem="Los-mo-DsH" secondAttribute="bottom" constant="10" id="Ujy-h6-qhm"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L85-aX-DIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="1370"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5CG-ig-fP4">
