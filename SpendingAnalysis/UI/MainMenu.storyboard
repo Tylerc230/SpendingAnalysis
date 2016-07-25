@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kGJ-4S-p5W">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="dPZ-qa-EN0">
+            <objects>
+                <viewController id="rnI-RB-cie" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mH0-Wc-fbB"/>
+                        <viewControllerLayoutGuide type="bottom" id="xt7-nb-WwV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ucq-KC-xct">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-hv-xUt">
+                                <rect key="frame" x="150" y="240" width="300" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C54-yQ-Rab">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="750" constant="300" id="7hE-Dk-1YH"/>
+                                            <constraint firstAttribute="height" constant="60" id="lxX-ze-v2b"/>
+                                        </constraints>
+                                        <state key="normal" title="Transactions Over Time"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg8-nN-pTf">
+                                        <rect key="frame" x="0.0" y="60" width="300" height="60"/>
+                                        <state key="normal" title="Reconcile"/>
+                                        <connections>
+                                            <segue destination="ZHB-cy-oyW" kind="show" id="6rS-eT-d0g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kg8-nN-pTf" firstAttribute="height" secondItem="C54-yQ-Rab" secondAttribute="height" id="VuF-je-Il8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Y9x-hv-xUt" secondAttribute="trailing" id="3c0-RU-TDf"/>
+                            <constraint firstItem="Y9x-hv-xUt" firstAttribute="centerX" secondItem="Ucq-KC-xct" secondAttribute="centerX" id="LYe-pe-glN"/>
+                            <constraint firstItem="Y9x-hv-xUt" firstAttribute="centerY" secondItem="Ucq-KC-xct" secondAttribute="centerY" id="qc2-DE-eQf"/>
+                            <constraint firstItem="Y9x-hv-xUt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ucq-KC-xct" secondAttribute="leadingMargin" id="wvJ-Fw-bVr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Efd-Hs-5OM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1z-R6-xho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="497"/>
+        </scene>
+        <!--Reconcile-->
+        <scene sceneID="YaY-TY-xXk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reconcile" id="ZHB-cy-oyW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYR-FN-BLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1191.5" y="497"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5CG-ig-fP4">
+            <objects>
+                <navigationController id="kGJ-4S-p5W" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lue-Ws-0Xf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rnI-RB-cie" kind="relationship" relationship="rootViewController" id="gup-30-iqe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="piY-cn-z2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17" y="497"/>
+        </scene>
+    </scenes>
+</document>

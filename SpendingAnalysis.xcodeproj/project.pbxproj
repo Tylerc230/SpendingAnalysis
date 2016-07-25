@@ -12,7 +12,8 @@
 		2F5E49FE1CE404CE003759AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E49FC1CE404CE003759AE /* LaunchScreen.storyboard */; };
 		2F5E4A091CE404CE003759AE /* SpendingAnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E4A081CE404CE003759AE /* SpendingAnalysisTests.swift */; };
 		2F5E4A141CE404CE003759AE /* SpendingAnalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E4A131CE404CE003759AE /* SpendingAnalysisUITests.swift */; };
-		2F5E4A231CE4057A003759AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E4A221CE4057A003759AE /* Main.storyboard */; };
+		2F5E4A231CE4057A003759AE /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E4A221CE4057A003759AE /* MainMenu.storyboard */; };
+		2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */; };
 		3B58F1D4A4DDF78D702CDCC3 /* Pods_SpendingAnalysisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741668289B322001920CD419 /* Pods_SpendingAnalysisTests.framework */; };
 		487F4FEF108DD785D65121BF /* Pods_SpendingAnalysisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD64FE90464888A36FA83F9 /* Pods_SpendingAnalysisUITests.framework */; };
 		7C82E24988A8EB4253E66AA4 /* Pods_SpendingAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5C6268A41BC186DF587F12 /* Pods_SpendingAnalysis.framework */; };
@@ -50,7 +51,8 @@
 		2F5E4A0F1CE404CE003759AE /* SpendingAnalysisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpendingAnalysisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E4A131CE404CE003759AE /* SpendingAnalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalysisUITests.swift; sourceTree = "<group>"; };
 		2F5E4A151CE404CE003759AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F5E4A221CE4057A003759AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2F5E4A221CE4057A003759AE /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reconcile.storyboard; sourceTree = "<group>"; };
 		51D8DD2B0FFC03CD992C9067 /* Pods-SpendingAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis.release.xcconfig"; sourceTree = "<group>"; };
 		52F378DE8D53F607EF60AEFB /* Pods-SpendingAnalysisUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests.release.xcconfig"; sourceTree = "<group>"; };
 		741668289B322001920CD419 /* Pods_SpendingAnalysisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendingAnalysisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +144,8 @@
 		2F5E4A211CE40554003759AE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2F5E4A221CE4057A003759AE /* Main.storyboard */,
+				2F5E4A221CE4057A003759AE /* MainMenu.storyboard */,
+				2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -282,9 +285,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F5E4A231CE4057A003759AE /* Main.storyboard in Resources */,
+				2F5E4A231CE4057A003759AE /* MainMenu.storyboard in Resources */,
 				2F5E49FE1CE404CE003759AE /* LaunchScreen.storyboard in Resources */,
 				2F5E49FB1CE404CE003759AE /* Assets.xcassets in Resources */,
+				2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

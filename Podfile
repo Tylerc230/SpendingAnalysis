@@ -9,6 +9,7 @@ target 'SpendingAnalysis' do
   pod "SwiftyBeaver"
   pod "RxSwift"
   pod 'RxAlamofire'
+  pod 'TBAppScaffold', :path => "~/Dropbox/shared_code/TBAppScaffold/"
 
   target 'SpendingAnalysisTests' do
     inherit! :search_paths

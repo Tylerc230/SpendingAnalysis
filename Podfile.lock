@@ -5,20 +5,40 @@ PODS:
   - RxAlamofire/Core (2.2):
     - Alamofire (~> 3.1)
     - RxSwift (~> 2.1)
+  - RxCocoa (2.4):
+    - RxSwift (~> 2.4)
+  - RxSugar (0.0.10):
+    - RxSwift (~> 2.3)
   - RxSwift (2.4)
+  - RxSwiftExt (1.0.1):
+    - RxSwift (~> 2.1)
   - SwiftyBeaver (0.5.3)
+  - TBAppScaffold (0.1.0):
+    - RxCocoa
+    - RxSugar
+    - RxSwift
+    - RxSwiftExt
 
 DEPENDENCIES:
   - RxAlamofire
   - RxSwift
   - SwiftyBeaver
+  - TBAppScaffold (from `~/Dropbox/shared_code/TBAppScaffold/`)
+
+EXTERNAL SOURCES:
+  TBAppScaffold:
+    :path: ~/Dropbox/shared_code/TBAppScaffold/
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   RxAlamofire: 250b7846cedbd189d6190e4f83caa01ee1f1eceb
+  RxCocoa: 7d6cd877de99f5640306b3d6cf87f580c1d91b61
+  RxSugar: 92324a788e2f6fa9843083bcd22353af7c6503cc
   RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
+  RxSwiftExt: 308a5f411533c7660da8317cb1b44161f9181ba4
   SwiftyBeaver: 20afdb23012f8bcacb7e865880e90301bf70ad37
+  TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: dcdcea4024bcd120cfead9570fc227e58fa30a25
+PODFILE CHECKSUM: 7a372c60c6eb9ba5b2bb7f29afa94144abdf8826
 
 COCOAPODS: 1.0.0
