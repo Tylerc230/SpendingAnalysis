@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="dPZ-qa-EN0">
             <objects>
-                <viewController id="rnI-RB-cie" sceneMemberID="viewController">
+                <viewController id="rnI-RB-cie" customClass="MainMenuViewController" customModule="SpendingAnalysis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mH0-Wc-fbB"/>
                         <viewControllerLayoutGuide type="bottom" id="xt7-nb-WwV"/>
@@ -62,6 +62,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Efd-Hs-5OM"/>
+                    <connections>
+                        <outlet property="reconcileButton" destination="kg8-nN-pTf" id="3fx-ZT-Yc5"/>
+                        <outlet property="transactionByTimeButton" destination="C54-yQ-Rab" id="Zbd-S3-Eja"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1z-R6-xho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
