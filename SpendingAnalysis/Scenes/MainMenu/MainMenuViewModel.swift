@@ -8,15 +8,16 @@
 
 import TBAppScaffold
 import RxSwift
+import RxSwiftExt
 
 struct MainMenuViewModel: ViewModel {
     let transactionByTimeTapped = PublishSubject<Void>()
     let reconcileTapped = PublishSubject<Void>()
     var events: Observable<TransitionEvent> {
         let transitionEvents = [
-            transactionByTimeTapped.map { _ in TransitionEvent.showTransactionByTime },
-            reconcileTapped.map { _ in TransitionEvent.showReconcile}
-            ]
-        return transitionEvents.toObservable().merge()
+            transactionByTimeTapped.mapTo(TransitionEvent.showTransactionByTime),
+            reconcileTapped.mapTo(TransitionEvent.showReconcile)
+            ].toObservable()
+        return transitionEvents.merge()
     }
 }

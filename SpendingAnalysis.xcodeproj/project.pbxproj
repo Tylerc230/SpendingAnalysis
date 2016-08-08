@@ -21,6 +21,10 @@
 		2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */; };
 		2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B5E1D45DC9900EBE248 /* MainMenuWiring.swift */; };
 		2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */; };
+		2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */; };
+		2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */; };
+		2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */; };
+		2FFC1A721D5841E9003B879D /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC1A711D5841E9003B879D /* Analysis.storyboard */; };
 		3B58F1D4A4DDF78D702CDCC3 /* Pods_SpendingAnalysisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741668289B322001920CD419 /* Pods_SpendingAnalysisTests.framework */; };
 		487F4FEF108DD785D65121BF /* Pods_SpendingAnalysisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD64FE90464888A36FA83F9 /* Pods_SpendingAnalysisUITests.framework */; };
 		7C82E24988A8EB4253E66AA4 /* Pods_SpendingAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5C6268A41BC186DF587F12 /* Pods_SpendingAnalysis.framework */; };
@@ -67,6 +71,10 @@
 		2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		2FEE8B5E1D45DC9900EBE248 /* MainMenuWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuWiring.swift; sourceTree = "<group>"; };
 		2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewController.swift; sourceTree = "<group>"; };
+		2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeWiring.swift; sourceTree = "<group>"; };
+		2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewModel.swift; sourceTree = "<group>"; };
+		2FFC1A711D5841E9003B879D /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
 		51D8DD2B0FFC03CD992C9067 /* Pods-SpendingAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis.release.xcconfig"; sourceTree = "<group>"; };
 		52F378DE8D53F607EF60AEFB /* Pods-SpendingAnalysisUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests.release.xcconfig"; sourceTree = "<group>"; };
 		741668289B322001920CD419 /* Pods_SpendingAnalysisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendingAnalysisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +170,7 @@
 			children = (
 				2F5E4A221CE4057A003759AE /* MainMenu.storyboard */,
 				2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */,
+				2FFC1A711D5841E9003B879D /* Analysis.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -169,6 +178,7 @@
 		2FEE8B501D45DA1B00EBE248 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2FFC1A6A1D5519C7003B879D /* TransactionsByTime */,
 				2FEE8B5B1D45DC5D00EBE248 /* MainMenu */,
 				2FEE8B511D45DA3900EBE248 /* CreateTrackingReport */,
 			);
@@ -201,6 +211,16 @@
 				2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */,
 			);
 			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		2FFC1A6A1D5519C7003B879D /* TransactionsByTime */ = {
+			isa = PBXGroup;
+			children = (
+				2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */,
+				2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */,
+				2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */,
+			);
+			path = TransactionsByTime;
 			sourceTree = "<group>";
 		};
 		3AD3171F1113D5150E073D92 /* Frameworks */ = {
@@ -339,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F5E4A231CE4057A003759AE /* MainMenu.storyboard in Resources */,
+				2FFC1A721D5841E9003B879D /* Analysis.storyboard in Resources */,
 				2F5E49FE1CE404CE003759AE /* LaunchScreen.storyboard in Resources */,
 				2F5E49FB1CE404CE003759AE /* Assets.xcassets in Resources */,
 				2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */,
@@ -489,8 +510,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */,
 				2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */,
+				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,
+				2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */,
 				2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */,
 				2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */,
 				2FEE8B571D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift in Sources */,

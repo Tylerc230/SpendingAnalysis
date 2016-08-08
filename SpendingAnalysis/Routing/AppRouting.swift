@@ -15,6 +15,13 @@ enum TransitionEvent {
     case showReconcile
 }
 
+enum SegueId: String, SegueIdType {
+    case transactionsByTimeSegue
+    var identifier: String {
+        return rawValue
+    }
+}
+
 func transitionForEvent(source: UIViewController, event: TransitionEvent) -> AnyTransition<TransitionEvent> {
     switch event {
     case .appLaunch:
@@ -29,6 +36,8 @@ func transitionForEvent(source: UIViewController, event: TransitionEvent) -> Any
     case .showReconcile:
         fatalError()
     case .showTransactionByTime:
-        fatalError()
+        let transactionsByTimeWiring = TransactionsByTimeWiring()
+        let transition = SegueTransition(sourceViewController: source, segueId: SegueId.transactionsByTimeSegue, wiring: transactionsByTimeWiring)
+        return AnyTransition(transition: transition)
     }
 }
