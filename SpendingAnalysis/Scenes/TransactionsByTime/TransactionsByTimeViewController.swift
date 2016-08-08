@@ -8,11 +8,19 @@
 
 import UIKit
 import RxSwift
+import Charts
+import RxSugar
 
 class TransactionsByTimeViewController: UIViewController {
     let disposeBag = DisposeBag()
-    var transactionsByTimeView: TransactionsByTimeView {
+    
+    func setChartData(chartData: Observable<LineChartData>) {
+        disposeBag
+            ++ transactionsByTimeView.lineChartData <~ chartData
+    }
+    
+    private var transactionsByTimeView: TransactionsByTimeView {
         return self.view as! TransactionsByTimeView
     }
-
+    
 }

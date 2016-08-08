@@ -10,6 +10,10 @@ PODS:
   - Moya-ObjectMapper/Core (1.3.1):
     - Moya (~> 7.0)
     - ObjectMapper (~> 1.3)
+  - Moya-ObjectMapper/RxSwift (1.3.1):
+    - Moya-ObjectMapper/Core
+    - Moya/RxSwift (~> 7.0)
+    - RxSwift (~> 2.0)
   - Moya/Core (7.0.0):
     - Alamofire (~> 3.0)
     - Result (~> 2.0)
@@ -41,6 +45,7 @@ DEPENDENCIES:
   - Charts
   - Moya
   - Moya-ObjectMapper
+  - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
   - RxAlamofire
   - RxSwift
@@ -66,6 +71,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 20afdb23012f8bcacb7e865880e90301bf70ad37
   TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: a721b4d1055b89edcd835fffa82219644bc482d4
+PODFILE CHECKSUM: dfc79ec434763b2556a26e5e9973c8c5080177a3
 
 COCOAPODS: 1.0.0
