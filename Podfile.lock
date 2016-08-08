@@ -1,5 +1,23 @@
 PODS:
   - Alamofire (3.4.0)
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
+  - Moya (7.0.0):
+    - Moya/Core (= 7.0.0)
+  - Moya-ObjectMapper (1.3.1):
+    - Moya-ObjectMapper/Core (= 1.3.1)
+  - Moya-ObjectMapper/Core (1.3.1):
+    - Moya (~> 7.0)
+    - ObjectMapper (~> 1.3)
+  - Moya/Core (7.0.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (7.0.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - ObjectMapper (1.3.0)
+  - Result (2.1.3)
   - RxAlamofire (2.2):
     - RxAlamofire/Core (= 2.2)
   - RxAlamofire/Core (2.2):
@@ -20,6 +38,10 @@ PODS:
     - RxSwiftExt
 
 DEPENDENCIES:
+  - Charts
+  - Moya
+  - Moya-ObjectMapper
+  - Moya/RxSwift
   - RxAlamofire
   - RxSwift
   - SwiftyBeaver
@@ -31,6 +53,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Moya: f004b82418fb8165ee1fc9f86190db4b3611fda9
+  Moya-ObjectMapper: 52f15abd982efc8ba2ce3fc49619555c926c14a1
+  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
   RxAlamofire: 250b7846cedbd189d6190e4f83caa01ee1f1eceb
   RxCocoa: 7d6cd877de99f5640306b3d6cf87f580c1d91b61
   RxSugar: 92324a788e2f6fa9843083bcd22353af7c6503cc
@@ -39,6 +66,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 20afdb23012f8bcacb7e865880e90301bf70ad37
   TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: 7a372c60c6eb9ba5b2bb7f29afa94144abdf8826
+PODFILE CHECKSUM: a721b4d1055b89edcd835fffa82219644bc482d4
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.0.0

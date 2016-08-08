@@ -10,6 +10,10 @@ target 'SpendingAnalysis' do
   pod "RxSwift"
   pod 'RxAlamofire'
   pod 'TBAppScaffold', :path => "~/Dropbox/shared_code/TBAppScaffold/"
+  pod 'Charts'
+  pod 'Moya'
+  pod 'Moya/RxSwift'
+  pod 'Moya-ObjectMapper'
 
   target 'SpendingAnalysisTests' do
     inherit! :search_paths

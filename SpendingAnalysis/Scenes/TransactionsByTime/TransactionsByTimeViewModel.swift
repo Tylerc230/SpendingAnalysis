@@ -9,6 +9,7 @@ import TBAppScaffold
 import RxSwift
 
 struct TransactionsByTimeViewModel: ViewModel {
+    let queryForCurrentTransactions = PublishSubject<Void>()
     var events: Observable<TransitionEvent> {
         return Observable.never()
     }

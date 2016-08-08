@@ -7,11 +7,13 @@
 //
 
 import TBAppScaffold
+import RxSugar
 
 struct TransactionsByTimeWiring: Wiring {
     let viewModel = TransactionsByTimeViewModel()
     func wire(viewController: TransactionsByTimeViewController) {
-        
+        viewController.disposeBag
+            ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear
     }
     
 }

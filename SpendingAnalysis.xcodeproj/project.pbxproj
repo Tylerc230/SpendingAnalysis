@@ -25,6 +25,7 @@
 		2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */; };
 		2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */; };
 		2FFC1A721D5841E9003B879D /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC1A711D5841E9003B879D /* Analysis.storyboard */; };
+		2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A731D58489B003B879D /* TransactionsByTimeView.swift */; };
 		3B58F1D4A4DDF78D702CDCC3 /* Pods_SpendingAnalysisTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741668289B322001920CD419 /* Pods_SpendingAnalysisTests.framework */; };
 		487F4FEF108DD785D65121BF /* Pods_SpendingAnalysisUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD64FE90464888A36FA83F9 /* Pods_SpendingAnalysisUITests.framework */; };
 		7C82E24988A8EB4253E66AA4 /* Pods_SpendingAnalysis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F5C6268A41BC186DF587F12 /* Pods_SpendingAnalysis.framework */; };
@@ -75,6 +76,7 @@
 		2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeWiring.swift; sourceTree = "<group>"; };
 		2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewModel.swift; sourceTree = "<group>"; };
 		2FFC1A711D5841E9003B879D /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
+		2FFC1A731D58489B003B879D /* TransactionsByTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeView.swift; sourceTree = "<group>"; };
 		51D8DD2B0FFC03CD992C9067 /* Pods-SpendingAnalysis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysis.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis.release.xcconfig"; sourceTree = "<group>"; };
 		52F378DE8D53F607EF60AEFB /* Pods-SpendingAnalysisUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests.release.xcconfig"; sourceTree = "<group>"; };
 		741668289B322001920CD419 /* Pods_SpendingAnalysisTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendingAnalysisTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 		2F5E49F01CE404CE003759AE /* SpendingAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				2FFC1A751D584CC4003B879D /* API */,
 				2FEE8B581D45DB1A00EBE248 /* Routing */,
 				2FEE8B501D45DA1B00EBE248 /* Scenes */,
 				2F5E4A211CE40554003759AE /* UI */,
@@ -219,8 +222,16 @@
 				2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */,
 				2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */,
 				2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */,
+				2FFC1A731D58489B003B879D /* TransactionsByTimeView.swift */,
 			);
 			path = TransactionsByTime;
+			sourceTree = "<group>";
+		};
+		2FFC1A751D584CC4003B879D /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		3AD3171F1113D5150E073D92 /* Frameworks */ = {
@@ -253,12 +264,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F5E4A181CE404CE003759AE /* Build configuration list for PBXNativeTarget "SpendingAnalysis" */;
 			buildPhases = (
+				91327A5D5DC8F253BD870347 /* 📦 Check Pods Manifest.lock */,
 				E36898BE3412E7C0F263647C /* [CP] Check Pods Manifest.lock */,
 				2F5E49EA1CE404CE003759AE /* Sources */,
 				2F5E49EB1CE404CE003759AE /* Frameworks */,
 				2F5E49EC1CE404CE003759AE /* Resources */,
 				3E21BB6AB44E0D7D8A885BFE /* [CP] Embed Pods Frameworks */,
 				79790DE3A34679BBF897A420 /* [CP] Copy Pods Resources */,
+				F1789AA28FCE255167D8A7E6 /* 📦 Embed Pods Frameworks */,
+				E8E0844EC6194DB2810DC110 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,12 +287,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F5E4A1B1CE404CE003759AE /* Build configuration list for PBXNativeTarget "SpendingAnalysisTests" */;
 			buildPhases = (
+				64F3798781A0980E71C664B0 /* 📦 Check Pods Manifest.lock */,
 				5406B9A5644B448BD5DA919E /* [CP] Check Pods Manifest.lock */,
 				2F5E4A001CE404CE003759AE /* Sources */,
 				2F5E4A011CE404CE003759AE /* Frameworks */,
 				2F5E4A021CE404CE003759AE /* Resources */,
 				6E973326DCC61FD14B456DA3 /* [CP] Embed Pods Frameworks */,
 				591DF8D51B8FDE8DE420CCF9 /* [CP] Copy Pods Resources */,
+				299D5555CF26359BC35BEE17 /* 📦 Embed Pods Frameworks */,
+				A3F5C80A75E7ED1EDCE5CB7E /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,11 +311,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F5E4A1E1CE404CE003759AE /* Build configuration list for PBXNativeTarget "SpendingAnalysisUITests" */;
 			buildPhases = (
+				144AC634BFBCBC8B311A004F /* 📦 Check Pods Manifest.lock */,
 				CCE081307810A2401C27174A /* [CP] Check Pods Manifest.lock */,
 				2F5E4A0B1CE404CE003759AE /* Sources */,
 				2F5E4A0C1CE404CE003759AE /* Frameworks */,
 				2F5E4A0D1CE404CE003759AE /* Resources */,
 				C62D8373CA625E9ADB9D483C /* [CP] Copy Pods Resources */,
+				FD09997F63F97547BD7578C7 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,6 +402,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		144AC634BFBCBC8B311A004F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		299D5555CF26359BC35BEE17 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3E21BB6AB44E0D7D8A885BFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,6 +477,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64F3798781A0980E71C664B0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		6E973326DCC61FD14B456DA3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,6 +520,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91327A5D5DC8F253BD870347 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A3F5C80A75E7ED1EDCE5CB7E /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C62D8373CA625E9ADB9D483C /* [CP] Copy Pods Resources */ = {
@@ -503,6 +597,51 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		E8E0844EC6194DB2810DC110 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1789AA28FCE255167D8A7E6 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD09997F63F97547BD7578C7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -515,6 +654,7 @@
 				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,
 				2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */,
+				2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */,
 				2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */,
 				2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */,
 				2FEE8B571D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift in Sources */,
