@@ -21,12 +21,13 @@ struct TransactionsByTimeViewModel: ViewModel {
         return queryForCurrentTransactions
             .asObserver()
             .flatMap {
-                return self.networkInterface.getTransactions()
+                return self.networkInterface.getTransactions(1)
         }
         .map(transactionsToLineChartData)
     }
 }
 
-private func transactionsToLineChartData(_: [Transaction]) -> LineChartData {
+private func transactionsToLineChartData(response: TransactionsResponse) -> LineChartData {
+    print("response \(response)")
     fatalError()
 }
