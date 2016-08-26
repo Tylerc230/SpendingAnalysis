@@ -11,6 +11,7 @@ import ObjectMapper
 import Moya_ObjectMapper
 import Alamofire
 typealias TransactionsResponse = PagedResponse<Transaction>
+let dateFormater = CustomDateFormatTransform(formatString: "yyyy-MM-dd")
 
 struct NetworkInterface {
     
@@ -24,7 +25,7 @@ struct NetworkInterface {
         return provider
     }
     
-    func getTransactions(page: Int) -> Observable<TransactionsResponse> {
+    func getTransactions(page: Int? = nil) -> Observable<TransactionsResponse> {
         return provider.request(.getTransactions(page)).mapObject(TransactionsResponse).debug("transactions")
     }
 }
@@ -51,6 +52,6 @@ struct Transaction: Mappable {
     mutating func mapping(map: Map) {
         identifier <- map["id"]
         amount <- map["amount"]
-        date <- map["date"]
+        date <- (map["date"], dateFormater)
     }
 }
