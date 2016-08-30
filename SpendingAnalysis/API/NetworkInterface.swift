@@ -9,24 +9,15 @@ import Moya
 import RxSwift
 import ObjectMapper
 import Moya_ObjectMapper
-import Alamofire
+
 typealias TransactionsResponse = PagedResponse<Transaction>
 let dateFormater = CustomDateFormatTransform(formatString: "yyyy-MM-dd")
 
 struct NetworkInterface {
     
-    let provider = NetworkInterface.createProvider()
-    static func createProvider() -> RxMoyaProvider<SpendingAnalysisAPI> {
-        let endpointClosure: MoyaProvider.EndpointClosure = { (target: SpendingAnalysisAPI) -> Endpoint<SpendingAnalysisAPI> in
-            let endpoint = MoyaProvider.DefaultEndpointMapping(target)
-            return endpoint.endpointByAddingHTTPHeaderFields(["Accept": "application/vnd.api+json"])
-        }
-        let provider = RxMoyaProvider<SpendingAnalysisAPI>(endpointClosure:endpointClosure)
-        return provider
-    }
-    
+    let provider = RxMoyaProvider<SpendingAnalysisAPI>()
     func getTransactions(page: Int? = nil) -> Observable<TransactionsResponse> {
-        return provider.request(.getTransactions(page)).mapObject(TransactionsResponse).debug("transactions")
+        return provider.request(SpendingAnalysisAPI.getTransactions(page)).mapObject(TransactionsResponse).debug("transactions")
     }
 }
 

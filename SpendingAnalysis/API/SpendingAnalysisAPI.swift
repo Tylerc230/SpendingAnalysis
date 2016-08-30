@@ -8,13 +8,12 @@
 import Moya
 
 enum SpendingAnalysisAPI {
-    case getTransactions(Int)
+    case getTransactions(Int?)
 }
 
 extension SpendingAnalysisAPI: TargetType {
     var baseURL: NSURL {
-//        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
-        return NSURL(string:"http://localhost.charlesproxy.com:5000")!
+        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
     }
     
     var path: String {
@@ -34,6 +33,9 @@ extension SpendingAnalysisAPI: TargetType {
     var parameters: [String: AnyObject]? {
         switch self {
         case .getTransactions(let page):
+            guard let page = page else {
+                return nil
+            }
             return ["page": page]
         }
     }
