@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F56F1381D75493700B5DA7D /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56F1371D75493700B5DA7D /* ResponseObjects.swift */; };
 		2F5E49F21CE404CE003759AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E49F11CE404CE003759AE /* AppDelegate.swift */; };
 		2F5E49FB1CE404CE003759AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E49FA1CE404CE003759AE /* Assets.xcassets */; };
 		2F5E49FE1CE404CE003759AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E49FC1CE404CE003759AE /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		0E407FE472C09065FB9FF2F1 /* Pods-SpendingAnalysisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D61DC1B048F9CDFD3E5431A /* Pods-SpendingAnalysisUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F56F1371D75493700B5DA7D /* ResponseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
 		2F5C6268A41BC186DF587F12 /* Pods_SpendingAnalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendingAnalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E49EE1CE404CE003759AE /* SpendingAnalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpendingAnalysis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F5E49F11CE404CE003759AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				2FFC1A761D584FA6003B879D /* SpendingAnalysisAPI.swift */,
 				2FFC1A781D58545C003B879D /* NetworkInterface.swift */,
+				2F56F1371D75493700B5DA7D /* ResponseObjects.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,
 				2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */,
+				2F56F1381D75493700B5DA7D /* ResponseObjects.swift in Sources */,
 				2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */,
 				2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */,
 				2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */,

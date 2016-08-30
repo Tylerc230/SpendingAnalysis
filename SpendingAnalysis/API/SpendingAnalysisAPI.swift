@@ -9,23 +9,27 @@ import Moya
 
 enum SpendingAnalysisAPI {
     case getTransactions(Int?)
+    case getExpensesOverTime
 }
 
 extension SpendingAnalysisAPI: TargetType {
     var baseURL: NSURL {
-        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
+//        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
+        return NSURL(string:"http://localhost:5000")!
     }
     
     var path: String {
         switch self {
         case getTransactions:
             return "/api/statement_transaction"
+        case getExpensesOverTime:
+            return "/expenses_over_time"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case getTransactions:
+        case getTransactions, .getExpensesOverTime:
             return .GET
         }
     }
@@ -37,6 +41,8 @@ extension SpendingAnalysisAPI: TargetType {
                 return nil
             }
             return ["page": page]
+        default:
+            return nil
         }
     }
     
