@@ -21,7 +21,7 @@ struct TransactionsByTimeViewModel: ViewModel {
         return queryForCurrentTransactions
             .asObserver()
             .flatMap {
-                return self.networkInterface.getExpensesOverTime()
+                return self.networkInterface.getExpensesOverTime(includeTypes: ["rides": ["rideshare"], "morts": ["mortgage"]])
         }
         .map(transactionsToLineChartData)
     }
