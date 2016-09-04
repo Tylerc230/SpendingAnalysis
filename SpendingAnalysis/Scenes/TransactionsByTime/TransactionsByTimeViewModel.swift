@@ -21,7 +21,7 @@ struct TransactionsByTimeViewModel: ViewModel {
         return queryForCurrentTransactions
             .asObserver()
             .flatMap {
-                return self.networkInterface.getExpensesOverTime(includeTypes: ["rides": ["rideshare"], "morts": ["mortgage"]])
+                return self.networkInterface.getExpensesOverTime(start: NSDate(timeIntervalSince1970: 1422751084), end: NSDate(), includeTypes: ["rides": ["rideshare"], "morts": ["mortgage"]])
         }
         .map(transactionsToLineChartData)
     }
@@ -29,5 +29,6 @@ struct TransactionsByTimeViewModel: ViewModel {
 
 private func transactionsToLineChartData(response: ExpenseOverTimeResponse) -> LineChartData {
     print("response \(response)")
-    fatalError()
+    //var dataSets = [String: LineChartDataSet]()
+    fatalError("Error")
 }

@@ -18,7 +18,7 @@ struct NetworkInterface {
             .mapObject(TransactionsResponse)
     }
     
-    func getExpensesOverTime(start: NSDate? = nil, end: NSDate? = nil, binSize: BinSize? = nil, includeTypes: GroupedTypes? = nil) -> Observable<ExpenseOverTimeResponse> {
+    func getExpensesOverTime(start start: NSDate? = nil, end: NSDate? = nil, binSize: BinSize? = nil, includeTypes: GroupedTypes? = nil) -> Observable<ExpenseOverTimeResponse> {
         return provider
             .request(SpendingAnalysisAPI.getExpensesOverTime(start, end, binSize, includeTypes))
             .mapObject(ExpenseOverTimeResponse)

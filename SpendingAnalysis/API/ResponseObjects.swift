@@ -11,7 +11,7 @@ import Moya_ObjectMapper
 let dateTransform = CustomDateFormatTransform(formatString: "yyyy-MM-dd")
 let timestampTransform = DateTransform()
 typealias TransactionsResponse = PagedResponse<Transaction>
-typealias ExpenseOverTimeResponse = DataFrameResponse<TimeGroupIndex, Float>
+typealias ExpenseOverTimeResponse = DataFrame<TimeGroupIndex, Float>
 
 protocol IndexType: Equatable {
     associatedtype JSON
@@ -56,16 +56,10 @@ func ==(lhs: TimeGroupIndex, rhs: TimeGroupIndex) -> Bool {
     return lhs.date.isEqual(rhs.date) && lhs.group == rhs.group
 }
 
-enum DataFrameError: ErrorType {
-    case invalidIndex
-    case invalidColumn
-}
-
-struct DataFrameResponse<Index: IndexType, Data>: Mappable {
-    var columns: [String]!
-    var indicies: [Index]!
-    var data: [[Data]]!
-    init?(_ map: Map){}
+extension DataFrame: Mappable {
+    init?(_ map: Map){
+        self.init()
+    }
     mutating func mapping(map: Map) {
         columns <- map["columns"]
         if let transform = Index.transform() {
@@ -74,31 +68,6 @@ struct DataFrameResponse<Index: IndexType, Data>: Mappable {
             indicies <- map["index"]
         }
         data <- map["data"]
-    }
-    
-    func rowAtIndex(index: Index) throws -> [Data] {
-        let rowOffset = try rowOffsetForIndex(index)
-        return data[rowOffset]
-    }
-    
-    func dataAtIndex(index: Index, column columnName: String) throws -> Data {
-        let row = try rowAtIndex(index)
-        let columnIdx = try columnOffset(columnName)
-        return row[columnIdx]
-    }
-    
-    private func columnOffset(columnName: String) throws -> Int {
-        guard let columnOffset = columns.indexOf(columnName) else {
-            throw DataFrameError.invalidColumn
-        }
-        return columnOffset
-    }
-    
-    private func rowOffsetForIndex(index: Index) throws -> Int {
-        guard let rowOffset = indicies.indexOf(index) else {
-            throw DataFrameError.invalidIndex
-        }
-        return rowOffset
     }
 }
 
