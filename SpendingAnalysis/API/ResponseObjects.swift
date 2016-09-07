@@ -13,22 +13,20 @@ let timestampTransform = DateTransform()
 typealias TransactionsResponse = PagedResponse<Transaction>
 typealias ExpenseOverTimeResponse = DataFrame<TimeGroupIndex, Float>
 
-protocol IndexType: Equatable {
+protocol Transformable {
     associatedtype JSON
     static func transform() -> TransformOf<Self, JSON>?
 }
 
-extension IndexType {
-    func transform() -> TransformOf<Self, JSON>? {
+extension Transformable {
+    static func transform() -> TransformOf<Self, JSON>? {
         return nil
     }
 }
 
-struct TimeGroupIndex: IndexType {
+extension TimeGroupIndex: Transformable {
     typealias JSON = [AnyObject]
     typealias Object = TimeGroupIndex
-    var date: NSDate!
-    var group: String!
     static func transform() -> TransformOf<Object, JSON>? {
         func transformFromJSON(value: JSON?) -> Object? {
             guard
@@ -52,22 +50,18 @@ struct TimeGroupIndex: IndexType {
     }
 }
 
-func ==(lhs: TimeGroupIndex, rhs: TimeGroupIndex) -> Bool {
-    return lhs.date.isEqual(rhs.date) && lhs.group == rhs.group
-}
-
 extension DataFrame: Mappable {
     init?(_ map: Map){
         self.init()
     }
     mutating func mapping(map: Map) {
         columns <- map["columns"]
-        if let transform = Index.transform() {
+        data <- map["data"]
+        if let transform = I.transform() {
             indicies <- (map["index"], transform)
         } else {
             indicies <- map["index"]
         }
-        data <- map["data"]
     }
 }
 
