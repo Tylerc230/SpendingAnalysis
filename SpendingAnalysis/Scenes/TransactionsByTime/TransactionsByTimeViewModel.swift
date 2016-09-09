@@ -27,8 +27,29 @@ struct TransactionsByTimeViewModel: ViewModel {
     }
 }
 
-private func transactionsToLineChartData(response: ExpenseOverTimeResponse) -> LineChartData {
-    print("response \(response)")
-    //var dataSets = [String: LineChartDataSet]()
-    fatalError("Error")
+private func transactionsToLineChartData(dataFrame: ExpenseOverTimeResponse) -> LineChartData {
+    print("\(dataFrame)")
+    let xVals = dataFrame.indicies.map { index in
+        return index.date
+    }
+    let empty = [String: [ChartDataEntry]]()
+    let dataSets = dataFrame
+        .indicies
+        .enumerate()
+        .reduce(empty) { ( dataSets, enumerated) in
+            let offset = enumerated.0
+            let dataFrameIndex = enumerated.1
+            let setName = dataFrameIndex.group
+            let value = Double(dataFrame[dataFrameIndex, "amount"])
+            let dataEntry = ChartDataEntry(value: value, xIndex: offset)
+            var set = dataSets[setName] ?? []
+            set.append(dataEntry);
+            var dataSets = dataSets
+            dataSets[setName] = set
+            return dataSets
+    }
+    .map { (setName, dataEntry) in
+        return LineChartDataSet(yVals: dataEntry, label: setName)
+    }
+    return LineChartData(xVals: xVals, dataSets: dataSets)
 }
