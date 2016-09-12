@@ -22,12 +22,9 @@ class TransactionsByTimeView: UIView {
     
     func toLineChartData(transactionSets: [String: TransactionSet]) -> LineChartData {
         let sets: [LineChartDataSet] = transactionSets.map { (groupName, dataFrame) in
-            let dataEntries: [ChartDataEntry] = dataFrame.indicies.enumerate().map { (idx, dataFrameIndex) in
-                let value = Double(dataFrame[dataFrameIndex, "amount"])
-                return ChartDataEntry(value: value, xIndex: idx)
-            }
-            return LineChartDataSet(yVals: dataEntries, label: groupName)
+            return dataFrame.toLineChartDataSet(groupName, fromColumn: "amount")
         }
-        return LineChartData(xVals: transactionSets.first?.1.indicies, dataSets: sets)
+        let dates = transactionSets.first?.1.indicies
+        return LineChartData(xVals: dates, dataSets: sets)
     }
 }

@@ -20,15 +20,9 @@ struct DataFrame<I: Transformable, Data where I: Equatable> {
     }
     
     init(columns: [String], data: [(I, [Data])]) {
-        var newIndicies = [I]()
-        var newRows = [[Data]]()
-        data.forEach { (index, row) in
-            newIndicies.append(index)
-            newRows.append(row)
-        }
         self.columns = columns
-        self.indicies = newIndicies
-        self.data = newRows
+        self.indicies = data.map { $0.0 }
+        self.data = data.map { $0.1 }
     }
     
     func rowAtIndex(index: I) throws -> [Data] {

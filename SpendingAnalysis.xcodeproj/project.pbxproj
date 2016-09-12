@@ -16,6 +16,7 @@
 		2F5E4A231CE4057A003759AE /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E4A221CE4057A003759AE /* MainMenu.storyboard */; };
 		2F9DD98B1D7C898E000160D1 /* DataFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98A1D7C898E000160D1 /* DataFrame.swift */; };
 		2F9DD98D1D7C99EE000160D1 /* Indicies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98C1D7C99EE000160D1 /* Indicies.swift */; };
+		2F9DD9901D847345000160D1 /* DataFrame+Charting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */; };
 		2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */; };
 		2FEE8B531D45DA7400EBE248 /* CreateTrackingReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */; };
 		2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */; };
@@ -72,6 +73,7 @@
 		2F5E4A221CE4057A003759AE /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
 		2F9DD98A1D7C898E000160D1 /* DataFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFrame.swift; sourceTree = "<group>"; };
 		2F9DD98C1D7C99EE000160D1 /* Indicies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indicies.swift; sourceTree = "<group>"; };
+		2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFrame+Charting.swift"; sourceTree = "<group>"; };
 		2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reconcile.storyboard; sourceTree = "<group>"; };
 		2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportViewController.swift; sourceTree = "<group>"; };
 		2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportWiring.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		2F5E49F01CE404CE003759AE /* SpendingAnalysis */ = {
 			isa = PBXGroup;
 			children = (
+				2F9DD98E1D847302000160D1 /* Helpers */,
 				2F9DD9891D7C895E000160D1 /* Models */,
 				2FFC1A751D584CC4003B879D /* API */,
 				2FEE8B581D45DB1A00EBE248 /* Routing */,
@@ -196,6 +199,14 @@
 				2F9DD98C1D7C99EE000160D1 /* Indicies.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2F9DD98E1D847302000160D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		2FEE8B501D45DA1B00EBE248 /* Scenes */ = {
@@ -681,6 +692,7 @@
 				2F56F1381D75493700B5DA7D /* ResponseObjects.swift in Sources */,
 				2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */,
 				2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */,
+				2F9DD9901D847345000160D1 /* DataFrame+Charting.swift in Sources */,
 				2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */,
 				2FEE8B571D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift in Sources */,
 				2FFC1A791D58545C003B879D /* NetworkInterface.swift in Sources */,
