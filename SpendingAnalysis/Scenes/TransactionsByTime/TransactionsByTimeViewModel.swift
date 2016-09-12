@@ -8,7 +8,7 @@
 import TBAppScaffold
 import RxSwift
 import Charts
-
+typealias TransactionSet = DataFrame<NSDate, Float>
 struct TransactionsByTimeViewModel: ViewModel {
     let queryForCurrentTransactions = PublishSubject<Void>()
     let networkInterface = NetworkInterface()
@@ -17,39 +17,34 @@ struct TransactionsByTimeViewModel: ViewModel {
         return Observable.never()
     }
     
-    func lineChartData() -> Observable<LineChartData> {
+    func lineChartData() -> Observable<[String: TransactionSet]> {
         return queryForCurrentTransactions
             .asObserver()
             .flatMap {
                 return self.networkInterface.getExpensesOverTime(start: NSDate(timeIntervalSince1970: 1422751084), end: NSDate(), includeTypes: ["rides": ["rideshare"], "morts": ["mortgage"]])
         }
-        .map(transactionsToLineChartData)
+        .map(splitDataFrameOnGroups)
     }
 }
 
-private func transactionsToLineChartData(dataFrame: ExpenseOverTimeResponse) -> LineChartData {
-    print("\(dataFrame)")
-    let xVals = dataFrame.indicies.map { index in
-        return index.date
-    }
-    let empty = [String: [ChartDataEntry]]()
-    let dataSets = dataFrame
+private func splitDataFrameOnGroups(dataFrame: ExpenseOverTimeResponse) -> [String: TransactionSet] {
+    return dataFrame
         .indicies
-        .enumerate()
-        .reduce(empty) { ( dataSets, enumerated) in
-            let offset = enumerated.0
-            let dataFrameIndex = enumerated.1
-            let setName = dataFrameIndex.group
-            let value = Double(dataFrame[dataFrameIndex, "amount"])
-            let dataEntry = ChartDataEntry(value: value, xIndex: offset)
-            var set = dataSets[setName] ?? []
-            set.append(dataEntry);
-            var dataSets = dataSets
-            dataSets[setName] = set
-            return dataSets
+        .reduce(Set<String>()) { (groups, index) in
+            var groups = groups
+            groups.insert(index.group)
+            return groups
+        }
+        .reduce([String: TransactionSet]()) { (transactionSets, group) in
+            var transactionSets = transactionSets
+            transactionSets[group] = dataFrame
+                .filterDataFrame{ (index, row) in
+                    return index.group == group
+                }
+                .mapDataFrame{ (indexDataTuple: (index: TimeGroupIndex, row: [Float])) in
+                    return (indexDataTuple.index.date, indexDataTuple.row)
+            }
+            
+            return transactionSets
     }
-    .map { (setName, dataEntry) in
-        return LineChartDataSet(yVals: dataEntry, label: setName)
-    }
-    return LineChartData(xVals: xVals, dataSets: dataSets)
 }

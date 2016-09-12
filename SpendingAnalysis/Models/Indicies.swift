@@ -7,20 +7,13 @@
 //
 
 import Foundation
-struct TimeGroupIndex {
+struct TimeGroupIndex: Equatable {
     let date: NSDate
     let group: String
-    var next: (() -> TimeGroupIndex)? = nil
     
     init(date: NSDate, group: String) {
         self.date = date
         self.group = group
-    }
-}
-
-extension TimeGroupIndex: ForwardIndexType {
-    func successor() -> TimeGroupIndex {
-        return next!()
     }
 }
 

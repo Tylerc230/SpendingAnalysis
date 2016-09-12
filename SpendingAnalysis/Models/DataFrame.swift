@@ -11,10 +11,26 @@ enum DataFrameError: ErrorType {
     case invalidColumn
 }
 
-struct DataFrame<I: ForwardIndexType , Data where I: Transformable> {
+struct DataFrame<I: Transformable, Data where I: Equatable> {
     var columns: [String]!
     var indicies: [I]!
     var data: [[Data]]!
+    init() {
+        
+    }
+    
+    init(columns: [String], data: [(I, [Data])]) {
+        var newIndicies = [I]()
+        var newRows = [[Data]]()
+        data.forEach { (index, row) in
+            newIndicies.append(index)
+            newRows.append(row)
+        }
+        self.columns = columns
+        self.indicies = newIndicies
+        self.data = newRows
+    }
+    
     func rowAtIndex(index: I) throws -> [Data] {
         let rowOffset = try rowOffsetForIndex(index)
         return data[rowOffset]
@@ -25,26 +41,6 @@ struct DataFrame<I: ForwardIndexType , Data where I: Transformable> {
         let columnIdx = try columnOffset(columnName)
         return row[columnIdx]
     }
-    
-    private func columnOffset(columnName: String) throws -> Int {
-        guard let columnOffset = columns.indexOf(columnName) else {
-            throw DataFrameError.invalidColumn
-        }
-        return columnOffset
-    }
-    
-    private func rowOffsetForIndex(index: I) throws -> Int {
-        guard let rowOffset = indicies.indexOf(index) else {
-            throw DataFrameError.invalidIndex
-        }
-        return rowOffset
-    }
-}
-
-extension DataFrame: CollectionType {
-    typealias Index = I
-    var startIndex : I { return indicies.first! }
-    var endIndex : I { return indicies.last! }
     
     subscript (index: I) -> [Data] {
         do {
@@ -63,5 +59,40 @@ extension DataFrame: CollectionType {
             fatalError("DataFrame subscript error: \(error)")
         }
     }
+    
+    func mapDataFrame<NewIndexType, NewDataType>(@noescape transform: ((I, [Data])) -> (NewIndexType, [NewDataType]) ) -> DataFrame<NewIndexType, NewDataType> {
+        let mappings = map (transform)
+        return DataFrame<NewIndexType, NewDataType>(columns: columns, data: mappings)
+    }
+    
+    func filterDataFrame(@noescape predicate: ((I, [Data]) -> Bool)) -> DataFrame {
+        let mappings = filter(predicate)
+        return DataFrame(columns: columns, data: mappings)
+    }
+    
+    private func columnOffset(columnName: String) throws -> Int {
+        guard let columnOffset = columns.indexOf(columnName) else {
+            throw DataFrameError.invalidColumn
+        }
+        return columnOffset
+    }
+    
+    private func rowOffsetForIndex(index: I) throws -> Int {
+        guard let rowOffset = indicies.indexOf(index) else {
+            throw DataFrameError.invalidIndex
+        }
+        return rowOffset
+    }
+}
+
+extension DataFrame: CollectionType {
+    typealias Index = Int
+    var startIndex : Int { return 0 }
+    var endIndex : Int { return indicies.count }
+    
+    subscript (index: Int) -> (I, [Data]) {
+        return (indicies[index], data[index])
+    }
+    
 }
 

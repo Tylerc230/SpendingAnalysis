@@ -14,7 +14,7 @@ import RxSugar
 class TransactionsByTimeViewController: UIViewController {
     let disposeBag = DisposeBag()
     
-    func setChartData(chartData: Observable<LineChartData>) {
+    func setChartDataObservable(chartData: Observable<[String: TransactionSet]>) {
         disposeBag
             ++ transactionsByTimeView.lineChartData <~ chartData
     }

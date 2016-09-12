@@ -14,21 +14,27 @@ typealias TransactionsResponse = PagedResponse<Transaction>
 typealias ExpenseOverTimeResponse = DataFrame<TimeGroupIndex, Float>
 
 protocol Transformable {
-    associatedtype JSON
-    static func transform() -> TransformOf<Self, JSON>?
+    associatedtype T
+    static func mapTransformable(map: Map) -> T
 }
 
-extension Transformable {
-    static func transform() -> TransformOf<Self, JSON>? {
-        return nil
+extension NSDate: Transformable {
+    static func mapTransformable(map: Map) -> [NSDate] {
+        var date: [NSDate]? = nil
+        date <- (map, DateTransform())
+        return date!
     }
 }
 
 extension TimeGroupIndex: Transformable {
     typealias JSON = [AnyObject]
-    typealias Object = TimeGroupIndex
-    static func transform() -> TransformOf<Object, JSON>? {
-        func transformFromJSON(value: JSON?) -> Object? {
+    static func mapTransformable(map: Map) -> [TimeGroupIndex] {
+        var timeGroupIndex: [TimeGroupIndex]? = nil
+        timeGroupIndex <- (map, transform())
+        return timeGroupIndex!
+    }
+    static func transform() -> TransformOf<TimeGroupIndex, JSON> {
+        func transformFromJSON(value: JSON?) -> TimeGroupIndex? {
             guard
                 let value = value,
                 let timestamp = value[0] as? Double,
@@ -39,7 +45,7 @@ extension TimeGroupIndex: Transformable {
             return TimeGroupIndex(date: date, group: group)
         }
         
-        func transformToJSON(value: TimeGroupIndex?) -> [AnyObject]? {
+        func transformToJSON(value: TimeGroupIndex?) -> JSON? {
             guard let index = value else {
                 return nil
             }
@@ -57,11 +63,7 @@ extension DataFrame: Mappable {
     mutating func mapping(map: Map) {
         columns <- map["columns"]
         data <- map["data"]
-        if let transform = I.transform() {
-            indicies <- (map["index"], transform)
-        } else {
-            indicies <- map["index"]
-        }
+        indicies = I.mapTransformable(map["index"]) as! [I]
     }
 }
 
