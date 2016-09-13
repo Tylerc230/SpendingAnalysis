@@ -13,10 +13,12 @@ enum TransitionEvent {
     case appLaunch
     case showTransactionByTime
     case showReconcile
+    case showChartParameters
 }
 
 enum SegueId: String, SegueIdType {
     case transactionsByTimeSegue
+    case chartParameterSegue
     var identifier: String {
         return rawValue
     }
@@ -33,11 +35,15 @@ func transitionForEvent(source: UIViewController, event: TransitionEvent) -> Any
             return nav.topViewController as! MainMenuViewController
         }
         return AnyTransition(transition: transition)
+    case .showChartParameters:
+        let wiring = ChartParameterWiring()
+        let transition = SegueTransition(sourceViewController: source, segueId: SegueId.chartParameterSegue, wiring: wiring)
+        return AnyTransition(transition: transition)
     case .showReconcile:
         fatalError()
     case .showTransactionByTime:
-        let transactionsByTimeWiring = TransactionsByTimeWiring()
-        let transition = SegueTransition(sourceViewController: source, segueId: SegueId.transactionsByTimeSegue, wiring: transactionsByTimeWiring)
+        let wiring = TransactionsByTimeWiring()
+        let transition = SegueTransition(sourceViewController: source, segueId: SegueId.transactionsByTimeSegue, wiring: wiring)
         return AnyTransition(transition: transition)
     }
 }

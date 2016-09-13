@@ -14,6 +14,7 @@ struct TransactionsByTimeWiring: Wiring {
     func wire(viewController: TransactionsByTimeViewController) {
         viewController.disposeBag
             ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear
+            ++ viewModel.showParametersView <~ viewController.parameterButtonTapped
         viewController.setChartDataObservable(viewModel.lineChartData())
     }
     

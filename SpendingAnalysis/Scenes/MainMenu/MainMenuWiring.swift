@@ -13,7 +13,7 @@ struct MainMenuWiring: Wiring {
     let viewModel = MainMenuViewModel()
     func wire(mainMenuView: MainMenuViewController) {
         mainMenuView.disposeBag
-        ++ viewModel.transactionByTimeTapped <~ mainMenuView.transactionByTimeButtonTapped
-        ++ viewModel.reconcileTapped <~ mainMenuView.reconcileButtonTapped
+            ++ viewModel.transactionByTimeTapped <~ mainMenuView.transactionByTimeButtonTapped
+            ++ viewModel.reconcileTapped <~ mainMenuView.reconcileButtonTapped
     }
 }

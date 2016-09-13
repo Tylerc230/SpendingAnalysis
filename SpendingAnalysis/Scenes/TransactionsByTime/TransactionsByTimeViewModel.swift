@@ -11,10 +11,11 @@ import Charts
 typealias TransactionSet = DataFrame<NSDate, Float>
 struct TransactionsByTimeViewModel: ViewModel {
     let queryForCurrentTransactions = PublishSubject<Void>()
+    let showParametersView = PublishSubject<Void>()
     let networkInterface = NetworkInterface()
     
     var events: Observable<TransitionEvent> {
-        return Observable.never()
+        return showParametersView.map { TransitionEvent.showChartParameters }
     }
     
     func lineChartData() -> Observable<[String: TransactionSet]> {
