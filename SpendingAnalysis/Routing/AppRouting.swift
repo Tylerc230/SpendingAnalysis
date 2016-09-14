@@ -14,6 +14,7 @@ enum TransitionEvent {
     case showTransactionByTime
     case showReconcile
     case showChartParameters
+    case chartParametersDismissed
 }
 
 enum SegueId: String, SegueIdType {
@@ -45,5 +46,8 @@ func transitionForEvent(source: UIViewController, event: TransitionEvent) -> Any
         let wiring = TransactionsByTimeWiring()
         let transition = SegueTransition(sourceViewController: source, segueId: SegueId.transactionsByTimeSegue, wiring: wiring)
         return AnyTransition(transition: transition)
+    case .chartParametersDismissed:
+        fatalError()
+        
     }
 }

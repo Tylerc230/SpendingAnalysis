@@ -63,8 +63,21 @@
                     <view key="view" contentMode="scaleToFill" id="XNy-s2-LzB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdD-68-RLK">
+                                <rect key="frame" x="519" y="20" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tdD-68-RLK" firstAttribute="top" secondItem="ucf-vK-T9V" secondAttribute="bottom" id="43r-uZ-2QS"/>
+                            <constraint firstAttribute="trailing" secondItem="tdD-68-RLK" secondAttribute="trailing" constant="42" id="qFd-UV-Dni"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="tdD-68-RLK" id="Jci-Ju-cEV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkZ-T6-Zmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

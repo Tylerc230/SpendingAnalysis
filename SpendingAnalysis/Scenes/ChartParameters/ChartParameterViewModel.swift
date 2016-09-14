@@ -10,7 +10,8 @@ import TBAppScaffold
 import RxSwift
 
 struct ChartParameterViewModel: ViewModel {
+    let closeTapped = PublishSubject<Void>()
     var events: Observable<TransitionEvent> {
-        return Observable.never()
+        return closeTapped.map { .chartParametersDismissed }
     }
 }

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RxSwift
+
 class ChartParameterViewController: UIViewController {
-    override func viewDidLoad() {
-         super.viewDidLoad()
+    @IBOutlet private var closeButton: UIButton!
+    var closeTapped: Observable<Void> {
+        return closeButton.rx_tap.asObservable()
     }
 }

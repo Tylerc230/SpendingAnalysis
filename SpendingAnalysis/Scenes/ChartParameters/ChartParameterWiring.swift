@@ -8,11 +8,17 @@
 
 import TBAppScaffold
 import UIKit
+import RxSwift
+import RxSugar
+
 struct ChartParameterWiring: Wiring {
     let viewModel = ChartParameterViewModel()
     let transitioningDelegate = PopModalTransitioningDelegate()
+    let dispose = DisposeBag()
     func wire(viewController: ChartParameterViewController) {
         viewController.modalPresentationStyle = .Custom
         viewController.transitioningDelegate = transitioningDelegate;
+        dispose
+            ++ viewModel.closeTapped <~ viewController.closeTapped
     }
 }
