@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */; };
 		2F50B71F1D87B7D10079BCB9 /* ChartParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */; };
 		2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */; };
 		2F50B7231D87B8340079BCB9 /* ChartParameterWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B7221D87B8340079BCB9 /* ChartParameterWiring.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		0E407FE472C09065FB9FF2F1 /* Pods-SpendingAnalysisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D61DC1B048F9CDFD3E5431A /* Pods-SpendingAnalysisUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopModalAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterViewController.swift; sourceTree = "<group>"; };
 		2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterViewModel.swift; sourceTree = "<group>"; };
 		2F50B7221D87B8340079BCB9 /* ChartParameterWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterWiring.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				2F50B7261D87C3440079BCB9 /* PopModalTransitioningDelegate.swift */,
+				2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				2FFC1A771D584FA6003B879D /* SpendingAnalysisAPI.swift in Sources */,
 				2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */,
 				2F50B7231D87B8340079BCB9 /* ChartParameterWiring.swift in Sources */,
+				2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */,
 				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,
 				2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */,
