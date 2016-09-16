@@ -47,7 +47,8 @@ func transitionForEvent(source: UIViewController, event: TransitionEvent) -> Any
         let transition = SegueTransition(sourceViewController: source, segueId: SegueId.transactionsByTimeSegue, wiring: wiring)
         return AnyTransition(transition: transition)
     case .chartParametersDismissed:
-        fatalError()
+        let manualDismissTransition = ManualDismissTransition(source: source)
+        return AnyTransition(transition: manualDismissTransition)
         
     }
 }

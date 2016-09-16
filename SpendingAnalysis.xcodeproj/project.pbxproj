@@ -337,7 +337,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F5E4A181CE404CE003759AE /* Build configuration list for PBXNativeTarget "SpendingAnalysis" */;
 			buildPhases = (
-				91327A5D5DC8F253BD870347 /* 📦 Check Pods Manifest.lock */,
+				91327A5D5DC8F253BD870347 /* [CP] Check Pods Manifest.lock */,
 				E36898BE3412E7C0F263647C /* [CP] Check Pods Manifest.lock */,
 				2F5E49EA1CE404CE003759AE /* Sources */,
 				2F5E49EB1CE404CE003759AE /* Frameworks */,
@@ -360,7 +360,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F5E4A1B1CE404CE003759AE /* Build configuration list for PBXNativeTarget "SpendingAnalysisTests" */;
 			buildPhases = (
-				64F3798781A0980E71C664B0 /* 📦 Check Pods Manifest.lock */,
+				64F3798781A0980E71C664B0 /* [CP] Check Pods Manifest.lock */,
 				5406B9A5644B448BD5DA919E /* [CP] Check Pods Manifest.lock */,
 				2F5E4A001CE404CE003759AE /* Sources */,
 				2F5E4A011CE404CE003759AE /* Frameworks */,
@@ -384,7 +384,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F5E4A1E1CE404CE003759AE /* Build configuration list for PBXNativeTarget "SpendingAnalysisUITests" */;
 			buildPhases = (
-				144AC634BFBCBC8B311A004F /* 📦 Check Pods Manifest.lock */,
+				144AC634BFBCBC8B311A004F /* [CP] Check Pods Manifest.lock */,
 				CCE081307810A2401C27174A /* [CP] Check Pods Manifest.lock */,
 				2F5E4A0B1CE404CE003759AE /* Sources */,
 				2F5E4A0C1CE404CE003759AE /* Frameworks */,
@@ -481,14 +481,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		144AC634BFBCBC8B311A004F /* 📦 Check Pods Manifest.lock */ = {
+		144AC634BFBCBC8B311A004F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,14 +556,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		64F3798781A0980E71C664B0 /* 📦 Check Pods Manifest.lock */ = {
+		64F3798781A0980E71C664B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,14 +601,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpendingAnalysis/Pods-SpendingAnalysis-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		91327A5D5DC8F253BD870347 /* 📦 Check Pods Manifest.lock */ = {
+		91327A5D5DC8F253BD870347 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

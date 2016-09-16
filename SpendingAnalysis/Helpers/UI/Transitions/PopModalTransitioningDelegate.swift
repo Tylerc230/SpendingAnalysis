@@ -10,10 +10,10 @@ import UIKit
 
 class PopModalTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PopModalAnimatedTransitioning()
+        return PopModalAnimatedTransitioning(presenting: true)
     }
     
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PopModalAnimatedTransitioning()
+        return PopModalAnimatedTransitioning(presenting: false)
     }
 }
