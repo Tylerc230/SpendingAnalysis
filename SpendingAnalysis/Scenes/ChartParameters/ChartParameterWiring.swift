@@ -19,6 +19,7 @@ struct ChartParameterWiring: Wiring {
         viewController.modalPresentationStyle = .Custom
         viewController.transitioningDelegate = transitioningDelegate;
         dispose
-            ++ viewModel.closeTapped <~ viewController.closeTapped
+            ++ viewModel.closeTapped <~ viewController.parameterView.closeTapped
+            ++ viewController.parameterView.chartParameters <~ viewModel.chartParameters
     }
 }

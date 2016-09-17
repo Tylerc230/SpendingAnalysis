@@ -34,6 +34,7 @@ PODS:
   - RxSwift (2.4)
   - RxSwiftExt (1.0.1):
     - RxSwift (~> 2.1)
+  - SwiftDate (3.0.8)
   - SwiftyBeaver (0.5.3)
   - TBAppScaffold (0.1.0):
     - RxCocoa
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - RxAlamofire
   - RxSwift
+  - SwiftDate
   - SwiftyBeaver
   - TBAppScaffold (from `~/Dropbox/shared_code/TBAppScaffold/`)
 
@@ -68,9 +70,10 @@ SPEC CHECKSUMS:
   RxSugar: 92324a788e2f6fa9843083bcd22353af7c6503cc
   RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
   RxSwiftExt: 308a5f411533c7660da8317cb1b44161f9181ba4
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   SwiftyBeaver: 20afdb23012f8bcacb7e865880e90301bf70ad37
   TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: dfc79ec434763b2556a26e5e9973c8c5080177a3
+PODFILE CHECKSUM: 6a474da90982780e15b42b72dc580e11606a5f97
 
 COCOAPODS: 1.0.1

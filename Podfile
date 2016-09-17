@@ -15,6 +15,7 @@ target 'SpendingAnalysis' do
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper'
   pod 'Moya-ObjectMapper/RxSwift'
+  pod 'SwiftDate'
 
   target 'SpendingAnalysisTests' do
     inherit! :search_paths

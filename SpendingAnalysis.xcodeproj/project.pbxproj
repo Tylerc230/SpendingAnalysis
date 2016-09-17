@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F103F5B1D8C742E00A579BE /* DateRangeSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F103F5A1D8C742E00A579BE /* DateRangeSelectionView.xib */; };
+		2F103F5E1D8C75C300A579BE /* DateRangeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F103F5D1D8C75C300A579BE /* DateRangeSelectionView.swift */; };
+		2F103F601D8C767E00A579BE /* ExpandableViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F103F5F1D8C767E00A579BE /* ExpandableViewType.swift */; };
+		2F103F621D8C7A4700A579BE /* UIView+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F103F611D8C7A4700A579BE /* UIView+Drawing.swift */; };
 		2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */; };
 		2F50B71F1D87B7D10079BCB9 /* ChartParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */; };
 		2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */; };
@@ -19,6 +23,8 @@
 		2F5E4A091CE404CE003759AE /* SpendingAnalysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E4A081CE404CE003759AE /* SpendingAnalysisTests.swift */; };
 		2F5E4A141CE404CE003759AE /* SpendingAnalysisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E4A131CE404CE003759AE /* SpendingAnalysisUITests.swift */; };
 		2F5E4A231CE4057A003759AE /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F5E4A221CE4057A003759AE /* MainMenu.storyboard */; };
+		2F79C6181D8CAACA00A3BF0D /* ChartParameterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79C6171D8CAACA00A3BF0D /* ChartParameterView.swift */; };
+		2F79C61B1D8CBAA200A3BF0D /* ChartParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79C61A1D8CBAA200A3BF0D /* ChartParameters.swift */; };
 		2F9DD98B1D7C898E000160D1 /* DataFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98A1D7C898E000160D1 /* DataFrame.swift */; };
 		2F9DD98D1D7C99EE000160D1 /* Indicies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98C1D7C99EE000160D1 /* Indicies.swift */; };
 		2F9DD9901D847345000160D1 /* DataFrame+Charting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */; };
@@ -62,6 +68,10 @@
 /* Begin PBXFileReference section */
 		0E407FE472C09065FB9FF2F1 /* Pods-SpendingAnalysisTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisTests/Pods-SpendingAnalysisTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D61DC1B048F9CDFD3E5431A /* Pods-SpendingAnalysisUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpendingAnalysisUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpendingAnalysisUITests/Pods-SpendingAnalysisUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F103F5A1D8C742E00A579BE /* DateRangeSelectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateRangeSelectionView.xib; sourceTree = "<group>"; };
+		2F103F5D1D8C75C300A579BE /* DateRangeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRangeSelectionView.swift; sourceTree = "<group>"; };
+		2F103F5F1D8C767E00A579BE /* ExpandableViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableViewType.swift; sourceTree = "<group>"; };
+		2F103F611D8C7A4700A579BE /* UIView+Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Drawing.swift"; sourceTree = "<group>"; };
 		2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopModalAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterViewController.swift; sourceTree = "<group>"; };
 		2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +91,8 @@
 		2F5E4A131CE404CE003759AE /* SpendingAnalysisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingAnalysisUITests.swift; sourceTree = "<group>"; };
 		2F5E4A151CE404CE003759AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F5E4A221CE4057A003759AE /* MainMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		2F79C6171D8CAACA00A3BF0D /* ChartParameterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterView.swift; sourceTree = "<group>"; };
+		2F79C61A1D8CBAA200A3BF0D /* ChartParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameters.swift; sourceTree = "<group>"; };
 		2F9DD98A1D7C898E000160D1 /* DataFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFrame.swift; sourceTree = "<group>"; };
 		2F9DD98C1D7C99EE000160D1 /* Indicies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indicies.swift; sourceTree = "<group>"; };
 		2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFrame+Charting.swift"; sourceTree = "<group>"; };
@@ -135,12 +147,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F103F5C1D8C758D00A579BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F103F5D1D8C75C300A579BE /* DateRangeSelectionView.swift */,
+				2F103F5F1D8C767E00A579BE /* ExpandableViewType.swift */,
+				2F103F611D8C7A4700A579BE /* UIView+Drawing.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2F50B71D1D87B7300079BCB9 /* ChartParameters */ = {
 			isa = PBXGroup;
 			children = (
 				2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */,
 				2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */,
 				2F50B7221D87B8340079BCB9 /* ChartParameterWiring.swift */,
+				2F79C6171D8CAACA00A3BF0D /* ChartParameterView.swift */,
 			);
 			path = ChartParameters;
 			sourceTree = "<group>";
@@ -148,6 +171,7 @@
 		2F50B7241D87C2E20079BCB9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2F103F5C1D8C758D00A579BE /* Views */,
 				2F50B7251D87C3080079BCB9 /* Transitions */,
 			);
 			path = UI;
@@ -225,6 +249,7 @@
 				2F5E4A221CE4057A003759AE /* MainMenu.storyboard */,
 				2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */,
 				2FFC1A711D5841E9003B879D /* Analysis.storyboard */,
+				2F103F5A1D8C742E00A579BE /* DateRangeSelectionView.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -234,6 +259,7 @@
 			children = (
 				2F9DD98A1D7C898E000160D1 /* DataFrame.swift */,
 				2F9DD98C1D7C99EE000160D1 /* Indicies.swift */,
+				2F79C61A1D8CBAA200A3BF0D /* ChartParameters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -459,6 +485,7 @@
 				2F5E4A231CE4057A003759AE /* MainMenu.storyboard in Resources */,
 				2FFC1A721D5841E9003B879D /* Analysis.storyboard in Resources */,
 				2F5E49FE1CE404CE003759AE /* LaunchScreen.storyboard in Resources */,
+				2F103F5B1D8C742E00A579BE /* DateRangeSelectionView.xib in Resources */,
 				2F5E49FB1CE404CE003759AE /* Assets.xcassets in Resources */,
 				2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */,
 			);
@@ -729,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */,
+				2F79C61B1D8CBAA200A3BF0D /* ChartParameters.swift in Sources */,
 				2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */,
 				2FFC1A771D584FA6003B879D /* SpendingAnalysisAPI.swift in Sources */,
 				2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */,
@@ -741,14 +769,18 @@
 				2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */,
 				2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */,
 				2F9DD9901D847345000160D1 /* DataFrame+Charting.swift in Sources */,
+				2F103F601D8C767E00A579BE /* ExpandableViewType.swift in Sources */,
 				2F50B71F1D87B7D10079BCB9 /* ChartParameterViewController.swift in Sources */,
 				2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */,
 				2FEE8B571D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift in Sources */,
 				2FFC1A791D58545C003B879D /* NetworkInterface.swift in Sources */,
 				2F50B7271D87C3440079BCB9 /* PopModalTransitioningDelegate.swift in Sources */,
+				2F79C6181D8CAACA00A3BF0D /* ChartParameterView.swift in Sources */,
 				2FEE8B5A1D45DB3D00EBE248 /* AppRouting.swift in Sources */,
+				2F103F5E1D8C75C300A579BE /* DateRangeSelectionView.swift in Sources */,
 				2F5E49F21CE404CE003759AE /* AppDelegate.swift in Sources */,
 				2FEE8B531D45DA7400EBE248 /* CreateTrackingReportViewController.swift in Sources */,
+				2F103F621D8C7A4700A579BE /* UIView+Drawing.swift in Sources */,
 				2F9DD98D1D7C99EE000160D1 /* Indicies.swift in Sources */,
 				2F9DD98B1D7C898E000160D1 /* DataFrame.swift in Sources */,
 			);
