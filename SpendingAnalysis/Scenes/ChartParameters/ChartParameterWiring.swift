@@ -21,5 +21,7 @@ struct ChartParameterWiring: Wiring {
         dispose
             ++ viewModel.closeTapped <~ viewController.parameterView.closeTapped
             ++ viewController.parameterView.chartParameters <~ viewModel.chartParameterStrings
+            ++ viewController.parameterView.expandedRows <~ viewModel.expandedParameters
+            ++ viewModel.parameterTappedAtIndex <~ viewController.parameterView.rowSelected
     }
 }
