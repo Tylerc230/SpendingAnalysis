@@ -12,7 +12,7 @@ import RxCocoa
 class ChartParameterView: UIView {
     @IBOutlet private var closeButton: UIButton!
     @IBOutlet private var tableView: UITableView!
-    let chartParameters = PublishSubject<CommonChartParameters>()
+    let chartParameters = PublishSubject<[String]>()
     
     let dispose = DisposeBag()
     override func awakeFromNib() {
@@ -25,22 +25,21 @@ class ChartParameterView: UIView {
         return closeButton.rx_tap.asObservable()
     }
     
-    private func setupTableView(params: Observable<CommonChartParameters>) {
+    private func setupTableView(params: Observable<[String]>) {
         params
-            .map { [$0.dateRange as Any, $0.transactionTypes as Any] }
             .bindTo(tableView.rx_itemsWithCellFactory) { (tableView, row, parameter) in
                 let cell: UITableViewCell
                 switch row {
                 case 0:
                     let dateRangeCell = tableView.dequeueReusableCellWithIdentifier("DateRangeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
-                    guard let parameter = parameter as? CommonChartParameters.DateRangeParameter else {
-                        fatalError()
-                    }
                     dateRangeCell.expandableView.selectedDateRange = parameter
                     
                     cell = dateRangeCell
                 case 1:
-                    cell = tableView.dequeueReusableCellWithIdentifier("TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
+                    let transactionTypeCell = tableView.dequeueReusableCellWithIdentifier("TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
+                    transactionTypeCell.expandableView.selectedDateRange = parameter
+                    cell = transactionTypeCell
+                    
                 default:
                     fatalError()
                 }

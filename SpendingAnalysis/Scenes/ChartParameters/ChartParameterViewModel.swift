@@ -11,10 +11,48 @@ import RxSwift
 
 struct ChartParameterViewModel: ViewModel {
     let closeTapped = PublishSubject<Void>()
-    var chartParameters: Observable<CommonChartParameters> {
-        return Observable<CommonChartParameters>.just(CommonChartParameters(dateRange: .yearToDate, transactionTypes: []))
+    let currentChartParameter: BehaviorSubject<CommonChartParameters>
+    var chartParameterStrings: Observable<[String]> {
+        return currentChartParameter.map(chartParameterToStringArray)
     }
     var events: Observable<TransitionEvent> {
         return closeTapped.map { .chartParametersDismissed }
+    }
+    
+    init() {
+        let initialParameters = CommonChartParameters(dateRange: .yearToDate, transactionTypes: [])
+        currentChartParameter = BehaviorSubject<CommonChartParameters>(value: initialParameters)
+    }
+}
+
+let dateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.timeStyle = .NoStyle
+    formatter.dateStyle = .ShortStyle
+    return formatter
+}()
+
+private func chartParameterToStringArray(chartParameter: CommonChartParameters) -> [String] {
+    return [chartParameter.dateRange.toString(), "Types here"]
+}
+
+extension CommonChartParameters.DateRangeParameter {
+    private func toString() -> String {
+        let text: String
+        switch self {
+        case .yearToDate:
+            text = "ytd"
+        case .monthToDate:
+            text = "mtd"
+        case .years(let years):
+            text = years == 1 ? "1 year" : "\(years) years"
+        case .months(let months):
+            text = months == 1 ? "1 month" : "\(months) months"
+        case .custom(let start, let end):
+            let startText = dateFormatter.stringFromDate(start)
+            let endText = dateFormatter.stringFromDate(end)
+            text = "\(startText) - \(endText)"
+        }
+        return text
     }
 }

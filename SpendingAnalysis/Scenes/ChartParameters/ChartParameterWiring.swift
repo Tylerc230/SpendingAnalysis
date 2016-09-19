@@ -20,6 +20,6 @@ struct ChartParameterWiring: Wiring {
         viewController.transitioningDelegate = transitioningDelegate;
         dispose
             ++ viewModel.closeTapped <~ viewController.parameterView.closeTapped
-            ++ viewController.parameterView.chartParameters <~ viewModel.chartParameters
+            ++ viewController.parameterView.chartParameters <~ viewModel.chartParameterStrings
     }
 }
