@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.4.0)
+  - Cartography (0.6.0)
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
@@ -43,6 +44,7 @@ PODS:
     - RxSwiftExt
 
 DEPENDENCIES:
+  - Cartography
   - Charts
   - Moya
   - Moya-ObjectMapper
@@ -60,6 +62,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   Moya: f004b82418fb8165ee1fc9f86190db4b3611fda9
   Moya-ObjectMapper: 52f15abd982efc8ba2ce3fc49619555c926c14a1
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 20afdb23012f8bcacb7e865880e90301bf70ad37
   TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: 6a474da90982780e15b42b72dc580e11606a5f97
+PODFILE CHECKSUM: d4ed2dd37abca235f55aa2fe9a5c25c4d7e0927b
 
 COCOAPODS: 1.0.1

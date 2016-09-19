@@ -24,7 +24,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="0.086006425260000005" blue="0.091020154419999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="Sfq-t3-QHp" firstAttribute="centerY" secondItem="wZ2-yS-TBE" secondAttribute="centerY" id="4QV-Pt-MXN"/>
                                 <constraint firstItem="Sfq-t3-QHp" firstAttribute="centerX" secondItem="wZ2-yS-TBE" secondAttribute="centerX" id="eBz-s6-IUv"/>
@@ -48,6 +48,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
                 <outlet property="expandedView" destination="Fe7-C5-jt1" id="VOW-ic-3kc"/>
+                <outlet property="selectedRangeLabel" destination="Sfq-t3-QHp" id="Aar-Ng-2xY"/>
                 <outlet property="stackView" destination="NM2-C2-tHC" id="Rcy-0K-ARe"/>
             </connections>
         </view>
