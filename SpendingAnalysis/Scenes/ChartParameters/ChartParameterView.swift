@@ -27,10 +27,12 @@ class ChartParameterView: UIView {
     }
     
     var rowSelected: Observable<Int> {
-        return tableView.rx_itemSelected.asObservable().map { $0.row }.debug("Row selected")
+        return tableView.rx_itemSelected.asObservable().map { $0.row }
     }
     
     private func setupTableView(params: Observable<[String]>) {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 30.0
         Observable.combineLatest(params, expandedRows) { (currentStateStrings, isExpanded) in
             return zip(currentStateStrings, isExpanded)
         }
@@ -40,24 +42,13 @@ class ChartParameterView: UIView {
                 case 0:
                     let dateRangeCell = tableView.dequeueReusableCellWithIdentifier("DateRangeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
                     dateRangeCell.expandableView.selectedDateRange = parameter.0
-                    if parameter.1 {
-                       dateRangeCell.expandableView.expand()
-                    } else {
-                       dateRangeCell.expandableView.contract()
-                    }
-                    
+                    dateRangeCell.expandableView.setExpanded(parameter.1)
                     cell = dateRangeCell
                 case 1:
                     let transactionTypeCell = tableView.dequeueReusableCellWithIdentifier("TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
                     transactionTypeCell.expandableView.selectedDateRange = parameter.0
+                    transactionTypeCell.expandableView.setExpanded(parameter.1)
                     cell = transactionTypeCell
-                    if parameter.1 {
-                        transactionTypeCell.expandableView.expand()
-                    } else {
-                        transactionTypeCell.expandableView.contract()
-                    }
-                    
-                    
                 default:
                     fatalError()
                 }
@@ -66,6 +57,8 @@ class ChartParameterView: UIView {
             }
             .addDisposableTo(dispose)
     }
+    
+    
     
     private func registerCells() {
         tableView.registerClass(ExpandableTableViewCell<DateRangeSelectionView>.self, forCellReuseIdentifier: "DateRangeCell")

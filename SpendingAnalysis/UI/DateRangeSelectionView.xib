@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DateRangeSelectionView" customModule="SpendingAnalysis" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NM2-C2-tHC">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-yS-TBE">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
@@ -28,12 +28,15 @@
                             <constraints>
                                 <constraint firstItem="Sfq-t3-QHp" firstAttribute="centerY" secondItem="wZ2-yS-TBE" secondAttribute="centerY" id="4QV-Pt-MXN"/>
                                 <constraint firstItem="Sfq-t3-QHp" firstAttribute="centerX" secondItem="wZ2-yS-TBE" secondAttribute="centerX" id="eBz-s6-IUv"/>
-                                <constraint firstAttribute="height" constant="30" id="fA8-aB-Rex"/>
+                                <constraint firstAttribute="height" priority="999" constant="30" id="fA8-aB-Rex"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fe7-C5-jt1">
-                            <rect key="frame" x="0.0" y="30" width="600" height="570"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="0.0" y="30" width="600" height="60"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" priority="999" constant="60" id="VaL-hl-TET"/>
+                            </constraints>
                         </view>
                     </subviews>
                 </stackView>
@@ -46,11 +49,13 @@
                 <constraint firstAttribute="bottom" secondItem="NM2-C2-tHC" secondAttribute="bottom" id="tHa-rx-KYX"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="expandedView" destination="Fe7-C5-jt1" id="VOW-ic-3kc"/>
                 <outlet property="selectedRangeLabel" destination="Sfq-t3-QHp" id="Aar-Ng-2xY"/>
                 <outlet property="stackView" destination="NM2-C2-tHC" id="Rcy-0K-ARe"/>
             </connections>
+            <point key="canvasLocation" x="742" y="253.5"/>
         </view>
     </objects>
 </document>
