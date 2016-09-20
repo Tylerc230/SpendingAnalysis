@@ -30,6 +30,7 @@
 		2F9DD9901D847345000160D1 /* DataFrame+Charting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */; };
 		2F9E6EDE1D904ABF00B8DEB8 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6EDD1D904ABF00B8DEB8 /* NibLoadable.swift */; };
 		2F9E6EE01D904E9D00B8DEB8 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6EDF1D904E9D00B8DEB8 /* ExpandableTableViewCell.swift */; };
+		2F9E6EE31D909D3A00B8DEB8 /* UITableViewCell+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6EE21D909D3A00B8DEB8 /* UITableViewCell+Rx.swift */; };
 		2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */; };
 		2FEE8B531D45DA7400EBE248 /* CreateTrackingReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */; };
 		2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */; };
@@ -100,6 +101,7 @@
 		2F9DD98F1D847345000160D1 /* DataFrame+Charting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataFrame+Charting.swift"; sourceTree = "<group>"; };
 		2F9E6EDD1D904ABF00B8DEB8 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		2F9E6EDF1D904E9D00B8DEB8 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
+		2F9E6EE21D909D3A00B8DEB8 /* UITableViewCell+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Rx.swift"; sourceTree = "<group>"; };
 		2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reconcile.storyboard; sourceTree = "<group>"; };
 		2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportViewController.swift; sourceTree = "<group>"; };
 		2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportWiring.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		2F50B7241D87C2E20079BCB9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2F9E6EE11D909D1900B8DEB8 /* RxExtensions */,
 				2F103F5C1D8C758D00A579BE /* Views */,
 				2F50B7251D87C3080079BCB9 /* Transitions */,
 				2F9E6EDD1D904ABF00B8DEB8 /* NibLoadable.swift */,
@@ -285,6 +288,14 @@
 				2F9E6EDF1D904E9D00B8DEB8 /* ExpandableTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		2F9E6EE11D909D1900B8DEB8 /* RxExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				2F9E6EE21D909D3A00B8DEB8 /* UITableViewCell+Rx.swift */,
+			);
+			path = RxExtensions;
 			sourceTree = "<group>";
 		};
 		2FEE8B501D45DA1B00EBE248 /* Scenes */ = {
@@ -772,6 +783,7 @@
 				2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */,
 				2F79C61B1D8CBAA200A3BF0D /* ChartParameters.swift in Sources */,
 				2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */,
+				2F9E6EE31D909D3A00B8DEB8 /* UITableViewCell+Rx.swift in Sources */,
 				2FFC1A771D584FA6003B879D /* SpendingAnalysisAPI.swift in Sources */,
 				2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */,
 				2F50B7231D87B8340079BCB9 /* ChartParameterWiring.swift in Sources */,

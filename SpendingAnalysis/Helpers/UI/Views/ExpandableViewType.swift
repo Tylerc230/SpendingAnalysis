@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
 protocol ExpandableViewType {
     associatedtype ExpandedView: UIView
     var stackView: UIStackView! { get }
@@ -16,7 +19,16 @@ protocol ExpandableViewType {
     func collapse()
 }
 
-extension ExpandableViewType {
+extension ExpandableViewType where Self: UIView {
+    var expandedObserver: AnyObserver<Bool> {
+        return AnyObserver<Bool> { [unowned self] event in
+            guard case .Next(let next) = event else {
+                return
+            }
+            print("set expanded")
+            self.setExpanded(next)
+        }
+    }
     
     func setExpanded(expanded: Bool) {
         if expanded {
