@@ -11,7 +11,8 @@ import Moya_ObjectMapper
 let dateTransform = CustomDateFormatTransform(formatString: "yyyy-MM-dd")
 let timestampTransform = DateTransform()
 typealias TransactionsResponse = PagedResponse<Transaction>
-typealias ExpenseOverTimeResponse = DataFrame<TimeGroupIndex, Float>
+typealias TransactionSet = DataFrame<NSDate, Float>
+typealias GroupedTransactionSet = DataFrame<TimeGroupIndex, Float>
 
 protocol Transformable {
     associatedtype T
@@ -34,15 +35,18 @@ extension TimeGroupIndex: Transformable {
         return timeGroupIndex!
     }
     static func transform() -> TransformOf<TimeGroupIndex, JSON> {
-        func transformFromJSON(value: JSON?) -> TimeGroupIndex? {
+        func transformFromJSON(json: JSON?) -> TimeGroupIndex? {
             guard
-                let value = value,
-                let timestamp = value[0] as? Double,
-                let group = value[1] as? String else {
-                    return nil
+                let value = json,
+                let timestamp = value[0] as? Double else {
+                    fatalError("Failed to parse TimeGroupIndex: \(json)")
             }
             let date = NSDate(timeIntervalSince1970: timestamp)
-            return TimeGroupIndex(date: date, group: group)
+            if let group = value[1] as? String {
+                return TimeGroupIndex(date: date, group: group)
+            } else {
+                return TimeGroupIndex(date: date, group: "total")
+            }
         }
         
         func transformToJSON(value: TimeGroupIndex?) -> JSON? {

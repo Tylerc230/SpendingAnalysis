@@ -15,7 +15,7 @@ struct TransactionsByTimeWiring: Wiring {
         viewController.disposeBag
             ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear
             ++ viewModel.showParametersView <~ viewController.parameterButtonTapped
-        viewController.setChartDataObservable(viewModel.lineChartData())
+            ++ viewController.transactionsByTimeView.lineChartData <~ viewModel.lineChartData()
     }
     
 }

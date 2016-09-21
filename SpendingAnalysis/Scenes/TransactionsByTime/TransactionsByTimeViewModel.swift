@@ -8,7 +8,7 @@
 import TBAppScaffold
 import RxSwift
 import Charts
-typealias TransactionSet = DataFrame<NSDate, Float>
+typealias GroupDefinition = [String: [String]]
 struct TransactionsByTimeViewModel: ViewModel {
     let queryForCurrentTransactions = PublishSubject<Void>()
     let showParametersView = PublishSubject<Void>()
@@ -22,13 +22,24 @@ struct TransactionsByTimeViewModel: ViewModel {
         return queryForCurrentTransactions
             .asObserver()
             .flatMap {
-                return self.networkInterface.getExpensesOverTime(start: NSDate(timeIntervalSince1970: 1422751084), end: NSDate(), includeTypes: ["rides": ["rideshare"], "morts": ["mortgage"]])
+                return self.networkInterface.getExpensesOverTime()
+            }
+            .map {
+                return ["total": $0]
+        }
+    }
+    
+    func groupedLineChartData(includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
+        return queryForCurrentTransactions
+            .asObserver()
+            .flatMap {
+                return self.networkInterface.getGroupedExpensesOverTime(start: NSDate(timeIntervalSince1970: 1422751084), end: NSDate(), includeTypes: includeTypes)
         }
         .map(splitDataFrameOnGroups)
     }
 }
 
-private func splitDataFrameOnGroups(dataFrame: ExpenseOverTimeResponse) -> [String: TransactionSet] {
+private func splitDataFrameOnGroups(dataFrame: GroupedTransactionSet) -> [String: TransactionSet] {
     return dataFrame
         .indicies
         .reduce(Set<String>()) { (groups, index) in

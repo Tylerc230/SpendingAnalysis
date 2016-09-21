@@ -16,15 +16,13 @@ class TransactionsByTimeViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     func setChartDataObservable(chartData: Observable<[String: TransactionSet]>) {
-        disposeBag
-            ++ transactionsByTimeView.lineChartData <~ chartData
     }
     
     var parameterButtonTapped: Observable<Void> {
         return parameterButton.rx_tap.asObservable()
     }
     
-    private var transactionsByTimeView: TransactionsByTimeView {
+    var transactionsByTimeView: TransactionsByTimeView {
         return self.view as! TransactionsByTimeView
     }
     
