@@ -20,7 +20,7 @@ class PopModalAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitio
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         let duration = transitionDuration(transitionContext)
-        let container = transitionContext.containerView()!
+        let container = transitionContext.containerView()
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         container.addSubview(fromViewController.view)

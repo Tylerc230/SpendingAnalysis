@@ -17,6 +17,6 @@ extension UIView {
     private static func loadFromNibHelper<T>(owner: AnyObject?) -> T {
         let nibName = String(self).componentsSeparatedByString(".").last!
         let nib = NSBundle.mainBundle().loadNibNamed(nibName, owner: owner, options: nil)
-        return nib.filter { $0 is UIView }.first as! T
+        return nib!.filter { $0 is UIView }.first as! T
     }
 }
