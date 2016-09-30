@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
- platform :ios, '9.0'
+ platform :ios, '10.0'
 
 target 'SpendingAnalysis' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,13 +7,15 @@ target 'SpendingAnalysis' do
 
   # Pods for SpendingAnalysis
   pod "SwiftyBeaver"
-  pod "RxSwift"
-  pod 'RxAlamofire'
+  pod "RxSwift", '~>2.6.0'
+  pod "RxCocoa", '2.6.0'
   pod 'TBAppScaffold', :path => "~/Dropbox/shared_code/TBAppScaffold/"
   pod 'Charts'
-  pod 'Moya'
+  
+  
+  pod 'Moya','~>7.0.2'
   pod 'Moya/RxSwift'
-  pod 'Moya-ObjectMapper'
+  pod 'Moya-ObjectMapper', '1.4'
   pod 'Moya-ObjectMapper/RxSwift'
   pod 'SwiftDate'
   pod 'Cartography'
@@ -28,4 +30,12 @@ target 'SpendingAnalysis' do
     # Pods for testing
   end
 
+end
+
+post_install do |installer|
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |config|
+config.build_settings['SWIFT_VERSION'] = '2.3'
+end
+end
 end
