@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kGJ-4S-p5W">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kGJ-4S-p5W">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Main Menu View Controller-->
@@ -15,14 +16,13 @@
                         <viewControllerLayoutGuide type="bottom" id="xt7-nb-WwV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ucq-KC-xct">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-hv-xUt">
-                                <rect key="frame" x="150" y="240" width="300" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-hv-xUt">
+                                <frame key="frameInset" minX="150" minY="240" width="300" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C54-yQ-Rab">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="300" id="7hE-Dk-1YH"/>
                                             <constraint firstAttribute="height" constant="60" id="lxX-ze-v2b"/>
@@ -30,7 +30,6 @@
                                         <state key="normal" title="Transactions Over Time"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg8-nN-pTf">
-                                        <rect key="frame" x="0.0" y="60" width="300" height="60"/>
                                         <state key="normal" title="Reconcile"/>
                                         <connections>
                                             <segue destination="ZHB-cy-oyW" kind="show" id="6rS-eT-d0g"/>
@@ -41,8 +40,8 @@
                                     <constraint firstItem="kg8-nN-pTf" firstAttribute="height" secondItem="C54-yQ-Rab" secondAttribute="height" id="VuF-je-Il8"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akI-oZ-0r8">
-                                <rect key="frame" x="444" y="545" width="131" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akI-oZ-0r8">
+                                <frame key="frameInset" minX="444" minY="545" width="131" height="30"/>
                                 <state key="normal" title="Report Transaction"/>
                                 <connections>
                                     <segue destination="J93-4j-fP8" kind="popoverPresentation" popoverAnchorView="akI-oZ-0r8" id="nA2-0b-FXX">
@@ -51,7 +50,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Y9x-hv-xUt" secondAttribute="trailing" id="3c0-RU-TDf"/>
                             <constraint firstItem="Y9x-hv-xUt" firstAttribute="centerX" secondItem="Ucq-KC-xct" secondAttribute="centerX" id="LYe-pe-glN"/>
@@ -101,27 +100,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dfo-DM-6gQ">
-                                <rect key="frame" x="0.0" y="30" width="600" height="337"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmH-V7-V46">
-                                        <rect key="frame" x="140" y="0.0" width="320" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-HG-QJx">
-                                        <rect key="frame" x="140" y="40" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="491116734.39973098">
                                             <!--2016-07-25 05:18:54 +0000-->
                                         </date>
                                     </datePicker>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OzK-xI-D7Z">
-                                        <rect key="frame" x="140" y="266" width="320" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9h6-Ho-QNj">
-                                        <rect key="frame" x="276" y="306" width="51" height="31"/>
-                                    </switch>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9h6-Ho-QNj"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jmH-V7-V46" firstAttribute="width" secondItem="l7E-HG-QJx" secondAttribute="width" id="SHb-bP-D74"/>
@@ -129,7 +122,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Dfo-DM-6gQ" secondAttribute="trailing" id="FeA-uR-g7n"/>
                             <constraint firstItem="Dfo-DM-6gQ" firstAttribute="leading" secondItem="Yjg-jX-7lP" secondAttribute="leading" id="Qdj-Ft-UES"/>

@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Transactions By Time View Controller-->
@@ -14,25 +15,25 @@
                         <viewControllerLayoutGuide type="bottom" id="Thf-KG-0K5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lfH-5a-VIP" customClass="TransactionsByTimeView" customModule="SpendingAnalysis" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nj-v1-XEp" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5nj-v1-XEp" customClass="LineChartView" customModule="Charts">
+                                <frame key="frameInset" minY="20" width="600" height="580"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZA-gF-1VS">
-                                        <rect key="frame" x="492" y="530" width="79" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZA-gF-1VS">
+                                        <frame key="frameInset" minX="492" minY="530" width="79" height="30"/>
                                         <state key="normal" title="Parameters"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qZA-gF-1VS" secondAttribute="trailing" constant="29" id="5k5-G3-GsM"/>
                                     <constraint firstAttribute="bottom" secondItem="qZA-gF-1VS" secondAttribute="bottom" constant="20" id="exa-yg-u6h"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5nj-v1-XEp" firstAttribute="leading" secondItem="lfH-5a-VIP" secondAttribute="leading" id="QOz-54-lSn"/>
                             <constraint firstItem="Thf-KG-0K5" firstAttribute="top" secondItem="5nj-v1-XEp" secondAttribute="bottom" id="hdm-sH-gXh"/>
@@ -61,19 +62,17 @@
                         <viewControllerLayoutGuide type="bottom" id="f2R-2T-tpM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XNy-s2-LzB" customClass="ChartParameterView" customModule="SpendingAnalysis" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdD-68-RLK">
-                                <rect key="frame" x="519" y="20" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2EB-U4-Ior">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2EB-U4-Ior" firstAttribute="leading" secondItem="XNy-s2-LzB" secondAttribute="leading" id="2cc-qo-k5b"/>
                             <constraint firstItem="tdD-68-RLK" firstAttribute="top" secondItem="ucf-vK-T9V" secondAttribute="bottom" id="43r-uZ-2QS"/>
