@@ -8,16 +8,27 @@
 
 import TBAppScaffold
 import RxSwift
+enum ChartParameter {
+    case dateRange, transactionTypes
+}
+
+private let dateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.timeStyle = .NoStyle
+    formatter.dateStyle = .ShortStyle
+    return formatter
+}()
 
 struct ChartParameterViewModel: ViewModel {
     let closeTapped = PublishSubject<Void>()
     let currentChartParameter: BehaviorSubject<CommonChartParameters>
     let parameterTappedAtIndex = PublishSubject<Int>()
-    var chartParameterStrings: Observable<[String]> {
-        return currentChartParameter.map(chartParameterToStringArray)
-    }
     var events: Observable<TransitionEvent> {
         return closeTapped.map { .chartParametersDismissed }
+    }
+    
+    var chartParameters: Observable<[ChartParameter]> {
+        return Observable.just([ChartParameter.dateRange, ChartParameter.transactionTypes])
     }
     
     var expandedParameters: Observable<[Bool]> {
@@ -30,36 +41,32 @@ struct ChartParameterViewModel: ViewModel {
             .startWith(Array<Bool>(count: 2, repeatedValue: false))
     }
     
+    var dateRangeString: Observable<String> {
+        return currentChartParameter.map { $0.dateRange.toString() }
+    }
     
     init() {
-        let initialParameters = CommonChartParameters(dateRange: .yearToDate, transactionTypes: [])
+        let initialParameters = CommonChartParameters(dateRange: .numYears(0), transactionTypes: [])
         currentChartParameter = BehaviorSubject<CommonChartParameters>(value: initialParameters)
     }
-}
-
-let dateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.timeStyle = .NoStyle
-    formatter.dateStyle = .ShortStyle
-    return formatter
-}()
-
-private func chartParameterToStringArray(chartParameter: CommonChartParameters) -> [String] {
-    return [chartParameter.dateRange.toString(), "Types here"]
 }
 
 extension CommonChartParameters.DateRangeParameter {
     private func toString() -> String {
         let text: String
         switch self {
-        case .yearToDate:
+        case let .numYears(years):
+            text = "\(years) years"
+        case let .numMonths(months):
+            text = "\(months) months"
+        case .yearsAgo(let years) where years == 0:
             text = "ytd"
-        case .monthToDate:
+        case .yearsAgo(let years) :
+            text = years == 1 ? "1 year ago" : "\(years) years ago"
+        case .monthsAgo(let months) where months == 0:
             text = "mtd"
-        case .years(let years):
-            text = years == 1 ? "1 year" : "\(years) years"
-        case .months(let months):
-            text = months == 1 ? "1 month" : "\(months) months"
+        case .monthsAgo(let months):
+            text = months == 1 ? "1 month ago" : "\(months) months ago"
         case .custom(let start, let end):
             let startText = dateFormatter.stringFromDate(start)
             let endText = dateFormatter.stringFromDate(end)

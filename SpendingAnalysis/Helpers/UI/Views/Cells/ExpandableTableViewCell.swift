@@ -7,13 +7,20 @@
 //
 import UIKit
 import Cartography
+import RxSwift
 
 class ExpandableTableViewCell<View: UIView where View: ExpandableViewType>: UITableViewCell {
     var expandableView: View
+    var disposeBag = DisposeBag()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         expandableView = View.loadFromNib()
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addExpandableView(expandableView)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     private func addExpandableView(view: View) {

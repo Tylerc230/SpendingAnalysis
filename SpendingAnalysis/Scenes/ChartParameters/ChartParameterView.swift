@@ -13,9 +13,12 @@ import RxSugar
 class ChartParameterView: UIView {
     @IBOutlet private var closeButton: UIButton!
     @IBOutlet private var tableView: UITableView!
-    let chartParameters = PublishSubject<[String]>()
+    let chartParameters = PublishSubject<[ChartParameter]>()
     let expandedRows = PublishSubject<[Bool]>()
     var expansionUpdate: Observable<[Bool]> = Observable.never()
+    
+    let dateRangeSelection = PublishSubject<CommonChartParameters.DateRangeParameter>()
+    let selectedDateRangeString = PublishSubject<String>()
     
     let dispose = DisposeBag()
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +36,7 @@ class ChartParameterView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         registerCells()
-        setupTableView(chartParameters)
+        setupTableView()
     }
     
     var closeTapped: Observable<Void> {
@@ -44,25 +47,25 @@ class ChartParameterView: UIView {
         return tableView.rx_itemSelected.asObservable().map { $0.row }
     }
     
-    private func setupTableView(params: Observable<[String]>) {
+    private func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 30.0
-        params
+        chartParameters
             .bindTo(tableView.rx_itemsWithCellFactory) { [unowned self] (tableView, row, parameter) in
                 let cell: UITableViewCell
-                switch row {
-                case 0:
+                switch parameter {
+                case .dateRange:
                     let dateRangeCell = tableView.dequeueReusableCellWithIdentifier("DateRangeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
-                    dateRangeCell.expandableView.selectedDateRange = parameter
                     self.addExpansionObservable(dateRangeCell, row: row)
+                    let dateRangeView = dateRangeCell.expandableView
+                    dateRangeCell.disposeBag
+                        ++ self.dateRangeSelection <~ dateRangeView.dateRange
+                        ++ dateRangeCell.expandableView.selectedDateRange <~ self.selectedDateRangeString
                     cell = dateRangeCell
-                case 1:
+                case .transactionTypes:
                     let transactionTypeCell = tableView.dequeueReusableCellWithIdentifier("TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
-                    transactionTypeCell.expandableView.selectedDateRange = parameter
                     self.addExpansionObservable(transactionTypeCell, row: row)
                     cell = transactionTypeCell
-                default:
-                    fatalError()
                 }
                 cell.selectionStyle = .None
                 return cell
@@ -73,7 +76,9 @@ class ChartParameterView: UIView {
 
     private func addExpansionObservable<T: ExpandableViewType> (cell: ExpandableTableViewCell<T>, row: Int) {
         self.dispose
-            ++ cell.expandableView.expandedObserver <~ self.expansionUpdate.map { $0[row] }.takeUntil(cell.prepareForReuseObservable).debug("Expansion tapped")
+            ++ cell.expandableView.expandedObserver <~ self.expansionUpdate
+                .map { $0[row] }
+                .takeUntil(cell.prepareForReuseObservable)
     }
     
     

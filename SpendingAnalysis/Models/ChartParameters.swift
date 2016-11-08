@@ -9,7 +9,9 @@ import Foundation
 
 struct CommonChartParameters {
     enum DateRangeParameter {
-        case yearToDate, monthToDate, years(Int), months(Int), custom(NSDate, NSDate)
+        case numYears(Int), numMonths(Int)//Represents range starting x number of years (or months) going to the present
+        case yearsAgo(Int), monthsAgo(Int)//Represents 1 year (or month) starting x years (or months ago). 0 represents year to date
+        case custom(NSDate, NSDate)
     }
     let dateRange: DateRangeParameter
     let transactionTypes: [String]
