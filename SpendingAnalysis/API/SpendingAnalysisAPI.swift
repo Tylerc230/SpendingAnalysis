@@ -34,8 +34,8 @@ enum BinSize {
 extension SpendingAnalysisAPI: TargetType {
     var baseURL: NSURL {
 //        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
-//        return NSURL(string:"http://localhost:5000")!
-        return NSURL(string:"http://localhost.charlesproxy.com:5000")!
+        return NSURL(string:"http://localhost:5000")!
+//        return NSURL(string:"http://localhost.charlesproxy.com:5000")!
     }
     
     var path: String {

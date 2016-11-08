@@ -8,12 +8,13 @@
 
 import Foundation
 import TBAppScaffold
+import RxSwift
 
 enum TransitionEvent {
     case appLaunch
     case showTransactionByTime
     case showReconcile
-    case showChartParameters
+    case showChartParameters(AnyObserver<CommonChartParameters>)
     case chartParametersDismissed
 }
 
@@ -36,8 +37,8 @@ func transitionForEvent(source: UIViewController, event: TransitionEvent) -> Any
             return nav.topViewController as! MainMenuViewController
         }
         return AnyTransition(transition: transition)
-    case .showChartParameters:
-        let wiring = ChartParameterWiring()
+    case let .showChartParameters(chartParameterObserver):
+        let wiring = ChartParameterWiring(parameterObserver: chartParameterObserver)
         let transition = SegueTransition(sourceViewController: source, segueId: SegueId.chartParameterSegue, wiring: wiring)
         return AnyTransition(transition: transition)
     case .showReconcile:

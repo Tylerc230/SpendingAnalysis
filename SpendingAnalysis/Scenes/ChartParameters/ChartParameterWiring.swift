@@ -14,7 +14,12 @@ import RxSugar
 struct ChartParameterWiring: Wiring {
     let viewModel = ChartParameterViewModel()
     let transitioningDelegate = PopModalTransitioningDelegate()
+    let parameterObserver: AnyObserver<CommonChartParameters>
     let dispose = DisposeBag()
+    init(parameterObserver: AnyObserver<CommonChartParameters>) {
+        self.parameterObserver = parameterObserver
+    }
+    
     func wire(viewController: ChartParameterViewController) {
         viewController.modalPresentationStyle = .Custom
         viewController.transitioningDelegate = transitioningDelegate;
@@ -25,5 +30,6 @@ struct ChartParameterWiring: Wiring {
             ++ viewController.parameterView.expandedRows <~ viewModel.expandedParameters
             ++ viewModel.parameterTappedAtIndex <~ viewController.parameterView.rowSelected
             ++ viewModel.currentChartParameter <~ viewController.currentChartParameters
+            ++ self.parameterObserver <~ viewModel.currentChartParameter
     }
 }

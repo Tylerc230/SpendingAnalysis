@@ -13,7 +13,7 @@ struct TransactionsByTimeWiring: Wiring {
     let viewModel = TransactionsByTimeViewModel()
     func wire(viewController: TransactionsByTimeViewController) {
         viewController.disposeBag
-            ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear
+            ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear.map { CommonChartParameters.defaultParameters }
             ++ viewModel.showParametersView <~ viewController.parameterButtonTapped
             ++ viewController.transactionsByTimeView.lineChartData <~ viewModel.lineChartData()
     }

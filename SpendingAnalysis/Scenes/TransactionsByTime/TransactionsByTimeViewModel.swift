@@ -10,18 +10,18 @@ import RxSwift
 import Charts
 typealias GroupDefinition = [String: [String]]
 struct TransactionsByTimeViewModel: ViewModel {
-    let queryForCurrentTransactions = PublishSubject<Void>()
+    let queryForCurrentTransactions = PublishSubject<CommonChartParameters>()
     let showParametersView = PublishSubject<Void>()
     let networkInterface = NetworkInterface()
     
     var events: Observable<TransitionEvent> {
-        return showParametersView.map { TransitionEvent.showChartParameters }
+        return showParametersView.map { TransitionEvent.showChartParameters(self.queryForCurrentTransactions.asObserver()) }
     }
     
     func lineChartData() -> Observable<[String: TransactionSet]> {
         return queryForCurrentTransactions
             .asObserver()
-            .flatMap {
+            .flatMap { currentChartParameters in
                 return self.networkInterface.getExpensesOverTime()
             }
             .map {
@@ -32,7 +32,7 @@ struct TransactionsByTimeViewModel: ViewModel {
     func groupedLineChartData(includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
         return queryForCurrentTransactions
             .asObserver()
-            .flatMap {
+            .flatMap { currentChartParameters in
                 return self.networkInterface.getGroupedExpensesOverTime(start: NSDate(timeIntervalSince1970: 1422751084), end: NSDate(), includeTypes: includeTypes)
         }
         .map(splitDataFrameOnGroups)

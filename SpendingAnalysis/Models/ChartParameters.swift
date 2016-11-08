@@ -15,4 +15,7 @@ struct CommonChartParameters {
     }
     let dateRange: DateRangeParameter
     let transactionTypes: [String]
+    static var defaultParameters: CommonChartParameters {
+        return CommonChartParameters(dateRange: .numYears(1), transactionTypes: [])
+    }
 }
