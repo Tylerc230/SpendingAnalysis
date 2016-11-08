@@ -17,7 +17,7 @@ target 'SpendingAnalysis' do
   pod 'Moya/RxSwift'
   pod 'Moya-ObjectMapper', '1.4'
   pod 'Moya-ObjectMapper/RxSwift'
-  pod 'SwiftDate'
+  pod 'SwiftDate', '3.0.9'
   pod 'Cartography'
 
   target 'SpendingAnalysisTests' do

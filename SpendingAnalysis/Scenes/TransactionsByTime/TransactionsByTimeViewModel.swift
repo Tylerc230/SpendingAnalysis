@@ -21,10 +21,12 @@ struct TransactionsByTimeViewModel: ViewModel {
     func lineChartData() -> Observable<[String: TransactionSet]> {
         return queryForCurrentTransactions
             .asObserver()
-            .flatMap { currentChartParameters in
-                return self.networkInterface.getExpensesOverTime()
+            .flatMap { currentChartParameters -> Observable<TransactionSet> in
+                let (start, end) = currentChartParameters.dateRange.startAndEndDates()
+                return self.networkInterface.getExpensesOverTime(start: start, end: end)
+                
             }
-            .map {
+            .map { 
                 return ["total": $0]
         }
     }
