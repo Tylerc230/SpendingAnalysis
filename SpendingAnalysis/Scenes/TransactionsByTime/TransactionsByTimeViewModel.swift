@@ -15,7 +15,7 @@ struct TransactionsByTimeViewModel: ViewModel {
     let networkInterface = NetworkInterface()
     
     var events: Observable<TransitionEvent> {
-        return showParametersView.map { TransitionEvent.showChartParameters(self.queryForCurrentTransactions.asObserver()) }
+        return showParametersView.map { TransitionEvent.showChartParameters(CommonChartParameters.defaultParameters, self.queryForCurrentTransactions.asObserver()) }
     }
     
     func lineChartData() -> Observable<[String: TransactionSet]> {

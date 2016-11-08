@@ -21,7 +21,7 @@ private let dateFormatter: NSDateFormatter = {
 
 struct ChartParameterViewModel: ViewModel {
     let closeTapped = PublishSubject<Void>()
-    let currentChartParameter: BehaviorSubject<CommonChartParameters>
+    let parameterValues: BehaviorSubject<CommonChartParameters>
     let parameterTappedAtIndex = PublishSubject<Int>()
     var events: Observable<TransitionEvent> {
         return closeTapped.map { .chartParametersDismissed }
@@ -42,12 +42,11 @@ struct ChartParameterViewModel: ViewModel {
     }
     
     var dateRangeString: Observable<String> {
-        return currentChartParameter.map { $0.dateRange.toString() }
+        return parameterValues.map { $0.dateRange.toString() }
     }
     
-    init() {
-        let initialParameters = CommonChartParameters(dateRange: .numYears(0), transactionTypes: [])
-        currentChartParameter = BehaviorSubject<CommonChartParameters>(value: initialParameters)
+    init(initialParameters: CommonChartParameters) {
+        parameterValues = BehaviorSubject(value: initialParameters)
     }
 }
 

@@ -47,6 +47,12 @@ class ChartParameterView: UIView {
         return tableView.rx_itemSelected.asObservable().map { $0.row }
     }
     
+    var parameterValues: Observable<CommonChartParameters> {
+        return dateRangeSelection.map { range in
+            return CommonChartParameters(dateRange: range, transactionTypes: [])
+        }
+    }
+    
     private func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 30.0
@@ -60,7 +66,7 @@ class ChartParameterView: UIView {
                     let dateRangeView = dateRangeCell.expandableView
                     dateRangeCell.disposeBag
                         ++ self.dateRangeSelection <~ dateRangeView.dateRange
-                        ++ dateRangeCell.expandableView.selectedDateRange <~ self.selectedDateRangeString
+                        ++ dateRangeView.selectedDateRangeString <~ self.selectedDateRangeString
                     cell = dateRangeCell
                 case .transactionTypes:
                     let transactionTypeCell = tableView.dequeueReusableCellWithIdentifier("TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>

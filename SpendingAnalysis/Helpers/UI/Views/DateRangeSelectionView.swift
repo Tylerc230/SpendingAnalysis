@@ -20,7 +20,7 @@ class DateRangeSelectionView: UIView, ExpandableViewType, DrawableView {
     private let disposeBag = DisposeBag()
     typealias DateRangeParameter = CommonChartParameters.DateRangeParameter
     private let dynamicDateRangeValues: [DateRangeParameter] = [.yearsAgo(0), .monthsAgo(0), .numYears(1), .numMonths(1), .yearsAgo(1), .monthsAgo(1)]
-    var selectedDateRange: AnyObserver<String> {
+    var selectedDateRangeString: AnyObserver<String> {
         return selectedRangeLabel.rx_text
     }
     

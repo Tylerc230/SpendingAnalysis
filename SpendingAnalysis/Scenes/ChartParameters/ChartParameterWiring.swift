@@ -12,11 +12,12 @@ import RxSwift
 import RxSugar
 
 struct ChartParameterWiring: Wiring {
-    let viewModel = ChartParameterViewModel()
+    let viewModel: ChartParameterViewModel
     let transitioningDelegate = PopModalTransitioningDelegate()
     let parameterObserver: AnyObserver<CommonChartParameters>
     let dispose = DisposeBag()
-    init(parameterObserver: AnyObserver<CommonChartParameters>) {
+    init(initialParameters: CommonChartParameters, parameterObserver: AnyObserver<CommonChartParameters>) {
+        self.viewModel = ChartParameterViewModel(initialParameters: initialParameters)
         self.parameterObserver = parameterObserver
     }
     
@@ -29,7 +30,7 @@ struct ChartParameterWiring: Wiring {
             ++ viewController.parameterView.selectedDateRangeString <~ viewModel.dateRangeString
             ++ viewController.parameterView.expandedRows <~ viewModel.expandedParameters
             ++ viewModel.parameterTappedAtIndex <~ viewController.parameterView.rowSelected
-            ++ viewModel.currentChartParameter <~ viewController.currentChartParameters
-            ++ self.parameterObserver <~ viewModel.currentChartParameter
+            ++ viewModel.parameterValues <~ viewController.parameterView.parameterValues
+            ++ self.parameterObserver <~ viewModel.parameterValues
     }
 }
