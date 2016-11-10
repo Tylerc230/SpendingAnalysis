@@ -26,7 +26,7 @@ enum SegueId: String, SegueIdType {
     }
 }
 
-func transitionForEvent(source: UIViewController, event: TransitionEvent) -> AnyTransition<TransitionEvent> {
+func transitionForEvent(_ source: UIViewController, event: TransitionEvent) -> AnyTransition<TransitionEvent> {
     switch event {
     case .appLaunch:
         let mainMenuWiring = MainMenuWiring()

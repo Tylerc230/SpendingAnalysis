@@ -14,7 +14,7 @@ protocol ExpandableViewType {
     associatedtype ExpandedView: UIView
     var stackView: UIStackView! { get }
     var expandedView: ExpandedView! { get }
-    func setExpanded(expanded: Bool)
+    func setExpanded(_ expanded: Bool)
     func expand()
     func collapse()
 }
@@ -22,7 +22,7 @@ protocol ExpandableViewType {
 extension ExpandableViewType where Self: UIView {
     var expandedObserver: AnyObserver<Bool> {
         return AnyObserver<Bool> { [unowned self] event in
-            guard case .Next(let next) = event else {
+            guard case .next(let next) = event else {
                 return
             }
             print("set expanded")
@@ -30,7 +30,7 @@ extension ExpandableViewType where Self: UIView {
         }
     }
     
-    func setExpanded(expanded: Bool) {
+    func setExpanded(_ expanded: Bool) {
         if expanded {
             expand()
         } else {

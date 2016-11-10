@@ -12,22 +12,22 @@ import RxSwift
 struct NetworkInterface {
     let provider = RxMoyaProvider<SpendingAnalysisAPI>()
     
-    func getTransactions(page: Int? = nil) -> Observable<TransactionsResponse> {
+    func getTransactions(_ page: Int? = nil) -> Observable<TransactionsResponse> {
         return provider
             .request(SpendingAnalysisAPI.getTransactions(page))
-            .mapObject(TransactionsResponse)
+            .mapObject(TransactionsResponse.self)
     }
     
-    func getExpensesOverTime(start start: NSDate? = nil, end: NSDate? = nil, binSize: BinSize? = nil) -> Observable<TransactionSet> {
+    func getExpensesOverTime(start: Date? = nil, end: Date? = nil, binSize: BinSize? = nil) -> Observable<TransactionSet> {
         return provider
             .request(SpendingAnalysisAPI.getExpensesOverTime(start, end, binSize, nil))
-            .mapObject(TransactionSet)
+            .mapObject(TransactionSet.self)
     }
     
-    func getGroupedExpensesOverTime(start start: NSDate? = nil, end: NSDate? = nil, binSize: BinSize? = nil, includeTypes: GroupedTypes) -> Observable<GroupedTransactionSet> {
+    func getGroupedExpensesOverTime(start: Date? = nil, end: Date? = nil, binSize: BinSize? = nil, includeTypes: GroupedTypes) -> Observable<GroupedTransactionSet> {
         return provider
             .request(SpendingAnalysisAPI.getExpensesOverTime(start, end, binSize, includeTypes))
-            .mapObject(GroupedTransactionSet)
+            .mapObject(GroupedTransactionSet.self)
     }
 }
 

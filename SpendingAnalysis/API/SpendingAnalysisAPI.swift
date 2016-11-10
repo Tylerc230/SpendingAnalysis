@@ -9,7 +9,7 @@ import Moya
 typealias GroupedTypes = [String: [String]]
 enum SpendingAnalysisAPI {
     case getTransactions(Int?)
-    case getExpensesOverTime(NSDate?, NSDate?, BinSize?, GroupedTypes?)
+    case getExpensesOverTime(Date?, Date?, BinSize?, GroupedTypes?)
 }
 
 enum BinSize {
@@ -32,29 +32,33 @@ enum BinSize {
 }
 
 extension SpendingAnalysisAPI: TargetType {
-    var baseURL: NSURL {
+    public var task: Task {
+        return .request
+    }
+
+    var baseURL: URL {
 //        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
-        return NSURL(string:"http://localhost:5000")!
+        return URL(string:"http://localhost:5000")!
 //        return NSURL(string:"http://localhost.charlesproxy.com:5000")!
     }
     
     var path: String {
         switch self {
-        case getTransactions:
+        case .getTransactions:
             return "/api/statement_transaction"
-        case getExpensesOverTime:
+        case .getExpensesOverTime:
             return "/expenses_over_time"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case getTransactions, .getExpensesOverTime:
-            return .GET
+        case .getTransactions, .getExpensesOverTime:
+            return .get
         }
     }
     
-    var parameters: [String: AnyObject]? {
+    var parameters: [String: Any]? {
         switch self {
         case .getTransactions(let page):
             guard let page = page else {
@@ -62,7 +66,7 @@ extension SpendingAnalysisAPI: TargetType {
             }
             return ["page": page]
         case .getExpensesOverTime(let start, let end, let binSize, let includeTypes):
-            var params: [String: AnyObject] = [:]
+            var params: [String: Any] = [:]
             if let start = start {
                 params["start"] = start
             }
@@ -73,15 +77,15 @@ extension SpendingAnalysisAPI: TargetType {
                 params["bin_size"] = binSize.parameterValue()
             }
             if let includeTypes = includeTypes {
-                let JSONData = try! NSJSONSerialization.dataWithJSONObject(includeTypes, options: [])
-                params["include_types"] = NSString(data: JSONData, encoding: NSUTF8StringEncoding)
+                let JSONData = try! JSONSerialization.data(withJSONObject: includeTypes, options: [])
+                params["include_types"] = NSString(data: JSONData, encoding: String.Encoding.utf8.rawValue)
             }
             return params
         }
     }
     
-    var sampleData: NSData {
-        return NSData()
+    var sampleData: Data {
+        return Data()
     }
     
     var multipartBody: [MultipartFormData]? {

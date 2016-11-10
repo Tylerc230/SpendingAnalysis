@@ -11,7 +11,7 @@ import RxSugar
 
 struct TransactionsByTimeWiring: Wiring {
     let viewModel = TransactionsByTimeViewModel()
-    func wire(viewController: TransactionsByTimeViewController) {
+    func wire(_ viewController: TransactionsByTimeViewController) {
         viewController.disposeBag
             ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear.map { CommonChartParameters.defaultParameters }
             ++ viewModel.showParametersView <~ viewController.parameterButtonTapped

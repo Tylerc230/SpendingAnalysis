@@ -9,7 +9,7 @@ import UIKit
 import Cartography
 import RxSwift
 
-class ExpandableTableViewCell<View: UIView where View: ExpandableViewType>: UITableViewCell {
+class ExpandableTableViewCell<View: UIView>: UITableViewCell where View: ExpandableViewType {
     var expandableView: View
     var disposeBag = DisposeBag()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -18,18 +18,22 @@ class ExpandableTableViewCell<View: UIView where View: ExpandableViewType>: UITa
         addExpandableView(expandableView)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
     }
     
-    private func addExpandableView(view: View) {
+    fileprivate func addExpandableView(_ view: View) {
         expandableView.removeFromSuperview()
         contentView.addSubview(view)
         addExpandableViewConstraints(view)
     }
     
-    private func addExpandableViewConstraints(expandableView: View) {
+    fileprivate func addExpandableViewConstraints(_ expandableView: View) {
         constrain(expandableView) { (view) in
             guard let superview = view.superview else {
                 return

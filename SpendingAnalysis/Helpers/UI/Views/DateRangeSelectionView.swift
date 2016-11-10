@@ -9,42 +9,43 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxSugar
 
 class DateRangeSelectionView: UIView, ExpandableViewType, DrawableView {
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var expandedView: UIView!
-    @IBOutlet private var selectedRangeLabel: UILabel!
-    @IBOutlet private var dynamicDateRangePicker: UISegmentedControl!
-    @IBOutlet private var startDatePicker: UIDatePicker!
-    @IBOutlet private var endDatePicker: UIDatePicker!
-    private let disposeBag = DisposeBag()
+    @IBOutlet fileprivate var selectedRangeLabel: UILabel!
+    @IBOutlet fileprivate var dynamicDateRangePicker: UISegmentedControl!
+    @IBOutlet fileprivate var startDatePicker: UIDatePicker!
+    @IBOutlet fileprivate var endDatePicker: UIDatePicker!
+    fileprivate let disposeBag = DisposeBag()
     typealias DateRangeParameter = CommonChartParameters.DateRangeParameter
-    private let dynamicDateRangeValues: [DateRangeParameter] = [.yearsAgo(0), .monthsAgo(0), .numYears(1), .numMonths(1), .yearsAgo(1), .monthsAgo(1)]
-    var selectedDateRangeString: AnyObserver<String> {
-        return selectedRangeLabel.rx_text
+    fileprivate let dynamicDateRangeValues: [DateRangeParameter] = [.yearsAgo(0), .monthsAgo(0), .numYears(1), .numMonths(1), .yearsAgo(1), .monthsAgo(1)]
+    var selectedDateRangeString: AnyObserver<String?> {
+        return selectedRangeLabel.rx.text.asObserver()
     }
     
     var shapeLayer: CAShapeLayer!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         shapeLayer = addShapeLayer()
-        addHairline(.Top)
+        addHairline(.top)
     }
     
     var dateRange: Observable<CommonChartParameters.DateRangeParameter> {
         let dynamicDateRange = dynamicDateRangePicker
-            .rx_value
+            .rx.value
             .skip(1)//skip the initial value
             .map { index in
                 return self.dynamicDateRangeValues[index]
         }
         
-        let customDateRange = Observable.combineLatest(startDatePicker.rx_date, endDatePicker.rx_date) { (startDate, endDate)  in
+        let customDateRange = Observable.combineLatest(startDatePicker.rx.date, endDatePicker.rx.date) { (startDate, endDate)  in
             return DateRangeParameter.custom(startDate, endDate)
         }
         .skip(1)
         
-        return [dynamicDateRange, customDateRange].toObservable().merge()
+        return Observable.from([dynamicDateRange, customDateRange]).merge()
     }
     
 }

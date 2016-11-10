@@ -8,46 +8,46 @@
 import Foundation
 import UIKit
 class PopModalAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
-    let shrinkTransform = CGAffineTransformMakeScale(0.01, 0.01)
+    let shrinkTransform = CGAffineTransform(scaleX: 0.01, y: 0.01)
     let presenting: Bool
     init(presenting: Bool) {
         self.presenting = presenting
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.25
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let duration = transitionDuration(transitionContext)
-        let container = transitionContext.containerView()
-        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let duration = transitionDuration(using: transitionContext)
+        let container = transitionContext.containerView
+        let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        let fromViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         container.addSubview(fromViewController.view)
         container.addSubview(toViewController.view)
 
         if self.presenting {
-            container.bringSubviewToFront(toViewController.view)
+            container.bringSubview(toFront: toViewController.view)
             self.showPresentAnimation(duration, presentedView: toViewController.view) { complete in
                 transitionContext.completeTransition(true)
             }
         } else {
-            container.bringSubviewToFront(fromViewController.view)
+            container.bringSubview(toFront: fromViewController.view)
             self.showDismissAnimation(duration, presentedView: fromViewController.view) { complete in
                 transitionContext.completeTransition(complete)
             }
         }
     }
     
-    private func showPresentAnimation(duration: NSTimeInterval, presentedView: UIView, complete: (Bool) -> ()) {
+    fileprivate func showPresentAnimation(_ duration: TimeInterval, presentedView: UIView, complete: @escaping (Bool) -> ()) {
         presentedView.transform = shrinkTransform
-        UIView.animateWithDuration(duration, animations: {
-            presentedView.transform = CGAffineTransformIdentity
+        UIView.animate(withDuration: duration, animations: {
+            presentedView.transform = CGAffineTransform.identity
         }, completion: complete)
     }
     
-    private func showDismissAnimation(duration: NSTimeInterval, presentedView: UIView, completion: (Bool) -> ()) {
-        UIView.animateWithDuration(duration, animations: { 
+    fileprivate func showDismissAnimation(_ duration: TimeInterval, presentedView: UIView, completion: @escaping (Bool) -> ()) {
+        UIView.animate(withDuration: duration, animations: { 
             presentedView.transform = self.shrinkTransform
         }, completion: completion)
     }

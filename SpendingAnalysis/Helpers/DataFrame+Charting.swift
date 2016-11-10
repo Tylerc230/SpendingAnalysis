@@ -23,11 +23,11 @@ extension Float: GraphableValueType {
 }
 
 extension DataFrame where Data: GraphableValueType  {
-    func toLineChartDataSet(setName: String, fromColumn columnName: String) -> LineChartDataSet {
-        let dataEntries: [ChartDataEntry] = indicies.enumerate().map { (idx, dataFrameIndex) in
+    func toLineChartDataSet(_ setName: String, fromColumn columnName: String) -> LineChartDataSet {
+        let dataEntries: [ChartDataEntry] = indicies.enumerated().map { (idx, dataFrameIndex) in
             let data = Double(graphableValue: self[dataFrameIndex, columnName])
-            return ChartDataEntry(value: data, xIndex: idx)
+            return ChartDataEntry(x: data, y: Double(idx))
         }
-        return LineChartDataSet(yVals: dataEntries, label: setName)
+        return LineChartDataSet(values: dataEntries, label: setName)
     }
 }

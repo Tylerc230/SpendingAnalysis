@@ -12,14 +12,14 @@ import Charts
 import RxSugar
 
 class TransactionsByTimeViewController: UIViewController {
-    @IBOutlet private var parameterButton: UIButton!
+    @IBOutlet fileprivate var parameterButton: UIButton!
     let disposeBag = DisposeBag()
     
-    func setChartDataObservable(chartData: Observable<[String: TransactionSet]>) {
+    func setChartDataObservable(_ chartData: Observable<[String: TransactionSet]>) {
     }
     
     var parameterButtonTapped: Observable<Void> {
-        return parameterButton.rx_tap.asObservable()
+        return parameterButton.rx.tap.asObservable()
     }
     
     var transactionsByTimeView: TransactionsByTimeView {

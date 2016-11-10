@@ -9,14 +9,14 @@ import UIKit
 import RxSwift
 
 class MainMenuViewController: UIViewController {
-    @IBOutlet private var transactionByTimeButton: UIButton!
-    @IBOutlet private var reconcileButton: UIButton!
+    @IBOutlet fileprivate var transactionByTimeButton: UIButton!
+    @IBOutlet fileprivate var reconcileButton: UIButton!
     let disposeBag = DisposeBag()
     var transactionByTimeButtonTapped: Observable<Void> {
-        return transactionByTimeButton.rx_tap.asObservable()
+        return transactionByTimeButton.rx.tap.asObservable()
     }
     
     var reconcileButtonTapped: Observable<Void> {
-        return reconcileButton.rx_tap.asObservable()
+        return reconcileButton.rx.tap.asObservable()
     }
 }

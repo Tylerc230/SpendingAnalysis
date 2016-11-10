@@ -12,10 +12,10 @@ enum ChartParameter {
     case dateRange, transactionTypes
 }
 
-private let dateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.timeStyle = .NoStyle
-    formatter.dateStyle = .ShortStyle
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .none
+    formatter.dateStyle = .short
     return formatter
 }()
 
@@ -34,14 +34,14 @@ struct ChartParameterViewModel: ViewModel {
     var expandedParameters: Observable<[Bool]> {
         return parameterTappedAtIndex
             .map {
-                var expandedRows = Array<Bool>(count: 2, repeatedValue: false)
+                var expandedRows = Array<Bool>(repeating: false, count: 2)
                 expandedRows[$0] = true
                 return expandedRows
             }
-            .startWith(Array<Bool>(count: 2, repeatedValue: false))
+            .startWith(Array<Bool>(repeating: false, count: 2))
     }
     
-    var dateRangeString: Observable<String> {
+    var dateRangeString: Observable<String?> {
         return parameterValues.map { $0.dateRange.toString() }
     }
     
@@ -51,7 +51,7 @@ struct ChartParameterViewModel: ViewModel {
 }
 
 extension CommonChartParameters.DateRangeParameter {
-    private func toString() -> String {
+    fileprivate func toString() -> String {
         let text: String
         switch self {
         case let .numYears(years):
@@ -67,8 +67,8 @@ extension CommonChartParameters.DateRangeParameter {
         case .monthsAgo(let months):
             text = months == 1 ? "1 month ago" : "\(months) months ago"
         case .custom(let start, let end):
-            let startText = dateFormatter.stringFromDate(start)
-            let endText = dateFormatter.stringFromDate(end)
+            let startText = dateFormatter.string(from: start)
+            let endText = dateFormatter.string(from: end)
             text = "\(startText) - \(endText)"
         }
         return text

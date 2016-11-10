@@ -20,11 +20,10 @@ class TransactionsByTimeView: UIView {
         }.asObserver()
     }
     
-    func toLineChartData(transactionSets: [String: TransactionSet]) -> LineChartData {
+    func toLineChartData(_ transactionSets: [String: TransactionSet]) -> LineChartData {
         let sets: [LineChartDataSet] = transactionSets.map { (groupName, dataFrame) in
             return dataFrame.toLineChartDataSet(groupName, fromColumn: "amount")
         }
-        let dates = transactionSets.first?.1.indicies
-        return LineChartData(xVals: dates, dataSets: sets)
+        return LineChartData(dataSets: sets)
     }
 }

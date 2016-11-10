@@ -7,17 +7,16 @@ target 'SpendingAnalysis' do
 
   # Pods for SpendingAnalysis
   pod "SwiftyBeaver"
-  pod "RxSwift", '~>2.6.0'
-  pod "RxCocoa", '2.6.0'
+  pod "RxSwift"
+  pod "RxCocoa"
+  pod "RxSugar", :path => "~/tools/RxSugar/"
   pod 'TBAppScaffold', :path => "~/Dropbox/shared_code/TBAppScaffold/"
   pod 'Charts'
-  
-  
-  pod 'Moya','~>7.0.2'
+  pod 'Moya'
   pod 'Moya/RxSwift'
-  pod 'Moya-ObjectMapper', '1.4'
+  pod 'Moya-ObjectMapper'
   pod 'Moya-ObjectMapper/RxSwift'
-  pod 'SwiftDate', '3.0.9'
+  pod 'SwiftDate'
   pod 'Cartography'
 
   target 'SpendingAnalysisTests' do
@@ -33,9 +32,9 @@ target 'SpendingAnalysis' do
 end
 
 post_install do |installer|
-installer.pods_project.targets.each do |target|
-target.build_configurations.each do |config|
-config.build_settings['SWIFT_VERSION'] = '2.3'
-end
-end
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3.0'
+    end
+  end
 end

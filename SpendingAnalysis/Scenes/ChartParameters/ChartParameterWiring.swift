@@ -21,8 +21,8 @@ struct ChartParameterWiring: Wiring {
         self.parameterObserver = parameterObserver
     }
     
-    func wire(viewController: ChartParameterViewController) {
-        viewController.modalPresentationStyle = .Custom
+    func wire(_ viewController: ChartParameterViewController) {
+        viewController.modalPresentationStyle = .custom
         viewController.transitioningDelegate = transitioningDelegate;
         dispose
             ++ viewModel.closeTapped <~ viewController.parameterView.closeTapped

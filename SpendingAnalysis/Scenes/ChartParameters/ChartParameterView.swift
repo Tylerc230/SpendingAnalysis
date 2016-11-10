@@ -11,14 +11,14 @@ import RxCocoa
 import RxSugar
 
 class ChartParameterView: UIView {
-    @IBOutlet private var closeButton: UIButton!
-    @IBOutlet private var tableView: UITableView!
+    @IBOutlet fileprivate var closeButton: UIButton!
+    @IBOutlet fileprivate var tableView: UITableView!
     let chartParameters = PublishSubject<[ChartParameter]>()
     let expandedRows = PublishSubject<[Bool]>()
     var expansionUpdate: Observable<[Bool]> = Observable.never()
     
     let dateRangeSelection = PublishSubject<CommonChartParameters.DateRangeParameter>()
-    let selectedDateRangeString = PublishSubject<String>()
+    let selectedDateRangeString = PublishSubject<String?>()
     
     let dispose = DisposeBag()
     required init?(coder aDecoder: NSCoder) {
@@ -40,11 +40,11 @@ class ChartParameterView: UIView {
     }
     
     var closeTapped: Observable<Void> {
-        return closeButton.rx_tap.asObservable()
+        return closeButton.rx.tap.asObservable()
     }
     
     var rowSelected: Observable<Int> {
-        return tableView.rx_itemSelected.asObservable().map { $0.row }
+        return tableView.rx.itemSelected.asObservable().map { $0.row }
     }
     
     var parameterValues: Observable<CommonChartParameters> {
@@ -53,15 +53,15 @@ class ChartParameterView: UIView {
         }
     }
     
-    private func setupTableView() {
+    fileprivate func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 30.0
         chartParameters
-            .bindTo(tableView.rx_itemsWithCellFactory) { [unowned self] (tableView, row, parameter) in
+            .bindTo(tableView.rx.items) { [unowned self] (tableView, row, parameter) in
                 let cell: UITableViewCell
                 switch parameter {
                 case .dateRange:
-                    let dateRangeCell = tableView.dequeueReusableCellWithIdentifier("DateRangeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
+                    let dateRangeCell = tableView.dequeueReusableCell(withIdentifier: "DateRangeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
                     self.addExpansionObservable(dateRangeCell, row: row)
                     let dateRangeView = dateRangeCell.expandableView
                     dateRangeCell.disposeBag
@@ -69,18 +69,18 @@ class ChartParameterView: UIView {
                         ++ dateRangeView.selectedDateRangeString <~ self.selectedDateRangeString
                     cell = dateRangeCell
                 case .transactionTypes:
-                    let transactionTypeCell = tableView.dequeueReusableCellWithIdentifier("TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
+                    let transactionTypeCell = tableView.dequeueReusableCell(withIdentifier: "TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
                     self.addExpansionObservable(transactionTypeCell, row: row)
                     cell = transactionTypeCell
                 }
-                cell.selectionStyle = .None
+                cell.selectionStyle = .none
                 return cell
                 
             }
             .addDisposableTo(dispose)
     }
 
-    private func addExpansionObservable<T: ExpandableViewType> (cell: ExpandableTableViewCell<T>, row: Int) {
+    fileprivate func addExpansionObservable<T: ExpandableViewType> (_ cell: ExpandableTableViewCell<T>, row: Int) {
         self.dispose
             ++ cell.expandableView.expandedObserver <~ self.expansionUpdate
                 .map { $0[row] }
@@ -88,8 +88,8 @@ class ChartParameterView: UIView {
     }
     
     
-    private func registerCells() {
-        tableView.registerClass(ExpandableTableViewCell<DateRangeSelectionView>.self, forCellReuseIdentifier: "DateRangeCell")
-        tableView.registerClass(ExpandableTableViewCell<DateRangeSelectionView>.self, forCellReuseIdentifier: "TransactionTypeCell")
+    fileprivate func registerCells() {
+        tableView.register(ExpandableTableViewCell<DateRangeSelectionView>.self, forCellReuseIdentifier: "DateRangeCell")
+        tableView.register(ExpandableTableViewCell<DateRangeSelectionView>.self, forCellReuseIdentifier: "TransactionTypeCell")
     }
 }

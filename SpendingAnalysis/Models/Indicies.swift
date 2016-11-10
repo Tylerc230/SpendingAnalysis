@@ -8,15 +8,15 @@
 
 import Foundation
 struct TimeGroupIndex: Equatable {
-    let date: NSDate
+    let date: Date
     let group: String
     
-    init(date: NSDate, group: String) {
+    init(date: Date, group: String) {
         self.date = date
         self.group = group
     }
 }
 
 func ==(lhs: TimeGroupIndex, rhs: TimeGroupIndex) -> Bool {
-    return lhs.date.isEqual(rhs.date) && lhs.group == rhs.group
+    return (lhs.date == rhs.date) && lhs.group == rhs.group
 }

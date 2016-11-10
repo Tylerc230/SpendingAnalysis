@@ -17,7 +17,7 @@ struct MainMenuViewModel: ViewModel {
         let transitionEvents = [
             transactionByTimeTapped.mapTo(TransitionEvent.showTransactionByTime),
             reconcileTapped.mapTo(TransitionEvent.showReconcile)
-            ].toObservable()
-        return transitionEvents.merge()
+        ]
+        return Observable.from(transitionEvents).merge()
     }
 }

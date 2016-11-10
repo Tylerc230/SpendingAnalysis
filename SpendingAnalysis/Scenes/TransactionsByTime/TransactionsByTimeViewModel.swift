@@ -23,7 +23,7 @@ struct TransactionsByTimeViewModel: ViewModel {
             .asObserver()
             .flatMap { currentChartParameters -> Observable<TransactionSet> in
                 let (start, end) = currentChartParameters.dateRange.startAndEndDates()
-                return self.networkInterface.getExpensesOverTime(start: start, end: end)
+                return self.networkInterface.getExpensesOverTime(start: start , end: end)
                 
             }
             .map { 
@@ -31,17 +31,17 @@ struct TransactionsByTimeViewModel: ViewModel {
         }
     }
     
-    func groupedLineChartData(includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
+    func groupedLineChartData(_ includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
         return queryForCurrentTransactions
             .asObserver()
             .flatMap { currentChartParameters in
-                return self.networkInterface.getGroupedExpensesOverTime(start: NSDate(timeIntervalSince1970: 1422751084), end: NSDate(), includeTypes: includeTypes)
+                return self.networkInterface.getGroupedExpensesOverTime(start: Date(timeIntervalSince1970: 1422751084), end: Date(), includeTypes: includeTypes)
         }
         .map(splitDataFrameOnGroups)
     }
 }
 
-private func splitDataFrameOnGroups(dataFrame: GroupedTransactionSet) -> [String: TransactionSet] {
+private func splitDataFrameOnGroups(_ dataFrame: GroupedTransactionSet) -> [String: TransactionSet] {
     return dataFrame
         .indicies
         .reduce(Set<String>()) { (groups, index) in

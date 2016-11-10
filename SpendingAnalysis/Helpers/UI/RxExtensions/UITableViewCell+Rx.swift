@@ -12,6 +12,6 @@ import RxSwift
 extension UITableViewCell {
     var prepareForReuseObservable: Observable<Void> {
         let selector = #selector(UITableViewCell.prepareForReuse)
-        return rx_sentMessage(selector).map { _ in Void() }
+        return rx.sentMessage(selector).map { _ in Void() }
     }
 }
