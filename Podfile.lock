@@ -25,8 +25,8 @@ PODS:
   - Result (3.0.0)
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
-  - RxSugar (0.0.11):
-    - RxSwift (~> 3)
+  - RxSugar (0.1.1):
+    - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
   - RxSwiftExt (2.0.0):
     - RxSwift (~> 3.0.0)
@@ -46,15 +46,13 @@ DEPENDENCIES:
   - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
   - RxCocoa
-  - RxSugar (from `~/tools/RxSugar/`)
+  - RxSugar
   - RxSwift
   - SwiftDate
   - SwiftyBeaver
   - TBAppScaffold (from `~/Dropbox/shared_code/TBAppScaffold/`)
 
 EXTERNAL SOURCES:
-  RxSugar:
-    :path: ~/tools/RxSugar/
   TBAppScaffold:
     :path: ~/Dropbox/shared_code/TBAppScaffold/
 
@@ -67,13 +65,13 @@ SPEC CHECKSUMS:
   ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
-  RxSugar: 113bafc7354a7d732ef0e80e096f0fa96481aa3e
+  RxSugar: 353380861f482623e0734c85baca4a76d437a285
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
   RxSwiftExt: 5dd3c7e0fd64ddb5014e094d524d167f7496b2e5
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
   TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: 928443377dcd68ad15198b31619503c23c27d46e
+PODFILE CHECKSUM: e63298df85f1363d09a951b3d88313e5157ebe88
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

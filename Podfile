@@ -9,7 +9,7 @@ target 'SpendingAnalysis' do
   pod "SwiftyBeaver"
   pod "RxSwift"
   pod "RxCocoa"
-  pod "RxSugar", :path => "~/tools/RxSugar/"
+  pod "RxSugar"
   pod 'TBAppScaffold', :path => "~/Dropbox/shared_code/TBAppScaffold/"
   pod 'Charts'
   pod 'Moya'
