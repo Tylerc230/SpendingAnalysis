@@ -8,7 +8,7 @@
 import ObjectMapper
 import Moya_ObjectMapper
 
-let dateTransform = CustomDateFormatTransform(formatString: "yyyy-MM-dd")
+let dateTransform = CustomDateFormatTransform(formatString: apiDateFormat)
 let timestampTransform = DateTransform()
 typealias TransactionsResponse = PagedResponse<Transaction>
 typealias TransactionSet = DataFrame<Date, Float>

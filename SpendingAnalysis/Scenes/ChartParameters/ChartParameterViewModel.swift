@@ -12,13 +12,6 @@ enum ChartParameter {
     case dateRange, transactionTypes
 }
 
-private let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.timeStyle = .none
-    formatter.dateStyle = .short
-    return formatter
-}()
-
 struct ChartParameterViewModel: ViewModel {
     let closeTapped = PublishSubject<Void>()
     let parameterValues: BehaviorSubject<CommonChartParameters>
@@ -51,6 +44,14 @@ struct ChartParameterViewModel: ViewModel {
 }
 
 extension CommonChartParameters.DateRangeParameter {
+    
+    private static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .short
+        return formatter
+    }()
+
     fileprivate func toString() -> String {
         let text: String
         switch self {
@@ -67,8 +68,8 @@ extension CommonChartParameters.DateRangeParameter {
         case .monthsAgo(let months):
             text = months == 1 ? "1 month ago" : "\(months) months ago"
         case .custom(let start, let end):
-            let startText = dateFormatter.string(from: start)
-            let endText = dateFormatter.string(from: end)
+            let startText = CommonChartParameters.DateRangeParameter.dateFormatter.string(from: start)
+            let endText = CommonChartParameters.DateRangeParameter.dateFormatter.string(from: end)
             text = "\(startText) - \(endText)"
         }
         return text

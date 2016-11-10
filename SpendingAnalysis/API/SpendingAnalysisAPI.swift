@@ -6,6 +6,12 @@
 //  Copyright © 2016 13bit consulting. All rights reserved.
 //
 import Moya
+let apiDateFormat = "yyyy-MM-dd"
+let apiDateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = apiDateFormat
+    return dateFormatter
+}()
 typealias GroupedTypes = [String: [String]]
 enum SpendingAnalysisAPI {
     case getTransactions(Int?)
@@ -37,9 +43,9 @@ extension SpendingAnalysisAPI: TargetType {
     }
 
     var baseURL: URL {
-//        return NSURL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
-        return URL(string:"http://localhost:5000")!
-//        return NSURL(string:"http://localhost.charlesproxy.com:5000")!
+//        return URL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
+//        return URL(string:"http://localhost:5000")!
+        return URL(string:"http://localhost.charlesproxy.com:5000")!
     }
     
     var path: String {
@@ -68,10 +74,10 @@ extension SpendingAnalysisAPI: TargetType {
         case .getExpensesOverTime(let start, let end, let binSize, let includeTypes):
             var params: [String: Any] = [:]
             if let start = start {
-                params["start"] = start
+                params["start"] = apiDateFormatter.string(from: start)
             }
             if let end = end {
-                params["end"] = end
+                params["end"] = apiDateFormatter.string(from: end)
             }
             if let binSize = binSize {
                 params["bin_size"] = binSize.parameterValue()

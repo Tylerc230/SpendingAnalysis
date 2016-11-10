@@ -26,7 +26,7 @@ extension DataFrame where Data: GraphableValueType  {
     func toLineChartDataSet(_ setName: String, fromColumn columnName: String) -> LineChartDataSet {
         let dataEntries: [ChartDataEntry] = indicies.enumerated().map { (idx, dataFrameIndex) in
             let data = Double(graphableValue: self[dataFrameIndex, columnName])
-            return ChartDataEntry(x: data, y: Double(idx))
+            return ChartDataEntry(x: Double(idx), y: data)
         }
         return LineChartDataSet(values: dataEntries, label: setName)
     }
