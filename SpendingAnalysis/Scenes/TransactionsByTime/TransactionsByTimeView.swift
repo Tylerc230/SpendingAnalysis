@@ -47,19 +47,26 @@ private let currencyFormatter: NumberFormatter = {
 }()
 
 func toLineChartData(_ transactionSets: [String: TransactionSet]) -> LineChartData {
-    let sets: [LineChartDataSet] = transactionSets.map { (groupName, dataFrame) in
-        return dataFrame.toLineChartDataSet(groupName, fromColumn: "amount")
+    
+    let debits = transactionSets.map { (groupName, dataFrame) in
+        return dataFrame.toLineChartDataSet(groupName, fromColumn: "debit")
     }
-    sets.forEach(applyStyle)
-    return LineChartData(dataSets: sets)
+    let credits: [LineChartDataSet] = transactionSets.map { (groupName, dataFrame) in
+        return dataFrame.toLineChartDataSet("credit", fromColumn: "credit")
+    }
+    debits.forEach(apply(color: .red))
+    credits.forEach(apply(color: .green))
+    return LineChartData(dataSets: debits + credits)
 }
 
-func applyStyle(dataSet: LineChartDataSet) {
-    dataSet.circleColors = [.black]
-    dataSet.circleRadius = 3.0
-    dataSet.drawCircleHoleEnabled = false
-    dataSet.colors = [.black]
-    dataSet.valueFormatter = currencyFormatter
+func apply(color: UIColor) -> (LineChartDataSet) -> () {
+    return { dataSet in
+        dataSet.circleColors = [color]
+        dataSet.circleRadius = 3.0
+        dataSet.drawCircleHoleEnabled = false
+        dataSet.colors = [color]
+        dataSet.valueFormatter = currencyFormatter
+    }
 }
 
 extension NumberFormatter: IValueFormatter {

@@ -23,11 +23,11 @@ struct TransactionsByTimeViewModel: ViewModel {
             .asObserver()
             .flatMap { currentChartParameters -> Observable<TransactionSet> in
                 let (start, end) = currentChartParameters.dateRange.startAndEndDates()
-                return self.networkInterface.getExpensesOverTime(start: start, end: end, binSize: .days(1))
+                return self.networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1))
                 
             }
             .map { 
-                return ["total": $0]
+                return ["total_debit": $0]
         }
     }
     
