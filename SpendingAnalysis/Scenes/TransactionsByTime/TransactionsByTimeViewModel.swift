@@ -23,11 +23,20 @@ struct TransactionsByTimeViewModel: ViewModel {
             .asObserver()
             .flatMap { currentChartParameters -> Observable<TransactionSet> in
                 let (start, end) = currentChartParameters.dateRange.startAndEndDates()
-                return self.networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1))
+                return self.networkInterface.getExpensesOverTime(start: start, end: end, binSize: .days(1))
                 
             }
             .map { 
                 return ["total": $0]
+        }
+    }
+    
+    func xAxisLabels() -> Observable<[String]> {
+        return lineChartData().map{ transactionSets in
+            guard let firstSet = transactionSets.values.first else {
+                return []
+            }
+            return firstSet.indicies.map(dateFormatter.string)
         }
     }
     
@@ -62,3 +71,9 @@ private func splitDataFrameOnGroups(_ dataFrame: GroupedTransactionSet) -> [Stri
             return transactionSets
     }
 }
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "MM/dd"
+    return formatter
+}()

@@ -16,6 +16,7 @@ struct TransactionsByTimeWiring: Wiring {
             ++ viewModel.queryForCurrentTransactions <~ viewController.viewWillAppear.map { CommonChartParameters.defaultParameters }
             ++ viewModel.showParametersView <~ viewController.parameterButtonTapped
             ++ viewController.transactionsByTimeView.lineChartData <~ viewModel.lineChartData()
+            ++ viewController.transactionsByTimeView.xAxisLabels <~ viewModel.xAxisLabels().debug()
     }
     
 }

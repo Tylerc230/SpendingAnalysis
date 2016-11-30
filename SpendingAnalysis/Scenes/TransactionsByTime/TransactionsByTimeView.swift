@@ -13,33 +13,53 @@ import RxCocoa
 
 class TransactionsByTimeView: UIView {
     @IBOutlet var lineChartView: LineChartView!
-    let currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        return formatter
-    }()
+    let xAxisLabels = Variable<[String]>([])
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        lineChartView.xAxis.valueFormatter = self
+        lineChartView.rightAxis.valueFormatter = currencyFormatter
+        lineChartView.leftAxis.enabled = false
+    }
     
     var lineChartData: AnyObserver<[String: TransactionSet]> {
-        return UIBindingObserver(UIElement: self) { [unowned self] (view, data) in
-            view.lineChartView.data = self.toLineChartData(data)
+        return UIBindingObserver(UIElement: self) { (view, data) in
+            view.lineChartView.data = toLineChartData(data)
         }.asObserver()
     }
-    
-    func toLineChartData(_ transactionSets: [String: TransactionSet]) -> LineChartData {
-        let sets: [LineChartDataSet] = transactionSets.map { (groupName, dataFrame) in
-            return dataFrame.toLineChartDataSet(groupName, fromColumn: "amount")
+}
+
+extension TransactionsByTimeView: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let index = Int(value)
+        let labels = xAxisLabels.value
+        guard index < labels.count else {
+            return ""
         }
-        sets.forEach(self.applyStyle)
-        return LineChartData(dataSets: sets)
+        return labels[index]
     }
-    
-    func applyStyle(dataSet: LineChartDataSet) {
-        dataSet.circleColors = [.black]
-        dataSet.circleRadius = 3.0
-        dataSet.drawCircleHoleEnabled = false
-        dataSet.colors = [.black]
-        dataSet.valueFormatter = currencyFormatter
+}
+
+private let currencyFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
+    return formatter
+}()
+
+func toLineChartData(_ transactionSets: [String: TransactionSet]) -> LineChartData {
+    let sets: [LineChartDataSet] = transactionSets.map { (groupName, dataFrame) in
+        return dataFrame.toLineChartDataSet(groupName, fromColumn: "amount")
     }
+    sets.forEach(applyStyle)
+    return LineChartData(dataSets: sets)
+}
+
+func applyStyle(dataSet: LineChartDataSet) {
+    dataSet.circleColors = [.black]
+    dataSet.circleRadius = 3.0
+    dataSet.drawCircleHoleEnabled = false
+    dataSet.colors = [.black]
+    dataSet.valueFormatter = currencyFormatter
 }
 
 extension NumberFormatter: IValueFormatter {
@@ -51,4 +71,12 @@ extension NumberFormatter: IValueFormatter {
         return string(from: nsNumber) ?? "??"
     }
     
+}
+
+extension NumberFormatter: IAxisValueFormatter {
+    public func stringForValue(_ value: Double,
+                        axis: AxisBase?) -> String {
+        let nsNumber = NSNumber(floatLiteral: value)
+        return string(from: nsNumber) ?? "??"
+    }
 }
