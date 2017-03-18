@@ -10,7 +10,7 @@ target 'SpendingAnalysis' do
   pod "RxSwift"
   pod "RxCocoa"
   pod "RxSugar"
-  pod 'TBAppScaffold', :path => "~/Dropbox/shared_code/TBAppScaffold/"
+  pod "RxSwiftExt"
   pod 'Charts'
   pod 'Moya'
   pod 'Moya/RxSwift'

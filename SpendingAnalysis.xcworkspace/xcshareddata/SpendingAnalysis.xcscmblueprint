@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F6F5A8DC05B258FFDAD1E4CB9E1403862770BC2B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F6F5A8DC05B258FFDAD1E4CB9E1403862770BC2B" : 9223372036854775807,
+    "AFDB93DC596CE08F6E75871B06B06F2D80853480" : 9223372036854775807,
+    "03BE2FFF1AF8CBADD8D33D3969B6EF0269AC53C4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E8CBEFA5-96A8-405A-A623-7D0340E7980D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F6F5A8DC05B258FFDAD1E4CB9E1403862770BC2B" : "SpendingAnalysis\/",
+    "AFDB93DC596CE08F6E75871B06B06F2D80853480" : "..\/TBAppScaffold",
+    "03BE2FFF1AF8CBADD8D33D3969B6EF0269AC53C4" : "..\/..\/..\/tools\/RxSugar"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SpendingAnalysis",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SpendingAnalysis.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Tylerc230\/RxSugar.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "03BE2FFF1AF8CBADD8D33D3969B6EF0269AC53C4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Tylerc230\/TBAppScaffold.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AFDB93DC596CE08F6E75871B06B06F2D80853480"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Tylerc230\/SpendingAnalysis.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F6F5A8DC05B258FFDAD1E4CB9E1403862770BC2B"
+    }
+  ]
+}

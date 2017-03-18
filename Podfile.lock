@@ -22,21 +22,16 @@ PODS:
     - Moya/Core
     - RxSwift
   - ObjectMapper (2.2.0)
-  - Result (3.0.0)
+  - Result (3.2.1)
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
   - RxSugar (0.1.1):
     - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
-  - RxSwiftExt (2.0.0):
-    - RxSwift (~> 3.0.0)
+  - RxSwiftExt (2.1.0):
+    - RxSwift (~> 3.0)
   - SwiftDate (4.0.7)
   - SwiftyBeaver (1.1.1)
-  - TBAppScaffold (0.1.0):
-    - RxCocoa
-    - RxSugar
-    - RxSwift
-    - RxSwiftExt
 
 DEPENDENCIES:
   - Cartography
@@ -48,13 +43,9 @@ DEPENDENCIES:
   - RxCocoa
   - RxSugar
   - RxSwift
+  - RxSwiftExt
   - SwiftDate
   - SwiftyBeaver
-  - TBAppScaffold (from `~/Dropbox/shared_code/TBAppScaffold/`)
-
-EXTERNAL SOURCES:
-  TBAppScaffold:
-    :path: ~/Dropbox/shared_code/TBAppScaffold/
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
@@ -63,15 +54,14 @@ SPEC CHECKSUMS:
   Moya: f83c7f81eaa28cb0151549dfcf1f3fda4440bb50
   Moya-ObjectMapper: 816d23fdcfb4dcc14a9bbb6f174e8b5d530a881b
   ObjectMapper: 4060d739febae11ab0c6af8d786f98667c82e1bd
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSugar: 353380861f482623e0734c85baca4a76d437a285
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
-  RxSwiftExt: 5dd3c7e0fd64ddb5014e094d524d167f7496b2e5
+  RxSwiftExt: 492a6575cf6afabb8feeed3204bd0f9e2c695e67
   SwiftDate: 0efb04a6751b1ab804049b2b09a69848cd304c12
   SwiftyBeaver: 2b68694df862381235e32bcfc4ec991e26bf131d
-  TBAppScaffold: 530be401d69cea76ed73aad3f01f8cc756b4199d
 
-PODFILE CHECKSUM: e63298df85f1363d09a951b3d88313e5157ebe88
+PODFILE CHECKSUM: 521ef7397767341aacc1d7c40075d4572c6cc7cb
 
 COCOAPODS: 1.1.1

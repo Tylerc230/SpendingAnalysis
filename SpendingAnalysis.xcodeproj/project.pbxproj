@@ -11,10 +11,10 @@
 		2F103F5E1D8C75C300A579BE /* DateRangeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F103F5D1D8C75C300A579BE /* DateRangeSelectionView.swift */; };
 		2F103F601D8C767E00A579BE /* ExpandableViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F103F5F1D8C767E00A579BE /* ExpandableViewType.swift */; };
 		2F103F621D8C7A4700A579BE /* UIView+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F103F611D8C7A4700A579BE /* UIView+Drawing.swift */; };
+		2F15B41A1E7DA6E000F48AD0 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F15B4191E7DA6E000F48AD0 /* UIViewController+Rx.swift */; };
 		2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */; };
 		2F50B71F1D87B7D10079BCB9 /* ChartParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */; };
 		2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */; };
-		2F50B7231D87B8340079BCB9 /* ChartParameterWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B7221D87B8340079BCB9 /* ChartParameterWiring.swift */; };
 		2F50B7271D87C3440079BCB9 /* PopModalTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B7261D87C3440079BCB9 /* PopModalTransitioningDelegate.swift */; };
 		2F56F1381D75493700B5DA7D /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56F1371D75493700B5DA7D /* ResponseObjects.swift */; };
 		2F5E49F21CE404CE003759AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E49F11CE404CE003759AE /* AppDelegate.swift */; };
@@ -35,12 +35,9 @@
 		2FEE8B531D45DA7400EBE248 /* CreateTrackingReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */; };
 		2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */; };
 		2FEE8B571D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B561D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift */; };
-		2FEE8B5A1D45DB3D00EBE248 /* AppRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B591D45DB3D00EBE248 /* AppRouting.swift */; };
 		2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */; };
-		2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B5E1D45DC9900EBE248 /* MainMenuWiring.swift */; };
 		2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */; };
 		2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */; };
-		2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */; };
 		2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */; };
 		2FFC1A721D5841E9003B879D /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC1A711D5841E9003B879D /* Analysis.storyboard */; };
 		2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A731D58489B003B879D /* TransactionsByTimeView.swift */; };
@@ -75,10 +72,10 @@
 		2F103F5D1D8C75C300A579BE /* DateRangeSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRangeSelectionView.swift; sourceTree = "<group>"; };
 		2F103F5F1D8C767E00A579BE /* ExpandableViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableViewType.swift; sourceTree = "<group>"; };
 		2F103F611D8C7A4700A579BE /* UIView+Drawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Drawing.swift"; sourceTree = "<group>"; };
+		2F15B4191E7DA6E000F48AD0 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		2F46BA411D8906BB0007B056 /* PopModalAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopModalAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterViewController.swift; sourceTree = "<group>"; };
 		2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterViewModel.swift; sourceTree = "<group>"; };
-		2F50B7221D87B8340079BCB9 /* ChartParameterWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartParameterWiring.swift; sourceTree = "<group>"; };
 		2F50B7261D87C3440079BCB9 /* PopModalTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopModalTransitioningDelegate.swift; sourceTree = "<group>"; };
 		2F56F1371D75493700B5DA7D /* ResponseObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
 		2F5C6268A41BC186DF587F12 /* Pods_SpendingAnalysis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpendingAnalysis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,12 +103,9 @@
 		2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportViewController.swift; sourceTree = "<group>"; };
 		2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportWiring.swift; sourceTree = "<group>"; };
 		2FEE8B561D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportViewModel.swift; sourceTree = "<group>"; };
-		2FEE8B591D45DB3D00EBE248 /* AppRouting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouting.swift; sourceTree = "<group>"; };
 		2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		2FEE8B5E1D45DC9900EBE248 /* MainMenuWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuWiring.swift; sourceTree = "<group>"; };
 		2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewController.swift; sourceTree = "<group>"; };
-		2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeWiring.swift; sourceTree = "<group>"; };
 		2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewModel.swift; sourceTree = "<group>"; };
 		2FFC1A711D5841E9003B879D /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
 		2FFC1A731D58489B003B879D /* TransactionsByTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeView.swift; sourceTree = "<group>"; };
@@ -169,7 +163,6 @@
 			children = (
 				2F50B71E1D87B7D10079BCB9 /* ChartParameterViewController.swift */,
 				2F50B7201D87B81C0079BCB9 /* ChartParameterViewModel.swift */,
-				2F50B7221D87B8340079BCB9 /* ChartParameterWiring.swift */,
 				2F79C6171D8CAACA00A3BF0D /* ChartParameterView.swift */,
 			);
 			path = ChartParameters;
@@ -223,7 +216,6 @@
 				2F9DD98E1D847302000160D1 /* Helpers */,
 				2F9DD9891D7C895E000160D1 /* Models */,
 				2FFC1A751D584CC4003B879D /* API */,
-				2FEE8B581D45DB1A00EBE248 /* Routing */,
 				2FEE8B501D45DA1B00EBE248 /* Scenes */,
 				2F5E4A211CE40554003759AE /* UI */,
 				2F5E49F11CE404CE003759AE /* AppDelegate.swift */,
@@ -293,6 +285,7 @@
 		2F9E6EE11D909D1900B8DEB8 /* RxExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				2F15B4191E7DA6E000F48AD0 /* UIViewController+Rx.swift */,
 				2F9E6EE21D909D3A00B8DEB8 /* UITableViewCell+Rx.swift */,
 			);
 			path = RxExtensions;
@@ -319,19 +312,10 @@
 			path = CreateTrackingReport;
 			sourceTree = "<group>";
 		};
-		2FEE8B581D45DB1A00EBE248 /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-				2FEE8B591D45DB3D00EBE248 /* AppRouting.swift */,
-			);
-			path = Routing;
-			sourceTree = "<group>";
-		};
 		2FEE8B5B1D45DC5D00EBE248 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
 				2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */,
-				2FEE8B5E1D45DC9900EBE248 /* MainMenuWiring.swift */,
 				2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */,
 			);
 			path = MainMenu;
@@ -341,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */,
-				2FFC1A6D1D551A2E003B879D /* TransactionsByTimeWiring.swift */,
 				2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */,
 				2FFC1A731D58489B003B879D /* TransactionsByTimeView.swift */,
 			);
@@ -796,20 +779,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FFC1A6E1D551A2E003B879D /* TransactionsByTimeWiring.swift in Sources */,
 				2F79C61B1D8CBAA200A3BF0D /* ChartParameters.swift in Sources */,
 				2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */,
 				2F9E6EE31D909D3A00B8DEB8 /* UITableViewCell+Rx.swift in Sources */,
 				2FFC1A771D584FA6003B879D /* SpendingAnalysisAPI.swift in Sources */,
 				2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */,
-				2F50B7231D87B8340079BCB9 /* ChartParameterWiring.swift in Sources */,
 				2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */,
+				2F15B41A1E7DA6E000F48AD0 /* UIViewController+Rx.swift in Sources */,
 				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,
 				2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */,
 				2F56F1381D75493700B5DA7D /* ResponseObjects.swift in Sources */,
 				2FFC1A741D58489B003B879D /* TransactionsByTimeView.swift in Sources */,
-				2FEE8B5F1D45DC9900EBE248 /* MainMenuWiring.swift in Sources */,
 				2F9DD9901D847345000160D1 /* DataFrame+Charting.swift in Sources */,
 				2F103F601D8C767E00A579BE /* ExpandableViewType.swift in Sources */,
 				2F50B71F1D87B7D10079BCB9 /* ChartParameterViewController.swift in Sources */,
@@ -819,7 +800,6 @@
 				2F9E6EDE1D904ABF00B8DEB8 /* NibLoadable.swift in Sources */,
 				2F50B7271D87C3440079BCB9 /* PopModalTransitioningDelegate.swift in Sources */,
 				2F79C6181D8CAACA00A3BF0D /* ChartParameterView.swift in Sources */,
-				2FEE8B5A1D45DB3D00EBE248 /* AppRouting.swift in Sources */,
 				2F9E6EE01D904E9D00B8DEB8 /* ExpandableTableViewCell.swift in Sources */,
 				2F103F5E1D8C75C300A579BE /* DateRangeSelectionView.swift in Sources */,
 				2F5E49F21CE404CE003759AE /* AppDelegate.swift in Sources */,

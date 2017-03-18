@@ -5,18 +5,13 @@
 //  Created by Tyler Casselman on 8/5/16.
 //  Copyright © 2016 13bit consulting. All rights reserved.
 //
-import TBAppScaffold
 import RxSwift
 import Charts
 typealias GroupDefinition = [String: [String]]
-struct TransactionsByTimeViewModel: ViewModel {
+struct TransactionsByTimeViewModel {
     let queryForCurrentTransactions = PublishSubject<CommonChartParameters>()
     let showParametersView = PublishSubject<Void>()
     let networkInterface = NetworkInterface()
-    
-    var events: Observable<TransitionEvent> {
-        return showParametersView.map { TransitionEvent.showChartParameters(CommonChartParameters.defaultParameters, self.queryForCurrentTransactions.asObserver()) }
-    }
     
     func lineChartData() -> Observable<[String: TransactionSet]> {
         return queryForCurrentTransactions

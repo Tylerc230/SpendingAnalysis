@@ -7,19 +7,13 @@
 //
 
 import UIKit
-import TBAppScaffold
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let router = Router(eventTransitionMap: transitionForEvent)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        guard let nav = window?.rootViewController as? UINavigationController else {
-            fatalError()
-        }
-        router.sendEvent(.appLaunch, withSource: nav)
         return true
     }
 }

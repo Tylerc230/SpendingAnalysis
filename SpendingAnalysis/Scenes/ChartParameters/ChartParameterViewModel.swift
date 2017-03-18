@@ -6,20 +6,15 @@
 //  Copyright © 2016 13bit consulting. All rights reserved.
 //
 
-import TBAppScaffold
 import RxSwift
 enum ChartParameter {
     case dateRange, transactionTypes
 }
 
-struct ChartParameterViewModel: ViewModel {
+struct ChartParameterViewModel {
     let closeTapped = PublishSubject<Void>()
     let parameterValues: BehaviorSubject<CommonChartParameters>
     let parameterTappedAtIndex = PublishSubject<Int>()
-    var events: Observable<TransitionEvent> {
-        return closeTapped.map { .chartParametersDismissed }
-    }
-    
     var chartParameters: Observable<[ChartParameter]> {
         return Observable.just([ChartParameter.dateRange, ChartParameter.transactionTypes])
     }

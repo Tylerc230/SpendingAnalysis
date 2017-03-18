@@ -6,18 +6,10 @@
 //  Copyright © 2016 13bit consulting. All rights reserved.
 //
 
-import TBAppScaffold
 import RxSwift
 import RxSwiftExt
 
-struct MainMenuViewModel: ViewModel {
+struct MainMenuViewModel {
     let transactionByTimeTapped = PublishSubject<Void>()
     let reconcileTapped = PublishSubject<Void>()
-    var events: Observable<TransitionEvent> {
-        let transitionEvents = [
-            transactionByTimeTapped.mapTo(TransitionEvent.showTransactionByTime),
-            reconcileTapped.mapTo(TransitionEvent.showReconcile)
-        ]
-        return Observable.from(transitionEvents).merge()
-    }
 }
