@@ -37,6 +37,8 @@
 		2FEE8B571D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B561D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift */; };
 		2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */; };
 		2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */; };
+		2FF25E751E84DBEA0091D899 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF25E741E84DBEA0091D899 /* AppCoordinator.swift */; };
+		2FF25E771E84DC040091D899 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF25E761E84DC040091D899 /* FlowCoordinator.swift */; };
 		2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */; };
 		2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */; };
 		2FFC1A721D5841E9003B879D /* Analysis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FFC1A711D5841E9003B879D /* Analysis.storyboard */; };
@@ -105,6 +107,8 @@
 		2FEE8B561D45DAAA00EBE248 /* CreateTrackingReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportViewModel.swift; sourceTree = "<group>"; };
 		2FEE8B5C1D45DC8900EBE248 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
+		2FF25E741E84DBEA0091D899 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2FF25E761E84DC040091D899 /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		2FFC1A6B1D551A1C003B879D /* TransactionsByTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewController.swift; sourceTree = "<group>"; };
 		2FFC1A6F1D551A58003B879D /* TransactionsByTimeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeViewModel.swift; sourceTree = "<group>"; };
 		2FFC1A711D5841E9003B879D /* Analysis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Analysis.storyboard; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 		2FEE8B501D45DA1B00EBE248 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2FF25E731E84DBB50091D899 /* FlowCoordinators */,
 				2F50B71D1D87B7300079BCB9 /* ChartParameters */,
 				2FFC1A6A1D5519C7003B879D /* TransactionsByTime */,
 				2FEE8B5B1D45DC5D00EBE248 /* MainMenu */,
@@ -319,6 +324,16 @@
 				2FEE8B601D45DCAA00EBE248 /* MainMenuViewModel.swift */,
 			);
 			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		2FF25E731E84DBB50091D899 /* FlowCoordinators */ = {
+			isa = PBXGroup;
+			children = (
+				2FF25E741E84DBEA0091D899 /* AppCoordinator.swift */,
+				2FF25E761E84DC040091D899 /* FlowCoordinator.swift */,
+			);
+			name = FlowCoordinators;
+			path = FlowControllers;
 			sourceTree = "<group>";
 		};
 		2FFC1A6A1D5519C7003B879D /* TransactionsByTime */ = {
@@ -781,12 +796,14 @@
 			files = (
 				2F79C61B1D8CBAA200A3BF0D /* ChartParameters.swift in Sources */,
 				2FEE8B611D45DCAA00EBE248 /* MainMenuViewModel.swift in Sources */,
+				2FF25E771E84DC040091D899 /* FlowCoordinator.swift in Sources */,
 				2F9E6EE31D909D3A00B8DEB8 /* UITableViewCell+Rx.swift in Sources */,
 				2FFC1A771D584FA6003B879D /* SpendingAnalysisAPI.swift in Sources */,
 				2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */,
 				2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */,
 				2F15B41A1E7DA6E000F48AD0 /* UIViewController+Rx.swift in Sources */,
 				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
+				2FF25E751E84DBEA0091D899 /* AppCoordinator.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,
 				2FFC1A701D551A58003B879D /* TransactionsByTimeViewModel.swift in Sources */,
 				2F56F1381D75493700B5DA7D /* ResponseObjects.swift in Sources */,

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kGJ-4S-p5W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rnI-RB-cie">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,10 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-hv-xUt">
-                                <frame key="frameInset" minX="150" minY="240" width="300" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y9x-hv-xUt">
+                                <rect key="frame" x="37.5" y="273.5" width="300" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C54-yQ-Rab">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="300" id="7hE-Dk-1YH"/>
                                             <constraint firstAttribute="height" constant="60" id="lxX-ze-v2b"/>
@@ -30,6 +34,7 @@
                                         <state key="normal" title="Transactions Over Time"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg8-nN-pTf">
+                                        <rect key="frame" x="0.0" y="60" width="300" height="60"/>
                                         <state key="normal" title="Reconcile"/>
                                         <connections>
                                             <segue destination="ZHB-cy-oyW" kind="show" id="6rS-eT-d0g"/>
@@ -40,8 +45,8 @@
                                     <constraint firstItem="kg8-nN-pTf" firstAttribute="height" secondItem="C54-yQ-Rab" secondAttribute="height" id="VuF-je-Il8"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akI-oZ-0r8">
-                                <frame key="frameInset" minX="444" minY="545" width="131" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akI-oZ-0r8">
+                                <rect key="frame" x="219" y="612" width="131" height="30"/>
                                 <state key="normal" title="Report Transaction"/>
                                 <connections>
                                     <segue destination="J93-4j-fP8" kind="popoverPresentation" popoverAnchorView="akI-oZ-0r8" id="nA2-0b-FXX">
@@ -77,7 +82,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="Analy" storyboardName="Analysis" referencedIdentifier="TransactionsByTimeViewController" id="pyn-Fm-bRz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giD-4D-1Bj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276.5" y="472"/>
+            <point key="canvasLocation" x="1420" y="475"/>
         </scene>
         <!--Reconcile-->
         <scene sceneID="YaY-TY-xXk">
@@ -85,7 +90,7 @@
                 <viewControllerPlaceholder storyboardName="Reconcile" id="ZHB-cy-oyW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wYR-FN-BLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1199.5" y="521"/>
+            <point key="canvasLocation" x="1351" y="518"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6zF-J1-zwF">
@@ -100,21 +105,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dfo-DM-6gQ">
+                                <rect key="frame" x="0.0" y="30" width="600" height="337"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmH-V7-V46">
+                                        <rect key="frame" x="140" y="0.0" width="320" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="l7E-HG-QJx">
+                                        <rect key="frame" x="140" y="40" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="491116734.39973098">
                                             <!--2016-07-25 05:18:54 +0000-->
                                         </date>
                                     </datePicker>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OzK-xI-D7Z">
+                                        <rect key="frame" x="140" y="266" width="320" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9h6-Ho-QNj"/>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9h6-Ho-QNj">
+                                        <rect key="frame" x="275.5" y="306" width="51" height="31"/>
+                                    </switch>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jmH-V7-V46" firstAttribute="width" secondItem="l7E-HG-QJx" secondAttribute="width" id="SHb-bP-D74"/>
@@ -133,22 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L85-aX-DIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="716" y="1370"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5CG-ig-fP4">
-            <objects>
-                <navigationController id="kGJ-4S-p5W" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lue-Ws-0Xf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="rnI-RB-cie" kind="relationship" relationship="rootViewController" id="gup-30-iqe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="piY-cn-z2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-17" y="497"/>
         </scene>
     </scenes>
 </document>
