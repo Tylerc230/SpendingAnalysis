@@ -8,10 +8,12 @@
 
 import UIKit
 import RxSwift
-class AppCoordinator: FlowCoordinator  {
+struct AppCoordinator: FlowCoordinator  {
     let navController: UINavigationController
+    let transactionByTimeCoordinator: TransactionsByTimeCoordinator
     init(navController: UINavigationController) {
         self.navController = navController
+        self.transactionByTimeCoordinator = TransactionsByTimeCoordinator(navController: navController)
     }
     
     func start() {
@@ -20,24 +22,19 @@ class AppCoordinator: FlowCoordinator  {
     
     func showMainMenu() {
         let mainMenu = createMainMenu()
-        mainMenu.viewModel?
-            .menuItemSelected.map(viewController)
+        mainMenu.viewModel?.menuItemSelected
             .subscribe(onNext: transition)
             .addDisposableTo(mainMenu.disposeBag)
         self.navController.viewControllers = [mainMenu]
     }
     
-    func transition(toViewController viewController: UIViewController) {
-        self.navController.pushViewController(viewController, animated: true)
-    }
-}
-
-fileprivate func viewController(fromMenuItem menuItem: MainMenuViewModel.MenuItem) -> UIViewController {
-    switch menuItem {
-    case .transactionsByTime:
-        return createTransactionsByTime()
-    case .reconcile:
-        return createReconcile()
+    func transition(forMenuItem menuItem: MainMenuViewModel.MenuItem) {
+        switch menuItem {
+        case .transactionsByTime:
+            transactionByTimeCoordinator.start()
+        case .reconcile:
+            break
+        }
     }
 }
 
@@ -49,22 +46,4 @@ fileprivate func createMainMenu() -> MainMenuViewController {
     let viewModel = MainMenuViewModel(transactionByTimeTapped: mainMenu.transactionByTimeTapped, reconcileTapped: mainMenu.reconcileTapped)
     mainMenu.viewModel = viewModel
     return mainMenu
-}
-
-fileprivate func createTransactionsByTime() -> TransactionsByTimeViewController {
-    let storyboard = UIStoryboard(name: "Analysis", bundle: nil)
-    guard let viewController = storyboard.instantiateViewController(withIdentifier: "TransactionsByTimeViewController") as? TransactionsByTimeViewController else {
-        fatalError("Incorrect ViewController")
-    }
-    
-    let viewModel = TransactionsByTimeViewModel(networkInterface: NetworkInterface(),
-                                                viewWillAppear: viewController.viewWillAppear,
-                                                refresh: .never(),
-                                                showParameters: viewController.parameterButtonTapped)
-    viewController.viewModel = viewModel
-    return viewController
-}
-
-fileprivate func createReconcile() -> UIViewController {
-    fatalError()
 }

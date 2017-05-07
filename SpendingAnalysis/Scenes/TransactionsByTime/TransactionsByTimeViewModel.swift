@@ -13,14 +13,16 @@ struct TransactionsByTimeViewModel {
     let queryCurrentTransactions: Observable<CommonChartParameters>
     let lineChartData: Observable<[String: TransactionSet]>
     let xAxisLabels: Observable<[String]>
+    let editQueryParameters: Observable<Void>
     
-    init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>, refresh: Observable<CommonChartParameters>, showParameters: Observable<Void>) {
+    init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>, refresh: Observable<CommonChartParameters>, showParametersTapped: Observable<Void>) {
         let initialFetch = viewWillAppear.map { CommonChartParameters.defaultParameters }
         self.networkInterface = networkInterface
+        self.editQueryParameters = showParametersTapped
         queryCurrentTransactions = Observable.from([initialFetch, refresh]).merge()
         lineChartData = queryCurrentTransactions.flatMap { currentChartParameters -> Observable<TransactionSet> in
             let (start, end) = currentChartParameters.dateRange.startAndEndDates()
-            return networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1))
+            return networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1)).catchErrorJustReturn(TransactionSet(columns:[], data:[]))
             
             }
             .map {

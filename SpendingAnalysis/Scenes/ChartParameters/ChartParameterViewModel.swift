@@ -7,34 +7,27 @@
 //
 
 import RxSwift
+import RxSugar
 enum ChartParameter {
     case dateRange, transactionTypes
 }
 
 struct ChartParameterViewModel {
-    let closeTapped = PublishSubject<Void>()
-    let parameterValues: BehaviorSubject<CommonChartParameters>
-    let parameterTappedAtIndex = PublishSubject<Int>()
-    var chartParameters: Observable<[ChartParameter]> {
-        return Observable.just([ChartParameter.dateRange, ChartParameter.transactionTypes])
-    }
-    
-    var expandedParameters: Observable<[Bool]> {
-        return parameterTappedAtIndex
+    let closeTapped: Observable<Void>
+    let expandedParamters: Observable<[Bool]>
+    let dateRangeString: Observable<String>
+    let parameterValues: Observable<CommonChartParameters>
+    init(closeTapped: Observable<Void>, parameterTappedAtIndex: Observable<Int>, parameterValues: Observable<CommonChartParameters>) {
+        self.closeTapped = closeTapped
+        self.parameterValues = parameterValues
+        expandedParamters = parameterTappedAtIndex
             .map {
                 var expandedRows = Array<Bool>(repeating: false, count: 2)
                 expandedRows[$0] = true
                 return expandedRows
             }
             .startWith(Array<Bool>(repeating: false, count: 2))
-    }
-    
-    var dateRangeString: Observable<String?> {
-        return parameterValues.map { $0.dateRange.toString() }
-    }
-    
-    init(initialParameters: CommonChartParameters) {
-        parameterValues = BehaviorSubject(value: initialParameters)
+        dateRangeString = parameterValues.map { $0.dateRange.toString() }
     }
 }
 

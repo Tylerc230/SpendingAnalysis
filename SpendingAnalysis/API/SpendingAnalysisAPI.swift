@@ -46,7 +46,7 @@ extension SpendingAnalysisAPI: TargetType {
 //        return URL(string:"http://spending-analysis.us-west-2.elasticbeanstalk.com")!
 //        return URL(string:"http://localhost:5000")!
 //        return URL(string:"http://localhost.charlesproxy.com:5000")!
-        return URL(string:"http://192.168.1.54:5000")!
+        return URL(string:"http://192.168.1.63:5000")!
     }
     
     var path: String {

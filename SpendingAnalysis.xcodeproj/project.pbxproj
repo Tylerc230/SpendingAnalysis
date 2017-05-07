@@ -31,6 +31,7 @@
 		2F9E6EDE1D904ABF00B8DEB8 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6EDD1D904ABF00B8DEB8 /* NibLoadable.swift */; };
 		2F9E6EE01D904E9D00B8DEB8 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6EDF1D904E9D00B8DEB8 /* ExpandableTableViewCell.swift */; };
 		2F9E6EE31D909D3A00B8DEB8 /* UITableViewCell+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6EE21D909D3A00B8DEB8 /* UITableViewCell+Rx.swift */; };
+		2FB4E4261EBFD0F400E13962 /* TransactionsByTimeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4E4251EBFD0F400E13962 /* TransactionsByTimeCoordinator.swift */; };
 		2FEE8B4F1D45D66600EBE248 /* Reconcile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */; };
 		2FEE8B531D45DA7400EBE248 /* CreateTrackingReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */; };
 		2FEE8B551D45DA9800EBE248 /* CreateTrackingReportWiring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */; };
@@ -101,6 +102,7 @@
 		2F9E6EDD1D904ABF00B8DEB8 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		2F9E6EDF1D904E9D00B8DEB8 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
 		2F9E6EE21D909D3A00B8DEB8 /* UITableViewCell+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Rx.swift"; sourceTree = "<group>"; };
+		2FB4E4251EBFD0F400E13962 /* TransactionsByTimeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsByTimeCoordinator.swift; sourceTree = "<group>"; };
 		2FEE8B4E1D45D66600EBE248 /* Reconcile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reconcile.storyboard; sourceTree = "<group>"; };
 		2FEE8B521D45DA7400EBE248 /* CreateTrackingReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportViewController.swift; sourceTree = "<group>"; };
 		2FEE8B541D45DA9800EBE248 /* CreateTrackingReportWiring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTrackingReportWiring.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			children = (
 				2FF25E741E84DBEA0091D899 /* AppCoordinator.swift */,
 				2FF25E761E84DC040091D899 /* FlowCoordinator.swift */,
+				2FB4E4251EBFD0F400E13962 /* TransactionsByTimeCoordinator.swift */,
 			);
 			name = FlowCoordinators;
 			path = FlowControllers;
@@ -802,6 +805,7 @@
 				2F50B7211D87B81C0079BCB9 /* ChartParameterViewModel.swift in Sources */,
 				2F46BA421D8906BB0007B056 /* PopModalAnimatedTransitioning.swift in Sources */,
 				2F15B41A1E7DA6E000F48AD0 /* UIViewController+Rx.swift in Sources */,
+				2FB4E4261EBFD0F400E13962 /* TransactionsByTimeCoordinator.swift in Sources */,
 				2FFC1A6C1D551A1C003B879D /* TransactionsByTimeViewController.swift in Sources */,
 				2FF25E751E84DBEA0091D899 /* AppCoordinator.swift in Sources */,
 				2FEE8B5D1D45DC8900EBE248 /* MainMenuViewController.swift in Sources */,

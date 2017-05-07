@@ -13,12 +13,11 @@ import RxSugar
 class ChartParameterView: UIView {
     @IBOutlet fileprivate var closeButton: UIButton!
     @IBOutlet fileprivate var tableView: UITableView!
-    let chartParameters = PublishSubject<[ChartParameter]>()
     let expandedRows = PublishSubject<[Bool]>()
     var expansionUpdate: Observable<[Bool]> = Observable.never()
     
     let dateRangeSelection = PublishSubject<CommonChartParameters.DateRangeParameter>()
-    let selectedDateRangeString = PublishSubject<String?>()
+    let selectedDateRangeString = PublishSubject<String>()
     
     let dispose = DisposeBag()
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +55,7 @@ class ChartParameterView: UIView {
     fileprivate func setupTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 30.0
-        chartParameters
+        Observable.just([ChartParameter.dateRange, ChartParameter.transactionTypes])
             .bindTo(tableView.rx.items) { [unowned self] (tableView, row, parameter) in
                 let cell: UITableViewCell
                 switch parameter {
@@ -66,7 +65,7 @@ class ChartParameterView: UIView {
                     let dateRangeView = dateRangeCell.expandableView
                     dateRangeCell.disposeBag
                         ++ self.dateRangeSelection <~ dateRangeView.dateRange
-                        ++ dateRangeView.selectedDateRangeString <~ self.selectedDateRangeString
+                        ++ dateRangeView.selectedDateRangeString <~ self.selectedDateRangeString.map { Optional.some($0) }
                     cell = dateRangeCell
                 case .transactionTypes:
                     let transactionTypeCell = tableView.dequeueReusableCell(withIdentifier: "TransactionTypeCell") as! ExpandableTableViewCell<DateRangeSelectionView>
