@@ -13,21 +13,20 @@ import RxSugar
 
 class TransactionsByTimeViewController: UIViewController {
     @IBOutlet fileprivate var parameterButton: UIButton!
+    let parameterButtonTapped = PublishSubject<Void>()
     let disposeBag = DisposeBag()
-    let viewModel = TransactionsByTimeViewModel()
+    var viewModel: TransactionsByTimeViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let viewModel = viewModel else {
+            return
+        }
         disposeBag
-            ++ viewModel.queryForCurrentTransactions <~ self.viewWillAppear.map { CommonChartParameters.defaultParameters }
-            ++ viewModel.showParametersView <~ parameterButtonTapped
-            ++ transactionsByTimeView.lineChartData <~ viewModel.lineChartData()
-            ++ transactionsByTimeView.xAxisLabels <~ viewModel.xAxisLabels().debug()
+            ++ transactionsByTimeView.lineChartData <~ viewModel.lineChartData
+            ++ transactionsByTimeView.xAxisLabels <~ viewModel.xAxisLabels
+            ++ parameterButtonTapped <~ parameterButton.rx.tap
     }
     func setChartDataObservable(_ chartData: Observable<[String: TransactionSet]>) {
-    }
-    
-    var parameterButtonTapped: Observable<Void> {
-        return parameterButton.rx.tap.asObservable()
     }
     
     var transactionsByTimeView: TransactionsByTimeView {

@@ -10,6 +10,11 @@ import RxSwift
 import RxSwiftExt
 
 struct MainMenuViewModel {
-    let transactionByTimeTapped = PublishSubject<Void>()
-    let reconcileTapped = PublishSubject<Void>()
+    let menuItemSelected: Observable<MenuItem>
+    enum MenuItem {
+        case transactionsByTime, reconcile
+    }
+    init(transactionByTimeTapped: Observable<Void>, reconcileTapped: Observable<Void>) {
+        menuItemSelected = Observable.from([transactionByTimeTapped.map { MenuItem.transactionsByTime }, reconcileTapped.map { MenuItem.reconcile }]).merge()
+    }
 }

@@ -12,20 +12,14 @@ import RxSugar
 class MainMenuViewController: UIViewController {
     @IBOutlet fileprivate var transactionByTimeButton: UIButton!
     @IBOutlet fileprivate var reconcileButton: UIButton!
-    let viewModel = MainMenuViewModel()
+    let transactionByTimeTapped = PublishSubject<Void>()
+    let reconcileTapped = PublishSubject<Void>()
+    var viewModel: MainMenuViewModel?
     let disposeBag = DisposeBag()
-    var transactionByTimeButtonTapped: Observable<Void> {
-        return transactionByTimeButton.rx.tap.asObservable()
-    }
-    
-    var reconcileButtonTapped: Observable<Void> {
-        return reconcileButton.rx.tap.asObservable()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         disposeBag
-            ++ viewModel.transactionByTimeTapped <~ transactionByTimeButtonTapped
-            ++ viewModel.reconcileTapped <~ reconcileButtonTapped
+            ++ transactionByTimeTapped <~ transactionByTimeButton.rx.tap
+            ++ reconcileTapped <~ reconcileButton.rx.tap
     }
 }

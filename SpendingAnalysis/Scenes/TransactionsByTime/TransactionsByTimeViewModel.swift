@@ -9,25 +9,24 @@ import RxSwift
 import Charts
 typealias GroupDefinition = [String: [String]]
 struct TransactionsByTimeViewModel {
-    let queryForCurrentTransactions = PublishSubject<CommonChartParameters>()
-    let showParametersView = PublishSubject<Void>()
-    let networkInterface = NetworkInterface()
+    let networkInterface: NetworkInterface
+    let queryCurrentTransactions: Observable<CommonChartParameters>
+    let lineChartData: Observable<[String: TransactionSet]>
+    let xAxisLabels: Observable<[String]>
     
-    func lineChartData() -> Observable<[String: TransactionSet]> {
-        return queryForCurrentTransactions
-            .asObserver()
-            .flatMap { currentChartParameters -> Observable<TransactionSet> in
-                let (start, end) = currentChartParameters.dateRange.startAndEndDates()
-                return self.networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1))
-                
+    init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>, refresh: Observable<CommonChartParameters>, showParameters: Observable<Void>) {
+        let initialFetch = viewWillAppear.map { CommonChartParameters.defaultParameters }
+        self.networkInterface = networkInterface
+        queryCurrentTransactions = Observable.from([initialFetch, refresh]).merge()
+        lineChartData = queryCurrentTransactions.flatMap { currentChartParameters -> Observable<TransactionSet> in
+            let (start, end) = currentChartParameters.dateRange.startAndEndDates()
+            return networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1))
+            
             }
-            .map { 
+            .map {
                 return ["total_debit": $0]
         }
-    }
-    
-    func xAxisLabels() -> Observable<[String]> {
-        return lineChartData().map{ transactionSets in
+        xAxisLabels = lineChartData.map{ transactionSets in
             guard let firstSet = transactionSets.values.first else {
                 return []
             }
@@ -36,14 +35,14 @@ struct TransactionsByTimeViewModel {
     }
     
     func groupedLineChartData(_ includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
-        return queryForCurrentTransactions
-            .asObserver()
+        return queryCurrentTransactions
             .flatMap { currentChartParameters in
                 return self.networkInterface.getGroupedExpensesOverTime(start: Date(timeIntervalSince1970: 1422751084), end: Date(), includeTypes: includeTypes)
         }
         .map(splitDataFrameOnGroups)
     }
 }
+
 
 private func splitDataFrameOnGroups(_ dataFrame: GroupedTransactionSet) -> [String: TransactionSet] {
     return dataFrame
