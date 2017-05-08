@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import RxSugar
+
 struct AppCoordinator: FlowCoordinator  {
     let navController: UINavigationController
     let transactionByTimeCoordinator: TransactionsByTimeCoordinator
@@ -22,12 +24,21 @@ struct AppCoordinator: FlowCoordinator  {
     
     func showMainMenu() {
         let mainMenu = createMainMenu()
-        mainMenu.viewModel?.menuItemSelected
-            .subscribe(onNext: transition)
-            .addDisposableTo(mainMenu.disposeBag)
         self.navController.viewControllers = [mainMenu]
     }
     
+    private func createMainMenu() -> MainMenuViewController {
+        let storyboard = UIStoryboard(name: "MainMenu", bundle: nil)
+        guard let mainMenu = storyboard.instantiateInitialViewController() as? MainMenuViewController else {
+            fatalError("Failed to create main menu")
+        }
+        let viewModel = MainMenuViewModel(transactionByTimeTapped: mainMenu.transactionByTimeTapped, reconcileTapped: mainMenu.reconcileTapped)
+        viewModel.menuItemSelected
+            .subscribe(onNext: transition)
+            .addDisposableTo(mainMenu.disposeBag)
+        mainMenu.viewModel = viewModel
+        return mainMenu
+    }
     func transition(forMenuItem menuItem: MainMenuViewModel.MenuItem) {
         switch menuItem {
         case .transactionsByTime:
@@ -38,12 +49,3 @@ struct AppCoordinator: FlowCoordinator  {
     }
 }
 
-fileprivate func createMainMenu() -> MainMenuViewController {
-    let storyboard = UIStoryboard(name: "MainMenu", bundle: nil)
-    guard let mainMenu = storyboard.instantiateInitialViewController() as? MainMenuViewController else {
-        fatalError("Failed to create main menu")
-    }
-    let viewModel = MainMenuViewModel(transactionByTimeTapped: mainMenu.transactionByTimeTapped, reconcileTapped: mainMenu.reconcileTapped)
-    mainMenu.viewModel = viewModel
-    return mainMenu
-}

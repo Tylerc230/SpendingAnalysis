@@ -10,31 +10,25 @@ import UIKit
 import RxSwift
 import RxSugar
 
-struct TransactionsByTimeCoordinator: FlowCoordinator {
-    let navController: UINavigationController
+struct TransactionsByTimeCoordinator: NavFlowCoordinator {
+    let push: AnyObserver<UIViewController>
     let present: AnyObserver<UIViewController>
     let dismiss: AnyObserver<Void>
-    init(navController: UINavigationController) {
-        self.navController = navController
-        self.present = AnyObserver() { event in
-            if case let .next(viewController) = event {
-                navController.present(viewController, animated: true, completion: nil)
-            }
-        }
-        self.dismiss = AnyObserver { event in
-            if case .next = event {
-                navController.dismiss(animated: true, completion: nil)
-            }
-        }
+    let storyboard = UIStoryboard(name: "Analysis", bundle: nil)
+    
+    init(push: AnyObserver<UIViewController>, present: AnyObserver<UIViewController>, dismiss: AnyObserver<Void>) {
+        self.push = push
+        self.present = present
+        self.dismiss = dismiss
     }
     
     func start() {
         let transactionByTimeViewController = createTransactionsByTime()
-        navController.pushViewController(transactionByTimeViewController, animated: true)
+        push.onNext(transactionByTimeViewController)
     }
     
     fileprivate func createTransactionsByTime() -> TransactionsByTimeViewController {
-        guard let viewController = analysisStoryboard().instantiateViewController(withIdentifier: "TransactionsByTimeViewController") as? TransactionsByTimeViewController else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "TransactionsByTimeViewController") as? TransactionsByTimeViewController else {
             fatalError("Incorrect ViewController")
         }
         let updateChart = PublishSubject<CommonChartParameters>()
@@ -50,7 +44,7 @@ struct TransactionsByTimeCoordinator: FlowCoordinator {
 
     fileprivate func createChartParametersView(parameterObserver: AnyObserver<CommonChartParameters>) -> () -> ChartParameterViewController {
         return {
-            guard let viewController = analysisStoryboard().instantiateViewController(withIdentifier: "ChartParameterViewController") as? ChartParameterViewController else {
+            guard let viewController = self.storyboard.instantiateViewController(withIdentifier: "ChartParameterViewController") as? ChartParameterViewController else {
                 fatalError("Incorrect ViewController")
             }
             let viewModel = ChartParameterViewModel(closeTapped: viewController.closeTapped, parameterTappedAtIndex: viewController.parameterTappedAtIndex, parameterValues: viewController.parameterValues)
@@ -64,6 +58,3 @@ struct TransactionsByTimeCoordinator: FlowCoordinator {
 
 }
 
-func analysisStoryboard() -> UIStoryboard {
-    return UIStoryboard(name: "Analysis", bundle: nil)
-}
