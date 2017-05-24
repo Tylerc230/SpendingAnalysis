@@ -14,12 +14,13 @@ struct TransactionsByTimeViewModel {
     let lineChartData: Observable<[String: TransactionSet]>
     let xAxisLabels: Observable<[String]>
     let editQueryParameters: Observable<Void>
+    let updateChartSubject = PublishSubject<CommonChartParameters>()
     
-    init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>, refresh: Observable<CommonChartParameters>, showParametersTapped: Observable<Void>) {
+    init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>,  showParametersTapped: Observable<Void>) {
         let initialFetch = viewWillAppear.map { CommonChartParameters.defaultParameters }
         self.networkInterface = networkInterface
         self.editQueryParameters = showParametersTapped
-        queryCurrentTransactions = Observable.from([initialFetch, refresh]).merge()
+        queryCurrentTransactions = Observable.from([initialFetch, updateChartSubject]).merge()
         lineChartData = queryCurrentTransactions.flatMap { currentChartParameters -> Observable<TransactionSet> in
             let (start, end) = currentChartParameters.dateRange.startAndEndDates()
             return networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1)).catchErrorJustReturn(TransactionSet(columns:[], data:[]))
@@ -34,6 +35,10 @@ struct TransactionsByTimeViewModel {
             }
             return firstSet.indicies.map(dateFormatter.string)
         }
+    }
+    
+    var updateChart: AnyObserver<CommonChartParameters> {
+        return updateChartSubject.asObserver()
     }
     
     func groupedLineChartData(_ includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {

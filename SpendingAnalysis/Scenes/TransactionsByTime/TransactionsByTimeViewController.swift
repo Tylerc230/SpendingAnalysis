@@ -26,8 +26,6 @@ class TransactionsByTimeViewController: UIViewController {
             ++ transactionsByTimeView.xAxisLabels <~ viewModel.xAxisLabels
             ++ parameterButtonTapped <~ parameterButton.rx.tap
     }
-    func setChartDataObservable(_ chartData: Observable<[String: TransactionSet]>) {
-    }
     
     var transactionsByTimeView: TransactionsByTimeView {
         return self.view as! TransactionsByTimeView
