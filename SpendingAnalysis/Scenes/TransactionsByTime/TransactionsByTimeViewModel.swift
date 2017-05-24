@@ -10,46 +10,45 @@ import Charts
 typealias GroupDefinition = [String: [String]]
 struct TransactionsByTimeViewModel {
     let networkInterface: NetworkInterface
-    let queryCurrentTransactions: Observable<CommonChartParameters>
     let lineChartData: Observable<[String: TransactionSet]>
     let xAxisLabels: Observable<[String]>
     let editQueryParameters: Observable<Void>
-    let updateChartSubject = PublishSubject<CommonChartParameters>()
+    private let updateChartSubject = PublishSubject<CommonChartParameters>()
     
     init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>,  showParametersTapped: Observable<Void>) {
         let initialFetch = viewWillAppear.map { CommonChartParameters.defaultParameters }
         self.networkInterface = networkInterface
         self.editQueryParameters = showParametersTapped
-        queryCurrentTransactions = Observable.from([initialFetch, updateChartSubject]).merge()
-        lineChartData = queryCurrentTransactions.flatMap { currentChartParameters -> Observable<TransactionSet> in
-            let (start, end) = currentChartParameters.dateRange.startAndEndDates()
-            return networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1)).catchErrorJustReturn(TransactionSet(columns:[], data:[]))
-            
-            }
-            .map {
-                return ["total_debit": $0]
-        }
-        xAxisLabels = lineChartData.map{ transactionSets in
-            guard let firstSet = transactionSets.values.first else {
-                return []
-            }
-            return firstSet.indicies.map(dateFormatter.string)
-        }
+        let queryTransactions = Observable.from([initialFetch, updateChartSubject]).merge()
+        lineChartData = fetchLineChartData(forRequests: queryTransactions, networkInterface: networkInterface)
+        xAxisLabels = mapXAxisLabels(fromLineChartData: lineChartData)
     }
     
     var updateChart: AnyObserver<CommonChartParameters> {
         return updateChartSubject.asObserver()
     }
     
-    func groupedLineChartData(_ includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
-        return queryCurrentTransactions
-            .flatMap { currentChartParameters in
-                return self.networkInterface.getGroupedExpensesOverTime(start: Date(timeIntervalSince1970: 1422751084), end: Date(), includeTypes: includeTypes)
+}
+
+func fetchLineChartData(forRequests fetchRequests: Observable<CommonChartParameters>, networkInterface: NetworkInterface) -> Observable<[String: TransactionSet]> {
+    return fetchRequests.flatMap { currentChartParameters -> Observable<TransactionSet> in
+        let (start, end) = currentChartParameters.dateRange.startAndEndDates()
+        return networkInterface.getExpensesOverTime(start: start, end: end, binSize: .months(1)).catchErrorJustReturn(TransactionSet(columns:[], data:[]))
+        
         }
-        .map(splitDataFrameOnGroups)
+        .map {
+            return ["total_debit": $0]
     }
 }
 
+func mapXAxisLabels(fromLineChartData lineChartData: Observable<[String: TransactionSet]>) -> Observable<[String]> {
+    return lineChartData.map { transactionSets in
+        guard let firstSet = transactionSets.values.first else {
+            return []
+        }
+        return firstSet.indicies.map(dateFormatter.string)
+    }
+}
 
 private func splitDataFrameOnGroups(_ dataFrame: GroupedTransactionSet) -> [String: TransactionSet] {
     return dataFrame
@@ -78,3 +77,11 @@ private let dateFormatter: DateFormatter = {
     formatter.dateFormat = "MM/dd"
     return formatter
 }()
+
+//    func groupedLineChartData(_ includeTypes: GroupDefinition) -> Observable<[String: TransactionSet]> {
+//        return queryCurrentTransactions
+//            .flatMap { currentChartParameters in
+//                return self.networkInterface.getGroupedExpensesOverTime(start: Date(timeIntervalSince1970: 1422751084), end: Date(), includeTypes: includeTypes)
+//        }
+//        .map(splitDataFrameOnGroups)
+//    }

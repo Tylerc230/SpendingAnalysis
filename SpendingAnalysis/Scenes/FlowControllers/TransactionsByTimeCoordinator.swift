@@ -15,6 +15,7 @@ struct TransactionsByTimeCoordinator: NavFlowCoordinator {
     let present: AnyObserver<UIViewController>
     let dismiss: AnyObserver<Void>
     let storyboard = UIStoryboard(name: "Analysis", bundle: nil)
+    let networkInterface = NetworkInterface()
     
     init(push: AnyObserver<UIViewController>, present: AnyObserver<UIViewController>, dismiss: AnyObserver<Void>) {
         self.push = push
@@ -31,7 +32,7 @@ struct TransactionsByTimeCoordinator: NavFlowCoordinator {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "TransactionsByTimeViewController") as? TransactionsByTimeViewController else {
             fatalError("Incorrect ViewController")
         }
-        let viewModel = TransactionsByTimeViewModel(networkInterface: NetworkInterface(),
+        let viewModel = TransactionsByTimeViewModel(networkInterface: networkInterface,
                                                     viewWillAppear: viewController.viewWillAppear,
                                                     showParametersTapped: viewController.parameterButtonTapped)
         viewController.disposeBag
