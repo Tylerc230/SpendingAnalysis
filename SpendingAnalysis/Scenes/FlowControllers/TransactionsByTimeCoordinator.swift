@@ -32,11 +32,16 @@ struct TransactionsByTimeCoordinator: NavFlowCoordinator {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "TransactionsByTimeViewController") as? TransactionsByTimeViewController else {
             fatalError("Incorrect ViewController")
         }
-        let viewModel = TransactionsByTimeViewModel(networkInterface: networkInterface,
-                                                    viewWillAppear: viewController.viewWillAppear,
-                                                    showParametersTapped: viewController.parameterButtonTapped)
+        let updatedChartParameters = PublishSubject<CommonChartParameters>()
+        let viewModel = TransactionsByTimeViewModel(input: (
+            viewWillAppear: viewController.viewWillAppear,
+            showParametersTapped: viewController.parameterButtonTapped,
+            updatedChartParameters: updatedChartParameters
+            ),
+                                                    networkInterface: networkInterface)
+        
         viewController.disposeBag
-            ++ self.present <~ viewModel.editQueryParameters.map(createChartParametersView(parameterObserver: viewModel.updateChart))
+            ++ self.present <~ viewModel.editQueryParameters.map(createChartParametersView(parameterObserver: updatedChartParameters.asObserver()))
         viewController.viewModel = viewModel
         return viewController
     }

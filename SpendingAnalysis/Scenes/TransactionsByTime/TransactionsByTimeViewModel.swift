@@ -9,23 +9,22 @@ import RxSwift
 import Charts
 typealias GroupDefinition = [String: [String]]
 struct TransactionsByTimeViewModel {
-    let networkInterface: NetworkInterface
     let lineChartData: Observable<[String: TransactionSet]>
     let xAxisLabels: Observable<[String]>
     let editQueryParameters: Observable<Void>
-    private let updateChartSubject = PublishSubject<CommonChartParameters>()
     
-    init(networkInterface: NetworkInterface, viewWillAppear: Observable<Void>,  showParametersTapped: Observable<Void>) {
-        let initialFetch = viewWillAppear.map { CommonChartParameters.defaultParameters }
-        self.networkInterface = networkInterface
-        self.editQueryParameters = showParametersTapped
-        let queryTransactions = Observable.from([initialFetch, updateChartSubject]).merge()
+    init(input: (
+        viewWillAppear: Observable<Void>,
+        showParametersTapped: Observable<Void>,
+        updatedChartParameters: Observable<CommonChartParameters>
+        ),
+        networkInterface: NetworkInterface
+        ) {
+        editQueryParameters = input.showParametersTapped
+        let initialFetch = input.viewWillAppear.map { CommonChartParameters.defaultParameters }
+        let queryTransactions = Observable.from([initialFetch, input.updatedChartParameters]).merge()
         lineChartData = fetchLineChartData(forRequests: queryTransactions, networkInterface: networkInterface)
         xAxisLabels = mapXAxisLabels(fromLineChartData: lineChartData)
-    }
-    
-    var updateChart: AnyObserver<CommonChartParameters> {
-        return updateChartSubject.asObserver()
     }
     
 }
